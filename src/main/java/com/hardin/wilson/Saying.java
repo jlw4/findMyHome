@@ -4,6 +4,10 @@ import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * POJO with Jackson annotations
+ */
+
 public class Saying {
     private long id;
 

@@ -2,6 +2,10 @@ package com.hardin.wilson;
 
 import com.codahale.metrics.health.HealthCheck;
 
+/**
+ * Health check class, we can add additional things here later
+ */
+
 public class HomeHealthCheck extends HealthCheck {
     private final String template;
 

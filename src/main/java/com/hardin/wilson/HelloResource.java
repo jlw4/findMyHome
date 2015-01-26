@@ -11,6 +11,10 @@ import javax.ws.rs.core.MediaType;
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
 
+/**
+ * A simple hello resource, takes an optional parameter "name"
+ */
+
 @Path("/hello")
 @Produces(MediaType.APPLICATION_JSON)
 public class HelloResource {
