@@ -25,7 +25,14 @@ public class Main extends Application<HomeConfiguration> {
 
     @Override
     public void run(HomeConfiguration configuration, Environment environment) {
-        // TODO: do some stuff
+        final HelloResource resource = new HelloResource(
+                configuration.getTemplate(),
+                configuration.getDefaultName()
+            );
+        final HomeHealthCheck healthCheck =
+                new HomeHealthCheck(configuration.getTemplate());
+        environment.healthChecks().register("template", healthCheck);
+        environment.jersey().register(resource);
     }
 
 }
