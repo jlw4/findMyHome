@@ -1,4 +1,4 @@
-package com.hardin.wilson;
+package com.hardin.wilson.resource;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -10,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
+import com.hardin.wilson.pojo.Saying;
 
 /**
  * A simple hello resource, takes an optional parameter "name"

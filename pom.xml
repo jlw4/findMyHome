@@ -20,6 +20,11 @@
 			<artifactId>dropwizard-core</artifactId>
 			<version>${dropwizard.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.google.code.geocoder-java</groupId>
+			<artifactId>geocoder-java</artifactId>
+			<version>0.16</version>
+		</dependency>
 	</dependencies>
 	 
 	<properties>
@@ -40,7 +45,7 @@
 					    <manifest>
 						    <addClasspath>true</addClasspath>
 						    <classpathPrefix>lib/</classpathPrefix>
-						    <mainClass>com.hardin.wilson.Main</mainClass>
+						    <mainClass>com.hardin.wilson.app.Main</mainClass>
 					    </manifest>
 					</archive>
 			    </configuration>
@@ -72,7 +77,7 @@
 			                <transformers>
 			                    <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
 			                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-			                        <mainClass>com.hardin.wilson.Main</mainClass>
+			                        <mainClass>com.hardin.wilson.app.Main</mainClass>
 			                    </transformer>
 			                </transformers>
 			            </configuration>

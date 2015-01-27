@@ -1,4 +1,4 @@
-package com.hardin.wilson;
+package com.hardin.wilson.app;
 
 import com.codahale.metrics.health.HealthCheck;
 

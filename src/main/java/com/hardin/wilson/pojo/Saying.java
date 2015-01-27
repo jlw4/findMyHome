@@ -1,4 +1,4 @@
-package com.hardin.wilson;
+package com.hardin.wilson.pojo;
 
 import org.hibernate.validator.constraints.Length;
 

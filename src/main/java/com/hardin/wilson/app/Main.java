@@ -1,8 +1,11 @@
-package com.hardin.wilson;
+package com.hardin.wilson.app;
 
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+
+import com.hardin.wilson.resource.CoordinateResource;
+import com.hardin.wilson.resource.HelloResource;
 
 /**
  * Main class, runs server
@@ -32,6 +35,7 @@ public class Main extends Application<HomeConfiguration> {
         final HomeHealthCheck healthCheck =
                 new HomeHealthCheck(configuration.getTemplate());
         environment.healthChecks().register("template", healthCheck);
+        environment.jersey().register(new CoordinateResource());
         environment.jersey().register(resource);
     }
 
