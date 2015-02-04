@@ -1,0 +1,9 @@
+echo 'shipping files...'
+scp -i keys/findMyHome.pem target/app-1.0-SNAPSHOT.jar ec2-user@54.149.5.12:
+scp -i keys/findMyHome.pem scripts/server ec2-user@54.149.5.12:
+scp -i keys/findMyHome.pem config.yml ec2-user@54.149.5.12:
+scp -i keys/findMyHome.pem -r data ec2-user@54.149.5.12:
+scp -i keys/findMyHome.pem -r view/* ec2-user@54.149.5.12:/var/www/html
+scp -i keys/findMyHome.pem -r keys ec2-user@54.149.5.12:
+echo 'restarting server...'
+ssh -i keys/findMyHome.pem ec2-user@54.149.5.12 'server restart'

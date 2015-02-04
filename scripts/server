@@ -3,7 +3,7 @@
 PID=server.pid
 LOG=server.log
 
-COMMAND="/home/ec2-user/java -jar target/app-1.0-SNAPSHOT.jar server config.yml"
+COMMAND="java -jar /home/ec2-user/app-1.0-SNAPSHOT.jar server config.yml"
 
 USR=user
 
