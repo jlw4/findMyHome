@@ -24,4 +24,4 @@ http://localhost:8081/healthcheck
 
 # Host
 
-54.149.5.12
+http://54.149.5.12
