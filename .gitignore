@@ -3,3 +3,6 @@
 .project
 .settings
 /keys/
+server.log
+server.pid
+nohup.out
