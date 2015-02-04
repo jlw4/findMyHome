@@ -25,6 +25,11 @@
 			<artifactId>geocoder-java</artifactId>
 			<version>0.16</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.mongodb</groupId>
+		    <artifactId>mongo-java-driver</artifactId>
+		    <version>2.13.0-rc2</version>
+		</dependency>
 	</dependencies>
 	 
 	<properties>

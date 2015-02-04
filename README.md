@@ -21,3 +21,7 @@ http://localhost:8081/metrics
 http://localhost:8081/threads
 
 http://localhost:8081/healthcheck
+
+# Host
+
+54.149.5.12
