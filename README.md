@@ -10,11 +10,17 @@ run:
 
 java -jar target/app-1.0-SNAPSHOT.jar server config.yml
 
+or
+
+scripts/start
+
+deploy:
+
+scripts/deploy
+
 # Paths
 
-http://localhost:8080/hello
-
-http://localhost:8080/hello?name=awesome
+http://localhost:8080/coordinate?address=12345
 
 http://localhost:8081/metrics
 
