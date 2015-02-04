@@ -45,7 +45,8 @@ public class Main extends Application<HomeConfiguration> {
         environment.jersey().register(new CoordinateResource());
         environment.jersey().register(resource);
         
-        environment.servlets().addFilter("CorsFilter", new CorsFilter()).addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+        environment.servlets().addFilter("CorsFilter", new CorsFilter())
+        		.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
     }
 
 }
