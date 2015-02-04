@@ -4,6 +4,10 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
+import java.util.EnumSet;
+
+import javax.servlet.DispatcherType;
+
 import com.hardin.wilson.resource.CoordinateResource;
 import com.hardin.wilson.resource.HelloResource;
 
@@ -23,11 +27,14 @@ public class Main extends Application<HomeConfiguration> {
 
     @Override
     public void initialize(Bootstrap<HomeConfiguration> bootstrap) {
-        // TODO: set stuff up
+        bootstrap.addCommand(new FetchCommand("fetch", "go fetch data"));
     }
 
     @Override
     public void run(HomeConfiguration configuration, Environment environment) {
+        // TODO: parse data files, setup etc
+        
+        // setup resources
         final HelloResource resource = new HelloResource(
                 configuration.getTemplate(),
                 configuration.getDefaultName()
@@ -37,6 +44,8 @@ public class Main extends Application<HomeConfiguration> {
         environment.healthChecks().register("template", healthCheck);
         environment.jersey().register(new CoordinateResource());
         environment.jersey().register(resource);
+        
+        environment.servlets().addFilter("CorsFilter", new CorsFilter()).addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
     }
 
 }

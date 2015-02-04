@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App" ng-controller="MainController" >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    
+    <title>FindMyHome</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="app.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  
+    <div class="loadingThingy" ng-hide="loaded">
+        <!-- TODO: put a loading spinner img here -->
+    </div>
+
+    <div class="container" ng-show="loaded">
+
+      <div class="header">
+        <h1>FindMyHome</h1>
+        <p class="lead">Seattle's authoritative neighborhood index!</p>
+        <p class="lead">Amazing things coming soon!</p>
+      </div>
+      
+      <br />
+      
+      <div class="longLatFinder">
+        <p>A simple long lat lookup...</p>
+        <p>Address: <input type="text" ng-model="address"/> <button ng-click="getLongLat()">Go</button></p>
+        <div ng-show="long != null">
+	        <p>Long: {{ long }}</p>
+	        <p>Lat: {{ lat }}</p>
+	        <div id="map-canvas"></div>
+        </div>
+      </div>
+
+    </div><!-- container -->
+    
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+

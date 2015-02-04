@@ -16,6 +16,9 @@ import com.google.code.geocoder.Geocoder;
 import com.google.code.geocoder.GeocoderRequestBuilder;
 import com.google.code.geocoder.model.GeocodeResponse;
 import com.google.code.geocoder.model.GeocoderRequest;
+import com.google.code.geocoder.model.GeocoderResult;
+import com.google.code.geocoder.model.GeocoderStatus;
+import com.google.code.geocoder.model.LatLng;
 import com.hardin.wilson.pojo.Coordinate;
 
 /**
@@ -43,11 +46,15 @@ public class CoordinateResource {
                   );
         }
         try {
-            GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress("Paris, France").setLanguage("en").getGeocoderRequest();
+            GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress(address).setLanguage("en").getGeocoderRequest();
             GeocodeResponse geocoderResponse = geocoder.geocode(geocoderRequest);
+            if (geocoderResponse.getStatus() == GeocoderStatus.OK && !geocoderResponse.getResults().isEmpty()) {
+                GeocoderResult geocoderResult = geocoderResponse.getResults().get(0);
+                LatLng latLng = geocoderResult.getGeometry().getLocation();
+                return new Coordinate(counter.incrementAndGet(), latLng.getLat().doubleValue(), latLng.getLng().doubleValue());
+            }
         }
         catch (Exception e) {
-            
             e.printStackTrace();
             throw new WebApplicationException(
                     Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR)
@@ -56,7 +63,11 @@ public class CoordinateResource {
                   );
         }
         // TODO: convert address to coordinate
-        return new Coordinate(counter.incrementAndGet(), 0.0, 0.0);
+        throw new WebApplicationException(
+                Response.status(HttpURLConnection.HTTP_BAD_REQUEST)
+                  .entity("failed to process request")
+                  .build()
+              );
     }
 
 }
