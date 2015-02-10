@@ -1,6 +1,10 @@
 package com.hardin.wilson.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+// Even though this will be parsed from xml, we use the JsonIgnoreProperties
+// annotation to ignore extra fields. A bit odd.
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class School {
 	private int gsId;
 	private String name;
@@ -12,6 +16,7 @@ public class School {
 	private String phone;
 	private String website;
 	private String ncesId;
+	private String districtId;
 	private String overviewLink;
 	private String ratingsLink;
 	private String reviewsLink;
@@ -183,6 +188,14 @@ public class School {
 
 	public void setLon(double lon) {
 		this.lon = lon;
+	}
+
+	public String getDistrictId() {
+		return districtId;
+	}
+
+	public void setDistrictId(String districtId) {
+		this.districtId = districtId;
 	}
 	
 }

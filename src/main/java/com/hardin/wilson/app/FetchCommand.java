@@ -1,17 +1,19 @@
 package com.hardin.wilson.app;
 
+import io.dropwizard.cli.Command;
+import io.dropwizard.setup.Bootstrap;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import net.sourceforge.argparse4j.inf.Namespace;
+import net.sourceforge.argparse4j.inf.Subparser;
 
 import com.hardin.wilson.jobs.GreatSchoolsJob;
 import com.hardin.wilson.jobs.ProcessingJob;
 
-import net.sourceforge.argparse4j.inf.Namespace;
-import net.sourceforge.argparse4j.inf.Subparser;
-import io.dropwizard.cli.Command;
-import io.dropwizard.setup.Bootstrap;
-
 public class FetchCommand extends Command {
+	
 	List<ProcessingJob> jobs;
 
     protected FetchCommand(String name, String description) {
@@ -26,7 +28,6 @@ public class FetchCommand extends Command {
 
     @Override
     public void run(Bootstrap<?> arg0, Namespace arg1) throws Exception {
-        System.out.println("fetching data!");
         
         // Run all jobs.
 		for (ProcessingJob job : jobs) {

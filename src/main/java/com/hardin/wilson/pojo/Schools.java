@@ -13,7 +13,6 @@ public class Schools {
     @JacksonXmlElementWrapper(useWrapping = false)
 	private ArrayList<School> schools;
 	
-	
 	public Schools() { }
 
 	public ArrayList<School> getSchools() {

@@ -8,6 +8,9 @@ import java.util.EnumSet;
 
 import javax.servlet.DispatcherType;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.hardin.wilson.resource.CoordinateResource;
 import com.hardin.wilson.resource.HelloResource;
 
@@ -15,14 +18,15 @@ import com.hardin.wilson.resource.HelloResource;
  * Main class, runs server
  */
 public class Main extends Application<HomeConfiguration> {
-    
+	private static final Logger LOG = LoggerFactory.getLogger(Main.class);
+	
     public static void main(String[] args) throws Exception {
         new Main().run(args);
     }
 
     @Override
     public String getName() {
-        return "hello-world";
+        return "FindMyHome Server";
     }
 
     @Override
@@ -32,8 +36,9 @@ public class Main extends Application<HomeConfiguration> {
 
     @Override
     public void run(HomeConfiguration configuration, Environment environment) {
-        // TODO: parse data files, setup etc
-        
+        // TODO: parse data files, setup etc	
+    	
+    	
         // setup resources
         final HelloResource resource = new HelloResource(
                 configuration.getTemplate(),

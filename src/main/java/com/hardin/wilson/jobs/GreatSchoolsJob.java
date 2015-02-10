@@ -3,11 +3,14 @@ package com.hardin.wilson.jobs;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Iterator;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.hardin.wilson.pojo.School;
 import com.hardin.wilson.pojo.Schools;
 
 public class GreatSchoolsJob implements ProcessingJob {
@@ -16,9 +19,7 @@ public class GreatSchoolsJob implements ProcessingJob {
 	private static final String GS_URL = 
 			"http://api.greatschools.org/schools/WA/Seattle?key=e8w1s8bocy0yanumjauksaxx&limit=10000";
 	
-	// Temporary -- in the future the JSON will go to mongo.
-	private static final File OUT = new File("school.json");
-	
+	private static final File OUT = new File("data/school.json");
 	
 	/**
 	 * 
@@ -29,8 +30,6 @@ public class GreatSchoolsJob implements ProcessingJob {
 		// Setup target URL.
 		URL urlObj = new URL(GS_URL);
 		HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
-		
-		System.out.println("RUNNING!");
 		
 		// Get response;
 		con.getResponseCode();
@@ -45,22 +44,26 @@ public class GreatSchoolsJob implements ProcessingJob {
 		}
 		in.close();
 		
-		ObjectMapper mapper = new XmlMapper();
-		Schools schools = mapper.readValue(response.toString(), Schools.class);
-		System.out.println(schools.getSchools().get(0).getCity());
+		// Marshal the xml data into the schools object.
+		ObjectMapper xmlMapper = new XmlMapper();
+		Schools schools = xmlMapper.readValue(response.toString(), Schools.class);
 		
-		// Marshal the XML into a POJO. 
-		/*
-		JAXBContext jc = JAXBContext.newInstance(Schools.class);
-		Unmarshaller unmarshaller = jc.createUnmarshaller();
-		Schools schools = (Schools) unmarshaller.unmarshal(new StringReader(response.toString()));
+		// Iterate over schools and remove the non-public schools as we only
+		// want to work with public for now.
+		Iterator<School> itr = schools.getSchools().iterator();
+		while (itr.hasNext()) {
+			School school = itr.next();
+			if (!school.getType().equals("public")) {
+				itr.remove();
+			}
+		}
 		
-		// Export the schools to the specified file in a JSON format.
-		Marshaller marshaller = jc.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        marshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
-        marshaller.setProperty(MarshallerProperties.JSON_INCLUDE_ROOT, false);
-        marshaller.marshal(schools, OUT); */
+		// Write to the JSON data file.
+		String jsonString = new ObjectMapper().writerWithDefaultPrettyPrinter()
+				.writeValueAsString(schools);
+		PrintWriter out = new PrintWriter(OUT);
+		out.write(jsonString);
+		out.close();
         
 	}
 }
