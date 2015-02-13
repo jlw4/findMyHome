@@ -1,0 +1,1144 @@
+[
+      {
+        "id": "343997",
+        "name": "Alki",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "537360"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Alki",
+        "latitude": "47.56955",
+        "longitude": "-122.397729"
+      },
+      {
+        "id": "250788",
+        "name": "Greenwood",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "433246"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Greenwood",
+        "latitude": "47.694114",
+        "longitude": "-122.355228"
+      },
+      {
+        "id": "252248",
+        "name": "Wallingford",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "591847"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Wallingford",
+        "latitude": "47.659711",
+        "longitude": "-122.333821"
+      },
+      {
+        "id": "250150",
+        "name": "Broadway",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "388843"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Broadway",
+        "latitude": "47.626193",
+        "longitude": "-122.320392"
+      },
+      {
+        "id": "344019",
+        "name": "Admiral",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "550255"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Admiral",
+        "latitude": "47.579021",
+        "longitude": "-122.387273"
+      },
+      {
+        "id": "250050",
+        "name": "Beacon Hill",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "374294"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Beacon-Hill",
+        "latitude": "47.555",
+        "longitude": "-122.304301"
+      },
+      {
+        "id": "344000",
+        "name": "Maple Leaf",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "473167"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Maple-Leaf",
+        "latitude": "47.696135",
+        "longitude": "-122.317597"
+      },
+      {
+        "id": "344001",
+        "name": "Wedgewood",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "517577"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Wedgewood",
+        "latitude": "47.689736",
+        "longitude": "-122.295588"
+      },
+      {
+        "id": "271961",
+        "name": "Phinney Ridge",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "557662"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Phinney-Ridge",
+        "latitude": "47.67491",
+        "longitude": "-122.355623"
+      },
+      {
+        "id": "251709",
+        "name": "Ravenna",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "573302"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Ravenna",
+        "latitude": "47.674274",
+        "longitude": "-122.299845"
+      },
+      {
+        "id": "271808",
+        "name": "Belltown",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "393383"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Belltown",
+        "latitude": "47.614883",
+        "longitude": "-122.347869"
+      },
+      {
+        "id": "271932",
+        "name": "North Beacon Hill",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "391509"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/North-Beacon-Hill",
+        "latitude": "47.577131",
+        "longitude": "-122.309671"
+      },
+      {
+        "id": "250692",
+        "name": "Fremont",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "496964"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Fremont",
+        "latitude": "47.657708",
+        "longitude": "-122.352941"
+      },
+      {
+        "id": "271942",
+        "name": "North Queen Anne",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "645805"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/North-Queen-Anne",
+        "latitude": "47.647433",
+        "longitude": "-122.365182"
+      },
+      {
+        "id": "251170",
+        "name": "Loyal Heights",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "505732"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Loyal-Heights",
+        "latitude": "47.683236",
+        "longitude": "-122.384886"
+      },
+      {
+        "id": "250206",
+        "name": "Capitol Hill",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "722939"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Capitol-Hill",
+        "latitude": "47.627364",
+        "longitude": "-122.305323"
+      },
+      {
+        "id": "271900",
+        "name": "Lawton Park",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "553480"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Lawton-Park",
+        "latitude": "47.658267",
+        "longitude": "-122.407846"
+      },
+      {
+        "id": "250780",
+        "name": "Green Lake",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "574688"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Green-Lake",
+        "latitude": "47.680057",
+        "longitude": "-122.334215"
+      },
+      {
+        "id": "250801",
+        "name": "Haller Lake",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "389150"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Haller-Lake",
+        "latitude": "47.720846",
+        "longitude": "-122.335387"
+      },
+      {
+        "id": "271819",
+        "name": "Broadview",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "525408"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Broadview",
+        "latitude": "47.719557",
+        "longitude": "-122.366454"
+      },
+      {
+        "id": "252056",
+        "name": "Sunset Hill",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "569185"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Sunset-Hill",
+        "latitude": "47.678256",
+        "longitude": "-122.40024"
+      },
+      {
+        "id": "271856",
+        "name": "East Queen Anne",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "647895"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/East-Queen-Anne",
+        "latitude": "47.636239",
+        "longitude": "-122.350357"
+      },
+      {
+        "id": "344022",
+        "name": "Gatewood",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "493223"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Gatewood",
+        "latitude": "47.537773",
+        "longitude": "-122.385298"
+      },
+      {
+        "id": "343996",
+        "name": "View Ridge",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "640873"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/View-Ridge",
+        "latitude": "47.683197",
+        "longitude": "-122.274328"
+      },
+      {
+        "id": "271913",
+        "name": "Matthews Beach",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "529538"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Matthews-Beach",
+        "latitude": "47.703612",
+        "longitude": "-122.280781"
+      },
+      {
+        "id": "344024",
+        "name": "Arbor Heights",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "419461"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Arbor-Heights",
+        "latitude": "47.50877",
+        "longitude": "-122.38051"
+      },
+      {
+        "id": "272018",
+        "name": "West Queen Anne",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "662586"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/West-Queen-Anne",
+        "latitude": "47.63473",
+        "longitude": "-122.366719"
+      },
+      {
+        "id": "251704",
+        "name": "Rainier Beach",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "374564"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Rainier-Beach",
+        "latitude": "47.512789",
+        "longitude": "-122.262109"
+      },
+      {
+        "id": "271815",
+        "name": "Briarcliff",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "883546"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Briarcliff",
+        "latitude": "47.644354",
+        "longitude": "-122.407989"
+      },
+      {
+        "id": "272001",
+        "name": "University District",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "557763"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/University-District",
+        "latitude": "47.65991",
+        "longitude": "-122.307361"
+      },
+      {
+        "id": "344023",
+        "name": "Fauntleroy",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "567458"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Fauntleroy",
+        "latitude": "47.523482",
+        "longitude": "-122.389096"
+      },
+      {
+        "id": "271957",
+        "name": "Olympic Hills",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "390844"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Olympic-Hills",
+        "latitude": "47.726716",
+        "longitude": "-122.302733"
+      },
+      {
+        "id": "271901",
+        "name": "Leschi",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "657434"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Leschi",
+        "latitude": "47.599605",
+        "longitude": "-122.290599"
+      },
+      {
+        "id": "344008",
+        "name": "East Ballard",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "495307"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/East-Ballard",
+        "latitude": "47.666463",
+        "longitude": "-122.368037"
+      },
+      {
+        "id": "344029",
+        "name": "Highland Park",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "326267"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Highland-Park",
+        "latitude": "47.527565",
+        "longitude": "-122.343286"
+      },
+      {
+        "id": "271869",
+        "name": "First Hill",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "332228"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/First-Hill",
+        "latitude": "47.608803",
+        "longitude": "-122.323409"
+      },
+      {
+        "id": "250017",
+        "name": "Ballard",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "427527"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Ballard",
+        "latitude": "47.6694",
+        "longitude": "-122.383885"
+      },
+      {
+        "id": "271990",
+        "name": "Southeast Magnolia",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "684055"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Southeast-Magnolia",
+        "latitude": "47.640643",
+        "longitude": "-122.392141"
+      },
+      {
+        "id": "251100",
+        "name": "Laurelhurst",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "1009602"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Laurelhurst",
+        "latitude": "47.659124",
+        "longitude": "-122.278031"
+      },
+      {
+        "id": "252336",
+        "name": "Whittier Heights",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "499715"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Whittier-Heights",
+        "latitude": "47.683307",
+        "longitude": "-122.371389"
+      },
+      {
+        "id": "271814",
+        "name": "Bitter Lake",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "388762"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Bitter-Lake",
+        "latitude": "47.719473",
+        "longitude": "-122.350214"
+      },
+      {
+        "id": "343999",
+        "name": "North College Park",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "414904"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/North-College-Park",
+        "latitude": "47.69889",
+        "longitude": "-122.336702"
+      },
+      {
+        "id": "344003",
+        "name": "Bryant",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "546835"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Bryant",
+        "latitude": "47.671784",
+        "longitude": "-122.286368"
+      },
+      {
+        "id": "272005",
+        "name": "Victory Heights",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "433851"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Victory-Heights",
+        "latitude": "47.710789",
+        "longitude": "-122.305508"
+      },
+      {
+        "id": "251186",
+        "name": "Madison Park",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "893422"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Madison-Park",
+        "latitude": "47.633081",
+        "longitude": "-122.283404"
+      },
+      {
+        "id": "271906",
+        "name": "Lower Queen Anne",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "405072"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Lower-Queen-Anne",
+        "latitude": "47.627859",
+        "longitude": "-122.356381"
+      },
+      {
+        "id": "271921",
+        "name": "Minor",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "448220"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Minor",
+        "latitude": "47.606236",
+        "longitude": "-122.309735"
+      },
+      {
+        "id": "344021",
+        "name": "Fairmount Park",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "444176"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Fairmount-Park",
+        "latitude": "47.55476",
+        "longitude": "-122.380389"
+      },
+      {
+        "id": "344031",
+        "name": "South Delridge",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "319871"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/South-Delridge",
+        "latitude": "47.526205",
+        "longitude": "-122.360947"
+      },
+      {
+        "id": "250146",
+        "name": "Brighton",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "348445"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Brighton",
+        "latitude": "47.538917",
+        "longitude": "-122.275291"
+      },
+      {
+        "id": "344026",
+        "name": "Genesee",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "427476"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Genesee",
+        "latitude": "47.567266",
+        "longitude": "-122.286599"
+      },
+      {
+        "id": "344028",
+        "name": "Mt. Baker",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "651270"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Mt.-Baker",
+        "latitude": "47.580822",
+        "longitude": "-122.290814"
+      },
+      {
+        "id": "271831",
+        "name": "Cedar Park",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "453987"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Cedar-Park",
+        "latitude": "47.723632",
+        "longitude": "-122.287328"
+      },
+      {
+        "id": "251187",
+        "name": "Madrona",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "666735"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Madrona",
+        "latitude": "47.612813",
+        "longitude": "-122.288834"
+      },
+      {
+        "id": "344030",
+        "name": "Roxhill",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "362013"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Roxhill",
+        "latitude": "47.527322",
+        "longitude": "-122.370895"
+      },
+      {
+        "id": "343994",
+        "name": "South Beacon Hill",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "357317"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/South-Beacon-Hill",
+        "latitude": "47.526085",
+        "longitude": "-122.287091"
+      },
+      {
+        "id": "343993",
+        "name": "Pinehurst",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "388607"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Pinehurst",
+        "latitude": "47.722592",
+        "longitude": "-122.319545"
+      },
+      {
+        "id": "344034",
+        "name": "Riverview",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "350630"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Riverview",
+        "latitude": "47.545998",
+        "longitude": "-122.353716"
+      },
+      {
+        "id": "250478",
+        "name": "Dunlap",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "337061"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Dunlap",
+        "latitude": "47.525485",
+        "longitude": "-122.270326"
+      },
+      {
+        "id": "271849",
+        "name": "Downtown",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "523298"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Downtown",
+        "latitude": "47.607804",
+        "longitude": "-122.333614"
+      },
+      {
+        "id": "251076",
+        "name": "Lakewood",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "493937"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Lakewood",
+        "latitude": "47.558075",
+        "longitude": "-122.268344"
+      },
+      {
+        "id": "344027",
+        "name": "Rainier View",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "326530"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Rainier-View",
+        "latitude": "47.501013",
+        "longitude": "-122.258888"
+      },
+      {
+        "id": "271857",
+        "name": "Eastlake",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "436243"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Eastlake",
+        "latitude": "47.636289",
+        "longitude": "-122.328112"
+      },
+      {
+        "id": "271977",
+        "name": "Seward Park",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "593817"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Seward-Park",
+        "latitude": "47.548083",
+        "longitude": "-122.26027"
+      },
+      {
+        "id": "271915",
+        "name": "Meadowbrook",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "449862"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Meadowbrook",
+        "latitude": "47.705403",
+        "longitude": "-122.29652"
+      },
+      {
+        "id": "344025",
+        "name": "Hillman City",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "347857"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Hillman-City",
+        "latitude": "47.55097",
+        "longitude": "-122.280397"
+      },
+      {
+        "id": "271923",
+        "name": "Montlake",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "785037"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Montlake",
+        "latitude": "47.640889",
+        "longitude": "-122.303721"
+      },
+      {
+        "id": "250383",
+        "name": "Crown Hill",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "429656"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Crown-Hill",
+        "latitude": "47.69608",
+        "longitude": "-122.371417"
+      },
+      {
+        "id": "344020",
+        "name": "Junction",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "464483"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Junction",
+        "latitude": "47.565406",
+        "longitude": "-122.381722"
+      },
+      {
+        "id": "344009",
+        "name": "North Beach",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "640406"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/North-Beach",
+        "latitude": "47.695527",
+        "longitude": "-122.395397"
+      },
+      {
+        "id": "271839",
+        "name": "Columbia City",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "400240"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Columbia-City",
+        "latitude": "47.559525",
+        "longitude": "-122.282428"
+      },
+      {
+        "id": "251971",
+        "name": "South Park",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "282234"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/South-Park",
+        "latitude": "47.527421",
+        "longitude": "-122.324009"
+      },
+      {
+        "id": "272022",
+        "name": "Westlake",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "404923"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Westlake",
+        "latitude": "47.634065",
+        "longitude": "-122.341932"
+      },
+      {
+        "id": "344005",
+        "name": "Olympic Manor",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "678919"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Olympic-Manor",
+        "latitude": "47.696062",
+        "longitude": "-122.382184"
+      },
+      {
+        "id": "344033",
+        "name": "High Point",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "353827"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/High-Point",
+        "latitude": "47.543878",
+        "longitude": "-122.368652"
+      },
+      {
+        "id": "344015",
+        "name": "Judkins Park",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "382248"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Judkins-Park",
+        "latitude": "47.596084",
+        "longitude": "-122.301726"
+      },
+      {
+        "id": "344006",
+        "name": "Blue Ridge",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "631539"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Blue-Ridge",
+        "latitude": "47.705021",
+        "longitude": "-122.375811"
+      },
+      {
+        "id": "344013",
+        "name": "Central",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "467518"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Central",
+        "latitude": "47.615419",
+        "longitude": "-122.303552"
+      },
+      {
+        "id": "344032",
+        "name": "North Delridge",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "332859"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/North-Delridge",
+        "latitude": "47.561704",
+        "longitude": "-122.364376"
+      },
+      {
+        "id": "344010",
+        "name": "Uptown",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "366534"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Uptown",
+        "latitude": "47.622112",
+        "longitude": "-122.354296"
+      },
+      {
+        "id": "272026",
+        "name": "Windermere",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "877354"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Windermere",
+        "latitude": "47.670301",
+        "longitude": "-122.262662"
+      },
+      {
+        "id": "344002",
+        "name": "Roosevelt",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "516327"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Roosevelt",
+        "latitude": "47.677372",
+        "longitude": "-122.316086"
+      },
+      {
+        "id": "344004",
+        "name": "Hawthorne Hills",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "721871"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Hawthorne-Hills",
+        "latitude": "47.672569",
+        "longitude": "-122.273568"
+      },
+      {
+        "id": "344014",
+        "name": "Garfield",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "460223"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Garfield",
+        "latitude": "47.607412",
+        "longitude": "-122.299545"
+      },
+      {
+        "id": "344012",
+        "name": "Madison Valley",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "497430"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Madison-Valley",
+        "latitude": "47.621442",
+        "longitude": "-122.295195"
+      },
+      {
+        "id": "250889",
+        "name": "Holly Park",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "367354"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Holly-Park",
+        "latitude": "47.538658",
+        "longitude": "-122.288291"
+      },
+      {
+        "id": "271964",
+        "name": "Portage Bay",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "771430"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Portage-Bay",
+        "latitude": "47.646555",
+        "longitude": "-122.319091"
+      },
+      {
+        "id": "344011",
+        "name": "Denny Blaine",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "1744579"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Denny----Blaine",
+        "latitude": "47.622018",
+        "longitude": "-122.284544"
+      },
+      {
+        "id": "343998",
+        "name": "North Gate",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "343432"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/North-Gate",
+        "latitude": "47.708274",
+        "longitude": "-122.322147"
+      },
+      {
+        "id": "250149",
+        "name": "Broadmoor",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "1828253"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Broadmoor",
+        "latitude": "47.635325",
+        "longitude": "-122.291304"
+      },
+      {
+        "id": "250714",
+        "name": "Georgetown",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "322502"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Georgetown",
+        "latitude": "47.540178",
+        "longitude": "-122.316275"
+      },
+      {
+        "id": "250939",
+        "name": "Interbay",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "500661"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Interbay",
+        "latitude": "47.64201",
+        "longitude": "-122.381179"
+      },
+      {
+        "id": "344016",
+        "name": "Jackson Place",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "409962"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Jackson-Place",
+        "latitude": "47.595929",
+        "longitude": "-122.30896"
+      },
+      {
+        "id": "271963",
+        "name": "Pioneer Square",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "486083"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Pioneer-Square",
+        "latitude": "47.597336",
+        "longitude": "-122.333019"
+      },
+      {
+        "id": "344018",
+        "name": "Waterfront",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "542073"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Waterfront",
+        "latitude": "47.604155",
+        "longitude": "-122.345457"
+      },
+      {
+        "id": "271893",
+        "name": "International District",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "374305"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/International-District",
+        "latitude": "47.59686",
+        "longitude": "-122.325258"
+      },
+      {
+        "id": "271892",
+        "name": "Industrial District",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "535070"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Industrial-District",
+        "latitude": "47.572043",
+        "longitude": "-122.344663"
+      },
+      {
+        "id": "271804",
+        "name": "Atlantic",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "360978"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Atlantic",
+        "latitude": "47.585396",
+        "longitude": "-122.300217"
+      },
+      {
+        "id": "251759",
+        "name": "Roanoke",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "630398"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Roanoke",
+        "latitude": "47.641281",
+        "longitude": "-122.313348"
+      },
+      {
+        "id": "343995",
+        "name": "Denny Triangle",
+        "zindex": {
+          "-currency": "USD",
+          "#text": "407445"
+        },
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Denny-Triangle",
+        "latitude": "47.616479",
+        "longitude": "-122.336902"
+      },
+      {
+        "id": "252396",
+        "name": "Yesler Terrace",
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Yesler-Terrace",
+        "latitude": "47.602039",
+        "longitude": "-122.320088"
+      },
+      {
+        "id": "271827",
+        "name": "Cascade",
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Cascade",
+        "latitude": "47.621891",
+        "longitude": "-122.331289"
+      },
+      {
+        "id": "271975",
+        "name": "Sand Point",
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Sand-Point",
+        "latitude": "47.681711",
+        "longitude": "-122.256229"
+      },
+      {
+        "id": "271987",
+        "name": "South Lake Union",
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/South-Lake-Union",
+        "latitude": "47.621602",
+        "longitude": "-122.340356"
+      },
+      {
+        "id": "344017",
+        "name": "Little Saigon",
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Little-Saigon",
+        "latitude": "47.595567",
+        "longitude": "-122.315747"
+      },
+      {
+        "id": "344007",
+        "name": "Woodland",
+        "url": "http://www.zillow.com/real-estate/WA-Seattle/Woodland",
+        "latitude": "47.66933",
+        "longitude": "-122.347484"
+      }
+]

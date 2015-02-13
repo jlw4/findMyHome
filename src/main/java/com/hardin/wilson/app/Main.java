@@ -16,6 +16,8 @@ import com.hardin.wilson.resource.HelloResource;
  */
 public class Main extends Application<HomeConfiguration> {
     
+    private NeighborhoodContainer container;
+    
     public static void main(String[] args) throws Exception {
         new Main().run(args);
     }
@@ -47,6 +49,8 @@ public class Main extends Application<HomeConfiguration> {
         
         environment.servlets().addFilter("CorsFilter", new CorsFilter())
         		.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+        
+        container = new NeighborhoodContainer();
     }
 
 }
