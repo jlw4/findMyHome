@@ -8,9 +8,6 @@ import java.util.EnumSet;
 
 import javax.servlet.DispatcherType;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.hardin.wilson.resource.CoordinateResource;
 import com.hardin.wilson.resource.HelloResource;
 
@@ -18,8 +15,8 @@ import com.hardin.wilson.resource.HelloResource;
  * Main class, runs server
  */
 public class Main extends Application<HomeConfiguration> {
-	private static final Logger LOG = LoggerFactory.getLogger(Main.class);
-	
+    private NeighborhoodContainer container;
+    
     public static void main(String[] args) throws Exception {
         new Main().run(args);
     }
@@ -52,6 +49,8 @@ public class Main extends Application<HomeConfiguration> {
         
         environment.servlets().addFilter("CorsFilter", new CorsFilter())
         		.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+        
+        container = new NeighborhoodContainer();
     }
 
 }

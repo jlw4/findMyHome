@@ -24,11 +24,13 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', fu
             console.log("success");
             $scope.long = res.longitude;
             $scope.lat = res.latitude;
-            var mapOptions = {
-                zoom: 8,
-                center: new google.maps.LatLng($scope.lat, $scope.long)
+            var mapProp = {
+                center: new google.maps.LatLng($scope.long,$scope.lat),
+                zoom: 14,
+                mapTypeId:google.maps.MapTypeId.ROADMAP
             };
-            map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+            console.log(mapProp.center)
+            map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
             // google.maps.event.addDomListener(window, 'load', initialize);
         }).error(function(res){
             console.log("error");
