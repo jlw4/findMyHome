@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hardin.wilson</groupId>
 	<artifactId>app</artifactId>
@@ -7,7 +7,7 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>findMyHome</name>
 	<url>http://maven.apache.org</url>
-	 
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -26,73 +26,85 @@
 			<version>0.16</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.mongodb</groupId>
-		    <artifactId>mongo-java-driver</artifactId>
-		    <version>2.13.0-rc2</version>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>2.13.0-rc2</version>
 		</dependency>
 		<dependency>
-  			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
 			<version>2.3.3</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.1</version>
+		</dependency>
 	</dependencies>
-	 
+
 	<properties>
-	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <dropwizard.version>0.7.1</dropwizard.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<dropwizard.version>0.7.1</dropwizard.version>
 	</properties>
-	 
+
 	<build>
 		<plugins>
-		    <plugin>
-			    <!-- Build an executable JAR -->
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-jar-plugin</artifactId>
-			    <version>2.4</version>
-			    <configuration>
+			<plugin>
+				<!-- Build an executable JAR -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
 					<archive>
-					    <manifest>
-						    <addClasspath>true</addClasspath>
-						    <classpathPrefix>lib/</classpathPrefix>
-						    <mainClass>com.hardin.wilson.app.Main</mainClass>
-					    </manifest>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>com.hardin.wilson.app.Main</mainClass>
+						</manifest>
 					</archive>
-			    </configuration>
+				</configuration>
 			</plugin>
 			<plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-shade-plugin</artifactId>
-			    <version>1.6</version>
-			    <configuration>
-			        <createDependencyReducedPom>true</createDependencyReducedPom>
-			        <filters>
-			            <filter>
-			                <artifact>*:*</artifact>
-			                <excludes>
-			                    <exclude>META-INF/*.SF</exclude>
-			                    <exclude>META-INF/*.DSA</exclude>
-			                    <exclude>META-INF/*.RSA</exclude>
-			                </excludes>
-			            </filter>
-			        </filters>
-			    </configuration>
-			    <executions>
-			        <execution>
-			            <phase>package</phase>
-			            <goals>
-			                <goal>shade</goal>
-			            </goals>
-			            <configuration>
-			                <transformers>
-			                    <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-			                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-			                        <mainClass>com.hardin.wilson.app.Main</mainClass>
-			                    </transformer>
-			                </transformers>
-			            </configuration>
-			        </execution>
-			    </executions>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>1.6</version>
+				<configuration>
+					<createDependencyReducedPom>true</createDependencyReducedPom>
+					<filters>
+						<filter>
+							<artifact>*:*</artifact>
+							<excludes>
+								<exclude>META-INF/*.SF</exclude>
+								<exclude>META-INF/*.DSA</exclude>
+								<exclude>META-INF/*.RSA</exclude>
+							</excludes>
+						</filter>
+					</filters>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>com.hardin.wilson.app.Main</mainClass>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

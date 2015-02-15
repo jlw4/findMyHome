@@ -28,7 +28,6 @@ public class School {
 	private double lat;
 	private double lon;
 	
-	public School() { }
 
 	public int getGsId() {
 		return gsId;

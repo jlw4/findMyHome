@@ -12,8 +12,6 @@ public class Schools {
     @JacksonXmlProperty(localName = "school")
     @JacksonXmlElementWrapper(useWrapping = false)
 	private ArrayList<School> schools;
-	
-	public Schools() { }
 
 	public ArrayList<School> getSchools() {
 		return schools;

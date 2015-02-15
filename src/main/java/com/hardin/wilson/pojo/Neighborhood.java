@@ -8,10 +8,7 @@ public class Neighborhood {
     private double longitude;
     private double latitude;
     private List<School> schools;
-    
-    public Neighborhood() {
-        
-    }
+
 
     public String getName() {
         return name;
