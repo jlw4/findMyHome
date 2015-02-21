@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hardin.wilson.pojo.Neighborhood;
@@ -29,11 +30,9 @@ public class NeighborhoodContainer {
     
     public static final double SCHOOL_RADIUS = 0.0231;
     
-    private List<Neighborhood> neighborhoods;
-    private List<String> neighborhoodNames;
+    private SortedMap<String,Neighborhood> neighborhoods;
     private SortedMap<Double, Neighborhood> longMap;
     private SortedMap<Double, Neighborhood> latMap;
-    private SortedMap<Integer, Neighborhood> schoolMap;
     
     private static NeighborhoodContainer instance;
     
@@ -41,18 +40,15 @@ public class NeighborhoodContainer {
      * Private constructor, reads in files and sets up 
      */
     private NeighborhoodContainer() {
-        neighborhoods = new ArrayList<Neighborhood>();
-        neighborhoodNames = new ArrayList<String>();
+        neighborhoods = new TreeMap<String, Neighborhood>();
         longMap = new TreeMap<Double, Neighborhood>();
         latMap = new TreeMap<Double, Neighborhood>();
-        schoolMap = new TreeMap<Integer, Neighborhood>();
         try {
             ObjectMapper mapper = new ObjectMapper();
             ArrayList<Region> regions = mapper.readValue(new File(REGION_FILE), mapper.getTypeFactory().constructCollectionType(ArrayList.class, Region.class));
             for (Region r : regions) {
-                neighborhoodNames.add(r.getName());
                 Neighborhood n = new Neighborhood(r.getName(), r.getLatitude(), r.getLongitude());
-                neighborhoods.add(n);
+                neighborhoods.put(n.getName(), n);
                 longMap.put(r.getLongitude(), n);
                 latMap.put(r.getLatitude(), n);
             }
@@ -72,13 +68,10 @@ public class NeighborhoodContainer {
                     }
                 }
             }
-            for (Neighborhood n : neighborhoods) {
+            for (Neighborhood n : neighborhoods.values()) {
                 n.computeAverageSchoolRating();
-                schoolMap.put(n.getSchoolRating(), n);
             }
-            for (Integer score : schoolMap.keySet()) {
-                System.out.println(schoolMap.get(score).getName() + " : " + score);
-            }
+            System.out.println("Successfully computed school ratings");
         }
         catch (Exception e) {
             System.out.println("Error parsing region file: " + e.getMessage());
@@ -96,13 +89,17 @@ public class NeighborhoodContainer {
         }
         return instance;
     }
-
-    public List<Neighborhood> getNeighborhoods() {
-        return neighborhoods;
-    }
-
-    public void setNeighborhoods(List<Neighborhood> neighborhoods) {
-        this.neighborhoods = neighborhoods;
+    
+    // returns null if key is not found
+    public Neighborhood getNeighborhood(String name) {
+        return neighborhoods.get(name);
     }
     
+    public Set<String> getNames() {
+        return neighborhoods.keySet();
+    }
+
+    public List<Neighborhood> getNeighborhoods() {
+        return new ArrayList<Neighborhood>(neighborhoods.values());
+    }
 }

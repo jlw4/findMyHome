@@ -9,7 +9,8 @@ import java.util.EnumSet;
 import javax.servlet.DispatcherType;
 
 import com.hardin.wilson.resource.CoordinateResource;
-import com.hardin.wilson.resource.HelloResource;
+import com.hardin.wilson.resource.NeighborhoodNamesResource;
+import com.hardin.wilson.resource.NeighborhoodResource;
 
 /**
  * Main class, runs server
@@ -32,23 +33,15 @@ public class Main extends Application<HomeConfiguration> {
 
     @Override
     public void run(HomeConfiguration configuration, Environment environment) {
-        // TODO: parse data files, setup etc	
-    	
-    	
         // setup resources
-        final HelloResource resource = new HelloResource(
-                configuration.getTemplate(),
-                configuration.getDefaultName()
-            );
         final HomeHealthCheck healthCheck =
                 new HomeHealthCheck(configuration.getTemplate());
         environment.healthChecks().register("template", healthCheck);
         environment.jersey().register(new CoordinateResource());
-        environment.jersey().register(resource);
-        
+        environment.jersey().register(new NeighborhoodNamesResource());
+        environment.jersey().register(new NeighborhoodResource());
         environment.servlets().addFilter("CorsFilter", new CorsFilter())
         		.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
-        
         // initialize neighborhood data
         NeighborhoodContainer.init();
     }
