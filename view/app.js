@@ -90,6 +90,17 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     		mapProp.center = new google.maps.LatLng($scope.neighborhood.longitude,$scope.neighborhood.latitude);
         console.log(mapProp.center)
         map = new google.maps.Map(document.getElementById("neighborhoodMap"),mapProp);
+        
+        
+        var kmlUrl = 'http://dl.dropboxusercontent.com/s/znszfb7dm871xel/Neighborhoods.kml?dl=0';
+		var kmlOptions = {
+  			preserveViewport: true,
+  			map: map
+		};
+		var kmlLayer = new google.maps.KmlLayer(kmlUrl, kmlOptions);
+		kmlLayer.setMap(map);
+        
+        
         console.log("successfully loaded map");
     }
     
