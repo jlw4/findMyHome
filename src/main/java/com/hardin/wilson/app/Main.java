@@ -9,6 +9,7 @@ import java.util.EnumSet;
 import javax.servlet.DispatcherType;
 
 import com.hardin.wilson.resource.CoordinateResource;
+import com.hardin.wilson.resource.KmlResource;
 import com.hardin.wilson.resource.NeighborhoodNamesResource;
 import com.hardin.wilson.resource.NeighborhoodResource;
 
@@ -40,6 +41,7 @@ public class Main extends Application<HomeConfiguration> {
         environment.jersey().register(new CoordinateResource());
         environment.jersey().register(new NeighborhoodNamesResource());
         environment.jersey().register(new NeighborhoodResource());
+        environment.jersey().register(new KmlResource());
         environment.servlets().addFilter("CorsFilter", new CorsFilter())
         		.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
         // initialize neighborhood data

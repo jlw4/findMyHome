@@ -25,13 +25,13 @@ public class NeighborhoodResource {
     @Timed
     public Neighborhood getNeighborhood(@QueryParam("name") String name) {
         Neighborhood n = NeighborhoodContainer.getContainer().getNeighborhood(name);
-        if (n != null)
-            return n;
-        throw new WebApplicationException(
-                Response.status(HttpURLConnection.HTTP_BAD_REQUEST)
-                  .entity("neighborhood " + name + " not found")
-                  .build()
-              );
+		if (n != null) {
+			return n;
+		} else {
+			throw new WebApplicationException(Response
+					.status(HttpURLConnection.HTTP_BAD_REQUEST)
+					.entity("neighborhood " + name + " not found").build());
+		}
     }
 
 }
