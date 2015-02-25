@@ -10,12 +10,10 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
 
 import com.codahale.metrics.annotation.Timed;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.JacksonXmlModule;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.dataformat.xml.util.DefaultXmlPrettyPrinter;
 import com.hardin.wilson.pojo.kml.GoogleKmlRoot;
 import com.hardin.wilson.pojo.kml.Placemark;
 
@@ -37,35 +35,33 @@ public class KmlResource {
      */
     @GET
     @Timed
-    public String getKml(@QueryParam("neighborhood") String neighborhood) {
-    	JacksonXmlModule module = new JacksonXmlModule();
-        module.setDefaultUseWrapper(false);
-        XmlMapper mapper = new XmlMapper(module);
+    public GoogleKmlRoot getKml(@QueryParam("neighborhood") String neighborhood) {
+    	GoogleKmlRoot kml = null;
 
-        GoogleKmlRoot kml = null;
-        String kmlResponse = null;
-        
         try {
-        	kml = mapper.readValue(BASE_KML_FILE, GoogleKmlRoot.class);
-        	
-        	if (neighborhood != null) {
-            	// Loop through each boundary and check if the name matches our neighborhood
-        		// name and change its kml style to indicate that it is selected.
-        		for(Placemark placemark : kml.getDocument().getFolder().getPlacemark()) {
-        			if (placemark.getName().equals(neighborhood)) {
-        				placemark.setStyleUrl("#selected");
-        			}
-        		}
-        	}
-        	
-        	kmlResponse = mapper.writeValueAsString(kml);
+            JAXBContext jaxbContext = JAXBContext.newInstance(GoogleKmlRoot.class);
+            
+            //class responsible for the process of deserializing 
+            //XML data into Java object
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            kml = (GoogleKmlRoot) jaxbUnmarshaller.unmarshal(BASE_KML_FILE);
+            
+            if (neighborhood != null) {
+	            for (Placemark placemark : kml.document.folder.placemarks) {
+	            	if (placemark.name.equals(neighborhood)) {
+	            		placemark.styleUrl = "#selected";
+	            		break;
+	            	}
+	            }
+            }
+
         } catch (Exception e) {
 			throw new WebApplicationException(Response
 					.status(HttpURLConnection.HTTP_BAD_REQUEST)
 					.entity(e.getMessage()).build());
         }
         
-        return kmlResponse;
+        return kml;
     }
 
 }

@@ -1,26 +1,12 @@
 package com.hardin.wilson.pojo.kml;
 
+import javax.xml.bind.annotation.XmlElement;
+
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 public class Polygon {
-	private OuterBoundaryIs outerBoundaryIs;
+	public OuterBoundaryIs outerBoundaryIs;
 	
-	@JacksonXmlProperty(localName = "LinearRing")
-	private LinearRing linearRing;
-
-	public OuterBoundaryIs getOuterBoundaryIs() {
-		return outerBoundaryIs;
-	}
-
-	public void setOuterBoundaryIs(OuterBoundaryIs outerBoundaryIs) {
-		this.outerBoundaryIs = outerBoundaryIs;
-	}
-
-	public LinearRing getLinearRing() {
-		return linearRing;
-	}
-
-	public void setLinearRing(LinearRing linearRing) {
-		this.linearRing = linearRing;
-	}
+	@XmlElement(name = "LinearRing")
+	public LinearRing linearRing;
 }

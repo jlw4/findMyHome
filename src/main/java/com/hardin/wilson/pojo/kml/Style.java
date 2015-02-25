@@ -1,39 +1,18 @@
 package com.hardin.wilson.pojo.kml;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 public class Style {
-	@JacksonXmlProperty(isAttribute = true)
-	private String id;
+	@XmlAttribute
+	public String id;
 
-	@JacksonXmlProperty(localName = "PolyStyle")
-	private PolyStyle polyStyle;
+	@XmlElement(name = "PolyStyle")
+	public PolyStyle polyStyle;
 
-	@JacksonXmlProperty(localName = "LineStyle")
-	private LineStyle lineStyle;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public PolyStyle getPolyStyle() {
-		return polyStyle;
-	}
-
-	public void setPolyStyle(PolyStyle PolyStyle) {
-		this.polyStyle = PolyStyle;
-	}
-
-	public LineStyle getLineStyle() {
-		return lineStyle;
-	}
-
-	public void setLineStyle(LineStyle LineStyle) {
-		this.lineStyle = LineStyle;
-	}
+	@XmlElement(name = "LineStyle")
+	public LineStyle lineStyle;
 }

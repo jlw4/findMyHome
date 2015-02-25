@@ -92,14 +92,21 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
         map = new google.maps.Map(document.getElementById("neighborhoodMap"),mapProp);
         
         
-        var kmlUrl = hostUrl + "?neighborhood=" + $scope.neighborhood;
+        var kmlUrl = hostUrl + "/kml";
+        if ($scope.neighborhood != null) {
+        	 kmlUrl += "?neighborhood=" + encodeURIComponent($scope.neighborhood.name);
+        }
+        
 		var kmlOptions = {
   			preserveViewport: true,
   			map: map
 		};
 		var kmlLayer = new google.maps.KmlLayer(kmlUrl, kmlOptions);
 		kmlLayer.setMap(map);
-        
+		
+		google.maps.event.addListener(kmlLayer, 'click', function(kmlEvent) {
+			$scope.goNeighborhood(kmlEvent.featureData.name);
+		});
         
         console.log("successfully loaded map");
     }
