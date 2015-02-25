@@ -92,7 +92,7 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
         map = new google.maps.Map(document.getElementById("neighborhoodMap"),mapProp);
         
         
-        var kmlUrl = 'http://dl.dropboxusercontent.com/s/znszfb7dm871xel/Neighborhoods.kml?dl=0';
+        var kmlUrl = hostUrl + "?neighborhood=" + $scope.neighborhood;
 		var kmlOptions = {
   			preserveViewport: true,
   			map: map

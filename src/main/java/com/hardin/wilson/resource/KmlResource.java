@@ -13,8 +13,11 @@ import javax.ws.rs.core.Response;
 
 import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.JacksonXmlModule;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.dataformat.xml.util.DefaultXmlPrettyPrinter;
 import com.hardin.wilson.pojo.kml.GoogleKmlRoot;
+import com.hardin.wilson.pojo.kml.Placemark;
 
 /**
  * Finds a neighborhood by name
@@ -35,12 +38,26 @@ public class KmlResource {
     @GET
     @Timed
     public String getKml(@QueryParam("neighborhood") String neighborhood) {
-        XmlMapper mapper = new XmlMapper();
+    	JacksonXmlModule module = new JacksonXmlModule();
+        module.setDefaultUseWrapper(false);
+        XmlMapper mapper = new XmlMapper(module);
+
         GoogleKmlRoot kml = null;
         String kmlResponse = null;
         
         try {
         	kml = mapper.readValue(BASE_KML_FILE, GoogleKmlRoot.class);
+        	
+        	if (neighborhood != null) {
+            	// Loop through each boundary and check if the name matches our neighborhood
+        		// name and change its kml style to indicate that it is selected.
+        		for(Placemark placemark : kml.getDocument().getFolder().getPlacemark()) {
+        			if (placemark.getName().equals(neighborhood)) {
+        				placemark.setStyleUrl("#selected");
+        			}
+        		}
+        	}
+        	
         	kmlResponse = mapper.writeValueAsString(kml);
         } catch (Exception e) {
 			throw new WebApplicationException(Response

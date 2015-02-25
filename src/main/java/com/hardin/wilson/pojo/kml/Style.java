@@ -3,7 +3,6 @@ package com.hardin.wilson.pojo.kml;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
-
 public class Style {
 	@JacksonXmlProperty(isAttribute = true)
 	private String id;

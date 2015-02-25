@@ -1,5 +1,7 @@
 package com.hardin.wilson.pojo.kml;
 
+import java.util.ArrayList;
+
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
@@ -12,8 +14,7 @@ public class Document {
 	private String name;
 
 	@JacksonXmlProperty(localName = "Style")
-	@JacksonXmlElementWrapper(useWrapping=false)
-	private Style[] styles;
+	private ArrayList<Style> styles;
 
 	public String getOpen() {
 		return open;
@@ -39,11 +40,11 @@ public class Document {
 		this.name = name;
 	}
 
-	public Style[] getStyle() {
+	public ArrayList<Style> getStyle() {
 		return styles;
 	}
 
-	public void setStyle(Style[] Style) {
+	public void setStyle(ArrayList<Style> Style) {
 		this.styles = Style;
 	}
 }

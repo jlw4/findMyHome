@@ -1,5 +1,8 @@
 package com.hardin.wilson.pojo.kml;
 
+import java.util.ArrayList;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
@@ -9,8 +12,7 @@ public class Folder {
 	private String name;
 
 	@JacksonXmlProperty(localName = "Placemark")
-	@JacksonXmlElementWrapper(useWrapping=false)
-	private Placemark[] placemarks;
+	private ArrayList<Placemark> placemarks;
 
 	public String getOpen() {
 		return open;
@@ -28,11 +30,11 @@ public class Folder {
 		this.name = name;
 	}
 
-	public Placemark[] getPlacemark() {
+	public ArrayList<Placemark> getPlacemark() {
 		return placemarks;
 	}
 
-	public void setPlacemark(Placemark[] Placemark) {
+	public void setPlacemark(ArrayList<Placemark> Placemark) {
 		this.placemarks = Placemark;
 	}
 }

@@ -1,6 +1,6 @@
-<kml xmlns="http://www.opengis.net/kml/2.2">
+<kml>
 <Document>
-	<name>The MAP</name>
+	<name>Neigborhood Boundaries</name>
 	<open>1</open>
 	<Style id="poly-95CAFF-1-127">
 		<LineStyle>
