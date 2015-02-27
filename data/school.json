@@ -40,7 +40,7 @@
     "fax" : null,
     "enrollment" : 54,
     "parentRating" : 5,
-    "gsRating" : 9,
+    "gsRating" : 10,
     "lat" : 47.68557,
     "lon" : -122.28251
   }, {
@@ -62,7 +62,7 @@
     "fax" : null,
     "enrollment" : 167,
     "parentRating" : 4,
-    "gsRating" : 5,
+    "gsRating" : 4,
     "lat" : 47.546505,
     "lon" : -122.28249
   }, {
@@ -84,7 +84,7 @@
     "fax" : null,
     "enrollment" : 64,
     "parentRating" : 4,
-    "gsRating" : 6,
+    "gsRating" : 7,
     "lat" : 47.577354,
     "lon" : -122.40779
   }, {
@@ -150,7 +150,7 @@
     "fax" : null,
     "enrollment" : 38,
     "parentRating" : 5,
-    "gsRating" : 4,
+    "gsRating" : 6,
     "lat" : 47.65474,
     "lon" : -122.34914
   }, {
@@ -194,7 +194,7 @@
     "fax" : null,
     "enrollment" : 78,
     "parentRating" : 5,
-    "gsRating" : 7,
+    "gsRating" : 8,
     "lat" : 47.58502,
     "lon" : -122.31538
   }, {
@@ -216,7 +216,7 @@
     "fax" : null,
     "enrollment" : 62,
     "parentRating" : 3,
-    "gsRating" : 2,
+    "gsRating" : 1,
     "lat" : 47.509445,
     "lon" : -122.31748
   }, {
@@ -260,7 +260,7 @@
     "fax" : null,
     "enrollment" : 44,
     "parentRating" : 5,
-    "gsRating" : 3,
+    "gsRating" : 2,
     "lat" : 47.54182,
     "lon" : -122.27652
   }, {
@@ -348,7 +348,7 @@
     "fax" : null,
     "enrollment" : 58,
     "parentRating" : 2,
-    "gsRating" : 4,
+    "gsRating" : 3,
     "lat" : 47.49243,
     "lon" : -122.252716
   }, {
@@ -370,7 +370,7 @@
     "fax" : null,
     "enrollment" : 101,
     "parentRating" : 0,
-    "gsRating" : 3,
+    "gsRating" : 2,
     "lat" : 47.548775,
     "lon" : -122.35468
   }, {
@@ -392,7 +392,7 @@
     "fax" : null,
     "enrollment" : 281,
     "parentRating" : 3,
-    "gsRating" : 3,
+    "gsRating" : 5,
     "lat" : 47.502247,
     "lon" : -122.346405
   }, {
@@ -546,7 +546,7 @@
     "fax" : null,
     "enrollment" : 56,
     "parentRating" : 5,
-    "gsRating" : 10,
+    "gsRating" : 9,
     "lat" : 47.686306,
     "lon" : -122.342285
   }, {
@@ -612,7 +612,7 @@
     "fax" : null,
     "enrollment" : 295,
     "parentRating" : 3,
-    "gsRating" : 4,
+    "gsRating" : 5,
     "lat" : 47.492542,
     "lon" : -122.23231
   }, {
@@ -634,7 +634,7 @@
     "fax" : null,
     "enrollment" : 57,
     "parentRating" : 3,
-    "gsRating" : 3,
+    "gsRating" : 4,
     "lat" : 47.52517,
     "lon" : -122.27468
   }, {
@@ -766,7 +766,7 @@
     "fax" : null,
     "enrollment" : 358,
     "parentRating" : 4,
-    "gsRating" : 6,
+    "gsRating" : 7,
     "lat" : 47.57604,
     "lon" : -122.29314
   }, {
@@ -832,7 +832,7 @@
     "fax" : null,
     "enrollment" : 76,
     "parentRating" : 4,
-    "gsRating" : 5,
+    "gsRating" : 6,
     "lat" : 47.540207,
     "lon" : -122.388435
   }, {
@@ -876,7 +876,7 @@
     "fax" : null,
     "enrollment" : 60,
     "parentRating" : 4,
-    "gsRating" : 4,
+    "gsRating" : 2,
     "lat" : 47.5457,
     "lon" : -122.26851
   }, {
@@ -898,7 +898,7 @@
     "fax" : null,
     "enrollment" : 41,
     "parentRating" : 4,
-    "gsRating" : 8,
+    "gsRating" : 9,
     "lat" : 47.676254,
     "lon" : -122.32839
   }, {
@@ -920,7 +920,7 @@
     "fax" : null,
     "enrollment" : 29,
     "parentRating" : 5,
-    "gsRating" : 7,
+    "gsRating" : 8,
     "lat" : 47.687286,
     "lon" : -122.35991
   }, {
@@ -1008,7 +1008,7 @@
     "fax" : null,
     "enrollment" : 91,
     "parentRating" : 5,
-    "gsRating" : 5,
+    "gsRating" : 4,
     "lat" : 47.500076,
     "lon" : -122.34542
   }, {
@@ -1030,7 +1030,7 @@
     "fax" : null,
     "enrollment" : 68,
     "parentRating" : 3,
-    "gsRating" : 2,
+    "gsRating" : 3,
     "lat" : 47.525585,
     "lon" : -122.348656
   }, {
@@ -1052,7 +1052,7 @@
     "fax" : null,
     "enrollment" : 63,
     "parentRating" : 4,
-    "gsRating" : 3,
+    "gsRating" : 2,
     "lat" : 47.492817,
     "lon" : -122.30095
   }, {
@@ -1074,7 +1074,7 @@
     "fax" : null,
     "enrollment" : 25,
     "parentRating" : 5,
-    "gsRating" : 7,
+    "gsRating" : 4,
     "lat" : 47.6942,
     "lon" : -122.34125
   }, {
@@ -1118,7 +1118,7 @@
     "fax" : null,
     "enrollment" : 225,
     "parentRating" : 4,
-    "gsRating" : 7,
+    "gsRating" : 6,
     "lat" : 47.725746,
     "lon" : -122.33691
   }, {
@@ -1184,7 +1184,7 @@
     "fax" : null,
     "enrollment" : 53,
     "parentRating" : 5,
-    "gsRating" : 4,
+    "gsRating" : 5,
     "lat" : 47.573364,
     "lon" : -122.290825
   }, {
@@ -1250,7 +1250,7 @@
     "fax" : null,
     "enrollment" : 0,
     "parentRating" : 0,
-    "gsRating" : 5,
+    "gsRating" : 7,
     "lat" : 47.54868,
     "lon" : -122.3622
   }, {
@@ -1272,7 +1272,7 @@
     "fax" : null,
     "enrollment" : 80,
     "parentRating" : 4,
-    "gsRating" : 8,
+    "gsRating" : 6,
     "lat" : 47.574425,
     "lon" : -122.30293
   }, {
@@ -1294,7 +1294,7 @@
     "fax" : null,
     "enrollment" : 9,
     "parentRating" : 0,
-    "gsRating" : 0,
+    "gsRating" : 1,
     "lat" : 47.603912,
     "lon" : -122.31604
   }, {
@@ -1338,7 +1338,7 @@
     "fax" : "(425) 204-4145",
     "enrollment" : 72,
     "parentRating" : 3,
-    "gsRating" : 3,
+    "gsRating" : 5,
     "lat" : 47.49985,
     "lon" : -122.240036
   }, {
@@ -1426,7 +1426,7 @@
     "fax" : null,
     "enrollment" : 118,
     "parentRating" : 4,
-    "gsRating" : 2,
+    "gsRating" : 4,
     "lat" : 47.62481,
     "lon" : -122.31841
   }, {
@@ -1514,7 +1514,7 @@
     "fax" : "(206) 439-4442",
     "enrollment" : 49,
     "parentRating" : 4,
-    "gsRating" : 5,
+    "gsRating" : 6,
     "lat" : 47.43701,
     "lon" : -122.328125
   }, {
@@ -1558,7 +1558,7 @@
     "fax" : null,
     "enrollment" : 1,
     "parentRating" : 5,
-    "gsRating" : 8,
+    "gsRating" : 9,
     "lat" : 47.660618,
     "lon" : -122.34062
   }, {
@@ -1580,7 +1580,7 @@
     "fax" : "(206) 252-3161",
     "enrollment" : 40,
     "parentRating" : 4,
-    "gsRating" : 7,
+    "gsRating" : 8,
     "lat" : 47.633987,
     "lon" : -122.28482
   }, {
@@ -1624,7 +1624,7 @@
     "fax" : null,
     "enrollment" : 279,
     "parentRating" : 4,
-    "gsRating" : 8,
+    "gsRating" : 9,
     "lat" : 47.56415,
     "lon" : -122.31211
   }, {
@@ -1646,7 +1646,7 @@
     "fax" : null,
     "enrollment" : 91,
     "parentRating" : 0,
-    "gsRating" : 5,
+    "gsRating" : 1,
     "lat" : 47.6942,
     "lon" : -122.34125
   }, {
@@ -1668,7 +1668,7 @@
     "fax" : null,
     "enrollment" : 39,
     "parentRating" : 4,
-    "gsRating" : 9,
+    "gsRating" : 10,
     "lat" : 47.640644,
     "lon" : -122.30425
   }, {
@@ -1690,7 +1690,7 @@
     "fax" : null,
     "enrollment" : 80,
     "parentRating" : 3,
-    "gsRating" : 3,
+    "gsRating" : 1,
     "lat" : 47.5064,
     "lon" : -122.35082
   }, {
@@ -1712,7 +1712,7 @@
     "fax" : null,
     "enrollment" : 258,
     "parentRating" : 4,
-    "gsRating" : 8,
+    "gsRating" : 9,
     "lat" : 47.707684,
     "lon" : -122.29467
   }, {
@@ -1734,7 +1734,7 @@
     "fax" : null,
     "enrollment" : 37,
     "parentRating" : 5,
-    "gsRating" : 2,
+    "gsRating" : 1,
     "lat" : 47.49593,
     "lon" : -122.34261
   }, {
@@ -1778,7 +1778,7 @@
     "fax" : null,
     "enrollment" : 36,
     "parentRating" : 4,
-    "gsRating" : 2,
+    "gsRating" : 3,
     "lat" : 47.714752,
     "lon" : -122.329315
   }, {
@@ -1800,7 +1800,7 @@
     "fax" : null,
     "enrollment" : 77,
     "parentRating" : 4,
-    "gsRating" : 4,
+    "gsRating" : 3,
     "lat" : 47.60445,
     "lon" : -122.30631
   }, {
@@ -1866,7 +1866,7 @@
     "fax" : null,
     "enrollment" : 60,
     "parentRating" : 4,
-    "gsRating" : 5,
+    "gsRating" : 4,
     "lat" : 47.554585,
     "lon" : -122.27584
   }, {
@@ -1888,7 +1888,7 @@
     "fax" : null,
     "enrollment" : 53,
     "parentRating" : 4,
-    "gsRating" : 7,
+    "gsRating" : 8,
     "lat" : 47.56562,
     "lon" : -122.39688
   }, {
@@ -1954,7 +1954,7 @@
     "fax" : null,
     "enrollment" : 118,
     "parentRating" : 3,
-    "gsRating" : 3,
+    "gsRating" : 4,
     "lat" : 47.524525,
     "lon" : -122.26631
   }, {
@@ -1976,7 +1976,7 @@
     "fax" : null,
     "enrollment" : 13,
     "parentRating" : 4,
-    "gsRating" : 7,
+    "gsRating" : 8,
     "lat" : 47.499214,
     "lon" : -122.26334
   }, {
@@ -2064,7 +2064,7 @@
     "fax" : null,
     "enrollment" : 42,
     "parentRating" : 4,
-    "gsRating" : 7,
+    "gsRating" : 9,
     "lat" : 47.698483,
     "lon" : -122.30752
   }, {
@@ -2086,7 +2086,7 @@
     "fax" : null,
     "enrollment" : 120,
     "parentRating" : 4,
-    "gsRating" : 8,
+    "gsRating" : 9,
     "lat" : 47.676582,
     "lon" : -122.38056
   }, {
@@ -2152,7 +2152,7 @@
     "fax" : null,
     "enrollment" : 58,
     "parentRating" : 4,
-    "gsRating" : 9,
+    "gsRating" : 8,
     "lat" : 47.572655,
     "lon" : -122.39659
   }, {
@@ -2196,7 +2196,7 @@
     "fax" : null,
     "enrollment" : 18,
     "parentRating" : 0,
-    "gsRating" : 4,
+    "gsRating" : 2,
     "lat" : 47.62143,
     "lon" : -122.30476
   }, {
@@ -2218,7 +2218,7 @@
     "fax" : null,
     "enrollment" : 226,
     "parentRating" : 3,
-    "gsRating" : 2,
+    "gsRating" : 3,
     "lat" : 47.474915,
     "lon" : -122.27485
   }, {
@@ -2240,7 +2240,7 @@
     "fax" : null,
     "enrollment" : 40,
     "parentRating" : 3,
-    "gsRating" : 2,
+    "gsRating" : 1,
     "lat" : 47.52613,
     "lon" : -122.27005
   }, {
@@ -2262,7 +2262,7 @@
     "fax" : null,
     "enrollment" : 56,
     "parentRating" : 4,
-    "gsRating" : 4,
+    "gsRating" : 3,
     "lat" : 47.501923,
     "lon" : -122.315865
   }, {
@@ -2328,7 +2328,7 @@
     "fax" : null,
     "enrollment" : 68,
     "parentRating" : 4,
-    "gsRating" : 6,
+    "gsRating" : 5,
     "lat" : 47.631886,
     "lon" : -122.30811
   }, {
@@ -2372,7 +2372,7 @@
     "fax" : null,
     "enrollment" : 54,
     "parentRating" : 4,
-    "gsRating" : 8,
+    "gsRating" : 7,
     "lat" : 47.62171,
     "lon" : -122.34829
   }, {
@@ -2393,8 +2393,8 @@
     "schoolStatsLink" : "http://www.greatschools.org/modperl/achievement/WA/3289",
     "fax" : null,
     "enrollment" : 80,
-    "parentRating" : 5,
-    "gsRating" : 6,
+    "parentRating" : 4,
+    "gsRating" : 5,
     "lat" : 47.523365,
     "lon" : -122.27281
   }, {
@@ -2416,7 +2416,7 @@
     "fax" : null,
     "enrollment" : 62,
     "parentRating" : 4,
-    "gsRating" : 2,
+    "gsRating" : 3,
     "lat" : 47.46821,
     "lon" : -122.276665
   }, {
@@ -2438,7 +2438,7 @@
     "fax" : null,
     "enrollment" : 123,
     "parentRating" : 5,
-    "gsRating" : 9,
+    "gsRating" : 10,
     "lat" : 47.590977,
     "lon" : -122.29933
   }, {
@@ -2482,7 +2482,7 @@
     "fax" : null,
     "enrollment" : 82,
     "parentRating" : 3,
-    "gsRating" : 5,
+    "gsRating" : 4,
     "lat" : 47.53803,
     "lon" : -122.296165
   }, {
@@ -2548,7 +2548,7 @@
     "fax" : null,
     "enrollment" : 370,
     "parentRating" : 4,
-    "gsRating" : 8,
+    "gsRating" : 7,
     "lat" : 47.598392,
     "lon" : -122.30389
   }, {
@@ -2614,7 +2614,7 @@
     "fax" : null,
     "enrollment" : 264,
     "parentRating" : 4,
-    "gsRating" : 5,
+    "gsRating" : 7,
     "lat" : 47.5769,
     "lon" : -122.3845
   }, {
@@ -2658,7 +2658,7 @@
     "fax" : null,
     "enrollment" : 80,
     "parentRating" : 3,
-    "gsRating" : 3,
+    "gsRating" : 4,
     "lat" : 47.50004,
     "lon" : -122.33043
   }, {
@@ -2680,7 +2680,7 @@
     "fax" : null,
     "enrollment" : 300,
     "parentRating" : 3,
-    "gsRating" : 8,
+    "gsRating" : 7,
     "lat" : 47.697075,
     "lon" : -122.377754
   }, {
@@ -2724,7 +2724,7 @@
     "fax" : null,
     "enrollment" : 58,
     "parentRating" : 5,
-    "gsRating" : 7,
+    "gsRating" : 8,
     "lat" : 47.530617,
     "lon" : -122.28508
   }, {

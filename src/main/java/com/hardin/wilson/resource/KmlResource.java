@@ -40,13 +40,12 @@ public class KmlResource {
 
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(GoogleKmlRoot.class);
-            
-            //class responsible for the process of deserializing 
-            //XML data into Java object
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             kml = (GoogleKmlRoot) jaxbUnmarshaller.unmarshal(BASE_KML_FILE);
             
             if (neighborhood != null) {
+            	// If a neighborhood query param was specified, then we need to find this name
+            	// and set the style URL to be the '#selected' style.
 	            for (Placemark placemark : kml.document.folder.placemarks) {
 	            	if (placemark.name.equals(neighborhood)) {
 	            		placemark.styleUrl = "#selected";
