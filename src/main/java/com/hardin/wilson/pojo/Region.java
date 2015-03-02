@@ -1,11 +1,9 @@
 package com.hardin.wilson.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A "region" for deserializing a Zillow region (zillow_regions.xml)
  */
-@JsonIgnoreProperties(ignoreUnknown=true)
 public class Region {
     
     private String name;

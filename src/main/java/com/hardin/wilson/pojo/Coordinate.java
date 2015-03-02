@@ -10,6 +10,10 @@ public class Coordinate {
         // required
     }
     
+    public Coordinate(double longitude, double latitude) {
+        this(0, longitude, latitude);
+    }
+    
     public Coordinate(long id, double longitude, double latitude) {
         this.id = id;
         this.longitude = longitude;
