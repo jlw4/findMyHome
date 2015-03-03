@@ -7,21 +7,25 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hardin.wilson.pojo.Coordinate;
+import com.hardin.wilson.pojo.Descriptions;
 import com.hardin.wilson.pojo.Neighborhood;
+import com.hardin.wilson.pojo.Rating;
 import com.hardin.wilson.pojo.Region;
 import com.hardin.wilson.pojo.School;
 import com.hardin.wilson.pojo.Schools;
@@ -42,6 +46,7 @@ public class NeighborhoodContainer {
 	public static final String REGION_FILE = "data/zillow_regions.json";
 	public static final String SCHOOL_FILE = "data/school.json";
 	public static final String KML_FILE = "data/neighborhoods.kml";
+	public static final String DESCRIPTIONS_FILE = "data/neighborhood_descriptions.json";
 
 	public static final double SCHOOL_MARGIN = 0.015;
 	public static final String SEATTLE_DISTRICT_ID = "229";
@@ -51,7 +56,7 @@ public class NeighborhoodContainer {
 	private SortedMap<Double, Neighborhood> latMap;
 
 	private static NeighborhoodContainer instance;
-	private static Logger logger = Logger.getGlobal();
+	private static Logger logger = Logger.getLogger(NeighborhoodContainer.class);
 
 	/**
 	 * Private constructor, reads in files and sets up
@@ -67,13 +72,25 @@ public class NeighborhoodContainer {
 	    try {
             initNeighborhoods();
             initBoundary();
+            initDescriptions();
+            initRandomRatings();
             assignSchoolsToNeighborhoods();
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Error initializing container: " + e.getMessage());
+            logger.log(Level.ERROR, "Error initializing container: " + e.getMessage());
             StringWriter sw = new StringWriter();
             e.printStackTrace(new PrintWriter(sw));
-            logger.log(Level.SEVERE, sw.toString());
+            logger.log(Level.ERROR, sw.toString());
         }
+	}
+	
+	// temporary, just adds some random ratings so I have something to show in the ui
+	private void initRandomRatings() {
+	    Random randy = new Random();
+	    for (Rating r : Rating.values()) {
+	        for (Neighborhood n : neighborhoods.values()) {
+	            n.addRating(r, randy.nextInt(100));
+	        }
+	    }
 	}
 	
 	private void initNeighborhoods() throws IOException, JsonParseException, JsonMappingException {
@@ -122,8 +139,8 @@ public class NeighborhoodContainer {
                         n.addCoordinate(new Coordinate(Double.parseDouble(longLat[0]),Double.parseDouble(longLat[1])));
                     }
                     catch (NumberFormatException nfe) {
-                        logger.log(Level.WARNING, "error parsing coordinate for neighborhood " + n.getName());
-                        logger.log(Level.WARNING, nfe.getMessage());
+                        logger.log(Level.WARN, "error parsing coordinate for neighborhood " + n.getName());
+                        logger.log(Level.WARN, nfe.getMessage());
                     }
                 }
             }
@@ -131,11 +148,25 @@ public class NeighborhoodContainer {
         // make sure every neighborhood has a boundary
         for (Neighborhood n : neighborhoods.values()) {
             if (n.getBoundary().size() < 3) {
-                logger.warning("boundary error for " + n.getName());
+                logger.error("boundary error for " + n.getName());
             }
         }
         time = System.currentTimeMillis() - time;
         logger.info("Successfully initalized boundaries in " + time + " ms");
+	}
+	
+	// pre: initNeighborhoods()
+	private void initDescriptions() {
+	    ObjectMapper mapper = new ObjectMapper();
+	    try {
+	        Descriptions desc = mapper.readValue(new File(DESCRIPTIONS_FILE), Descriptions.class);
+	        for (String name : desc.getCitations().keySet()) {
+	            neighborhoods.get(name).addDescription(desc.getDescription(name), desc.getCitation(name));
+	        }
+	    }
+	    catch (Exception e) {
+	        logger.log(Level.ERROR, "Error initializing descriptions", e);
+	    }
 	}
 	
 	// pre: initBoundary()
@@ -162,7 +193,7 @@ public class NeighborhoodContainer {
                 else if (s.getGradeRange().contains("12"))
                     elementarySchools.add(s);
                 else
-                    logger.log(Level.WARNING, "Failed to classify school " + s.getName());
+                    logger.log(Level.WARN, "Failed to classify school " + s.getName());
                 boolean foundNeighborhood = false;
                 Coordinate sCoord = new Coordinate(s.getLon(), s.getLat());
                 for (Neighborhood n : neighborhoods.values()) {
@@ -176,7 +207,7 @@ public class NeighborhoodContainer {
                     }
                 }
                 if (!foundNeighborhood) {
-                    logger.log(Level.WARNING, "Didn't find a boundary for " + s.getName());
+                    logger.log(Level.WARN, "Didn't find a boundary for " + s.getName());
                     // we didn't find a neighborhood for this school with our boundary search, find the closest center
                     // NOTE: this doesn't happen with a SCHOOL_MARGIN = 0.015, but may happen if we reduce it so I'm leaving it here
                     double minDist = Double.MAX_VALUE;
@@ -205,7 +236,7 @@ public class NeighborhoodContainer {
                     else if(elementarySchools.contains(s))
                         hasEM = true;
                     else
-                        logger.log(Level.WARNING, "Failed to classify school " + s.getName());
+                        logger.log(Level.WARN, "Failed to classify school " + s.getName());
                 }
                 if (!hasHS)
                     addClosestSchool(highSchools, n);
@@ -221,7 +252,7 @@ public class NeighborhoodContainer {
             logger.info("Successfully initialized schools in " + time + " ms");
 	    }
 	    catch (Exception e) {
-	        logger.log(Level.SEVERE, "Error initializing schools", e);
+	        logger.log(Level.ERROR, "Error initializing schools", e);
 	    }
 	}
 	

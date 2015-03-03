@@ -29,14 +29,17 @@ public class Main extends Application<HomeConfiguration> {
 
     @Override
     public void initialize(Bootstrap<HomeConfiguration> bootstrap) {
-        bootstrap.addCommand(new FetchCommand("fetch", "go fetch data"));
+        bootstrap.addCommand(new FetchCommand("fetch", "run all fetch commands"));
+        bootstrap.addCommand(new FetchCommand("desc", "fetch neighborhood descriptions"));
     }
 
     @Override
     public void run(HomeConfiguration configuration, Environment environment) {
+        // initialize neighborhood data
+        NeighborhoodContainer.init();
+        
         // setup resources
-        final HomeHealthCheck healthCheck =
-                new HomeHealthCheck(configuration.getTemplate());
+        final HomeHealthCheck healthCheck = new HomeHealthCheck(configuration.getTemplate());
         environment.healthChecks().register("template", healthCheck);
         environment.jersey().register(new CoordinateResource());
         environment.jersey().register(new NeighborhoodNamesResource());
@@ -44,8 +47,6 @@ public class Main extends Application<HomeConfiguration> {
         environment.jersey().register(new KmlResource());
         environment.servlets().addFilter("CorsFilter", new CorsFilter())
         		.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
-        // initialize neighborhood data
-        NeighborhoodContainer.init();
     }
 
 }

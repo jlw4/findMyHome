@@ -10,8 +10,9 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
 	var defaultLong = -122.329383;
 	
     var map;
-    var hostUrl = "http://54.149.5.12:8080";
-    if ($location.$$protocol == "file") {
+    var serverUrl = "http://54.149.5.12:8080";
+    var hostUrl = serverUrl;
+    if ($location.$$protocol == "file" || $location.host() == "localhost") {
         hostUrl = "http://localhost:8080";
     }
     var animationDuration = 1500.0; // progress bar animation
@@ -92,7 +93,7 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
         map = new google.maps.Map(document.getElementById("neighborhoodMap"),mapProp);
         
         
-        var kmlUrl = hostUrl + "/kml";
+        var kmlUrl = serverUrl + "/kml";
         if ($scope.neighborhood != null) {
         	 kmlUrl += "?neighborhood=" + encodeURIComponent($scope.neighborhood.name);
         }
@@ -129,6 +130,10 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     	$("#browseNav").addClass("active");
     };
     
+    $scope.scrollToBottom = function() {
+    	window.scroll(0,document.body.scrollHeight)
+    };
+    
     $scope.goNeighborhood = function(name) {
     	navigate(name);
     	$("#neighborhoodNav").html("<a>" + name + "</a>");
@@ -146,7 +151,7 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
             $scope.neighborhood = res;
             loadNeighborhoodMap();
         	$(".progress-bar").addClass("progress-bar-striped");
-    		$("#schoolBar").width($scope.neighborhood.schoolRating+ "%");
+    		// $("#schoolBar").width($scope.neighborhood.schoolRating+ "%");
     		$timeout(function(){
         		$(".progress-bar").removeClass("progress-bar-striped");
         	}, animationDuration);

@@ -14,6 +14,8 @@ public class Neighborhood {
     private List<School> schools;
     private Map<Rating, Integer> ratings;
     private List<Coordinate> boundary;
+    private String description;
+    private String descriptionCitation;
 
     public Neighborhood() {
         this(null, 0, 0);
@@ -28,6 +30,15 @@ public class Neighborhood {
         boundary = new ArrayList<Coordinate>();
         schools = new ArrayList<School>();
         ratings = new HashMap<Rating, Integer>();
+    }
+    
+    public void addDescription(String description, String citation) {
+        this.description = description;
+        this.descriptionCitation = citation;
+    }
+    
+    public void addRating(Rating r, int score) {
+        ratings.put(r, score);
     }
     
     public void computeAverageSchoolRating() {
@@ -147,5 +158,21 @@ public class Neighborhood {
 
     public void setSchools(List<School> schools) {
         this.schools = schools;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescriptionCitation() {
+        return descriptionCitation;
+    }
+
+    public void setDescriptionCitation(String descriptionCitation) {
+        this.descriptionCitation = descriptionCitation;
     }
 }

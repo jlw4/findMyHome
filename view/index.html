@@ -33,7 +33,7 @@
 
     <div class="container-fluid col-md-10 col-md-offset-1" ng-show="loaded">
 
-      <div class="jumbotron header">
+      <div class="well well-sm">
         <h1>FindMyHome</h1>
         <p class="lead">Seattle's authoritative neighborhood index</p>
       </div>
@@ -77,18 +77,22 @@
       
       <div class="displayBox" id="neighborhoodBox">
         <h2>{{ neighborhood.name }}</h2>
-        <div id="neighborhoodMap" class="hidden-xs"></div>
+        <div class="panel panel-default"><div class="panel-body" id="description">{{ neighborhood.description }}<a class="citation" ng-click="scrollToBottom()">[1]</a></div></div>
         <div id="ratingBox">
             <h3>Ratings</h3>
-            <div>
-	          <div class="col-md-2">School</div>
+            <div class="col-md-12" ng-repeat="(name, rating) in neighborhood.ratings">
+	          <div class="col-md-2">{{ name }}</div>
 	          <div class="col-md-6">
 	            <div class="progress">
-				  <div class="progress-bar progress-bar-success active" role="progressbar" id="schoolBar"></div>
+				  <div class="progress-bar progress-bar-success active" role="progressbar" style="width: {{ rating }}%"></div>
 				</div>
 			  </div>
-			  <div class="col-md-2">{{ neighborhood.schoolRating }}</div>
+			  <div class="col-md-2">{{ rating }}</div>
 			</div>
+		</div>
+        <div id="neighborhoodMap" class="hidden-xs"></div>
+		<div id="citationBox">
+		  <a ng-href="{{ neighborhood.descriptionCitation }}">[1] {{ neighborhood.descriptionCitation }}</a>
 		</div>
       </div>
 

@@ -52,6 +52,19 @@
 	background-color: #000082;
     text-align: center;
     padding: 50px;
+}
+
+h2 {
+	margin-top: 0;
+}
+
+#citationBox {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.citation {
+    cursor: pointer;
 }​
 
 /*
