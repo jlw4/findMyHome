@@ -7,8 +7,8 @@ public class CrimeReport {
 	private String event_clearance_subgroup;
 	private String event_clearance_date;
 	private String cad_cdw_id;
-	private String longitude;
-	private String latitude;
+	private double longitude;
+	private double latitude;
 	
 	public String getEvent_clearance_subgroup() {
 		return event_clearance_subgroup;
@@ -28,16 +28,16 @@ public class CrimeReport {
 	public void setCad_cdw_id(String cad_cdw_id) {
 		this.cad_cdw_id = cad_cdw_id;
 	}
-	public String getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(String longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-	public String getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(String latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 }
