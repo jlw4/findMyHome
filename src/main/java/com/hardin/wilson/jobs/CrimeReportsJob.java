@@ -10,7 +10,9 @@ import org.apache.logging.log4j.Logger;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.snakeyaml.util.UriEncoder;
+import com.hardin.wilson.app.NeighborhoodContainer;
 import com.hardin.wilson.pojo.CrimeReport;
+import com.hardin.wilson.pojo.Neighborhood;
 
 /**
  * Class that contains the logic for a job that grabs crime data from Opendata
@@ -28,7 +30,7 @@ public class CrimeReportsJob extends ProcessingJob {
 	private static final String OUTPUT = "data/crimes.json";
 
 	public void run() {
-
+		
 		// We only want events in the last year.
 		String uri = "$where=event_clearance_date>'2014-02-14T19:00:00Z'"
 

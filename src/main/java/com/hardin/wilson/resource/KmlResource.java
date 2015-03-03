@@ -11,6 +11,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import com.codahale.metrics.annotation.Timed;
@@ -24,7 +25,21 @@ import com.hardin.wilson.pojo.kml.Placemark;
 @Produces(MediaType.APPLICATION_XML)
 public class KmlResource {
 	private static final File BASE_KML_FILE = new File("data/neighborhoods.kml");
+	private GoogleKmlRoot kml;
     
+	public KmlResource() {
+        JAXBContext jaxbContext;
+		try {
+			jaxbContext = JAXBContext.newInstance(GoogleKmlRoot.class);
+	        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+	        kml = (GoogleKmlRoot) jaxbUnmarshaller.unmarshal(BASE_KML_FILE);
+		} catch (Exception e) {
+			System.err.println("Fatal error initializing KML resource");
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}
+	
     /**
      * 
      * Resource to allow google maps to access kml data for drawing neighborhood
@@ -39,10 +54,6 @@ public class KmlResource {
     	GoogleKmlRoot kml = null;
 
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(GoogleKmlRoot.class);
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            kml = (GoogleKmlRoot) jaxbUnmarshaller.unmarshal(BASE_KML_FILE);
-            
             if (neighborhood != null) {
             	// If a neighborhood query param was specified, then we need to find this name
             	// and set the style URL to be the '#selected' style.

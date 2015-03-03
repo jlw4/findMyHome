@@ -45,6 +45,53 @@ public class Neighborhood {
     public void addSchool(School school) {
         schools.add(school);
     }
+    
+    /**
+     * Checks if a point is contained within the bounds of this neighborhood.
+     * 
+     * @param point The point to be tested.
+     * @return True if the point is inside the bounds of this neighborhood's
+     * polygon and false if it lies outside of the polygon.
+     */
+	public boolean isInsideBounds(Coordinate point) {
+		if (boundary.size() < 3) {
+			// Point cannot be inside if not at least three boundary
+			// points (is not a polygon).
+			return false;
+		}
+		
+		int i, j, nvert = boundary.size();
+		double px = point.getLongitude();
+		double py = point.getLatitude();
+		boolean c = false;
+
+		// The algorithm is ray-casting to the right. Each iteration of the loop, the test point
+		// is checked against one of the polygon's edges. The first line of the if-test succeeds
+		// if the point's y-coord is within the edge's scope. The second line checks whether the
+		// test point is to the left of the line. If that is true the ray-casted line drawn 
+		// rightwards from the test point crosses that edge.
+
+		// By repeatedly inverting the value of c, the algorithm counts how many times the rightward
+		// line crosses the polygon. If it crosses an odd number of times, then the point is inside;
+		// if an even number, the point is outside.
+		for (i = 0, j = nvert - 1; i < nvert; j = i++) {
+			double iy, ix, jy, jx;
+			iy = boundary.get(i).getLatitude();
+			ix = boundary.get(i).getLongitude();
+			jy = boundary.get(j).getLatitude();
+			jx = boundary.get(j).getLongitude();
+
+			if (((iy >= py) != (jy >= py))
+					&& (px <= (jx - ix) * (py - iy) / (jy - iy) + ix)) {
+				c = !c;
+			}
+		}
+
+		return c;
+	}
+    
+    
+    /* Getters and Setters */
 
     public String getName() {
         return name;

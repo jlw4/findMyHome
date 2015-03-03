@@ -239,58 +239,7 @@ public class NeighborhoodContainer {
 	    n.addSchool(closest);
 	}
 
-	public static void init() {/*
-		try {
-			ObjectMapper mapper = new ObjectMapper();
-			ArrayList<Region> regions = mapper.readValue(
-					new File(REGION_FILE),
-					mapper.getTypeFactory().constructCollectionType(
-							ArrayList.class, Region.class));
-			
-            JAXBContext jaxbContext = JAXBContext.newInstance(GoogleKmlRoot.class);
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            GoogleKmlRoot kml = (GoogleKmlRoot) jaxbUnmarshaller.unmarshal(new File("data/neighborhoods.kml"));
-            
-            Placemark[] placemarks = kml.document.folder.placemarks;
-            
-            Iterator<Region> itr = regions.iterator();
-            while (itr.hasNext()) {
-            	boolean match = false;
-            	Region region = itr.next();
-            	for (Placemark p : placemarks) {
-            		if (p.name.equals(region.getName())) {
-            			match = true;
-            		}
-            	}
-            	if (!match) {
-            		itr.remove();
-            	}
-            }
-			
-            for (Placemark p : placemarks) {
-            	boolean match = false;
-            	for (Region r : regions) {
-            		if (p.name.equals(r.getName())) {
-            			match = true;
-            		}
-            	}
-        		if (!match) {
-        			Region newRegion = new Region();
-        			newRegion.setLatitude(0.0);
-        			newRegion.setLongitude(0.0);
-        			newRegion.setName(p.name);
-        			regions.add(newRegion);
-        		}
-            }
-			
-			String outr = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(regions);
-			PrintWriter out = new PrintWriter(new File("data/new.json"));
-			out.write(outr);
-			out.close();
-		} catch (Exception e) {
-			System.out.println();
-		}
-		*/
+	public static void init() {
 		instance = new NeighborhoodContainer();
 	}
 

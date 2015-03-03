@@ -19,6 +19,10 @@ public class FetchCommand extends Command {
 	protected FetchCommand(String name, String description) {
 		super(name, description);
 
+		// Initialize the neighborhood container as we will need for some of the different
+		// processing jobs.
+		NeighborhoodContainer.init();
+		
 		jobs = new ArrayList<ProcessingJob>();
 		jobs.add(new GreatSchoolsJob());
 		jobs.add(new CrimeReportsJob());
