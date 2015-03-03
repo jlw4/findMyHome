@@ -19,6 +19,12 @@ public class Coordinate {
         this.longitude = longitude;
         this.latitude = latitude;
     }
+    
+    public double distance(Coordinate other) {
+        double d1 = latitude - other.latitude;
+        double d2 = longitude - other.longitude;
+        return Math.sqrt((d1 * d1) + (d2 * d2));
+    }
 
     public long getId() {
         return id;

@@ -2,12 +2,16 @@ package com.hardin.wilson.app;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -40,12 +44,14 @@ public class NeighborhoodContainer {
 	public static final String KML_FILE = "data/neighborhoods.kml";
 
 	public static final double SCHOOL_MARGIN = 0.015;
+	public static final String SEATTLE_DISTRICT_ID = "229";
 
 	private SortedMap<String, Neighborhood> neighborhoods;
 	private SortedMap<Double, Neighborhood> longMap;
 	private SortedMap<Double, Neighborhood> latMap;
 
 	private static NeighborhoodContainer instance;
+	private static Logger logger = Logger.getGlobal();
 
 	/**
 	 * Private constructor, reads in files and sets up
@@ -54,21 +60,25 @@ public class NeighborhoodContainer {
 		neighborhoods = new TreeMap<String, Neighborhood>();
 		longMap = new TreeMap<Double, Neighborhood>();
 		latMap = new TreeMap<Double, Neighborhood>();
-		try {
-			initNeighborhoods();
-			initBoundary();
-			assignSchoolsToNeighborhoods();
-			for (Neighborhood n : neighborhoods.values()) {
-				n.computeAverageSchoolRating();
-			}
-			System.out.println("Successfully computed school ratings");
-		} catch (Exception e) {
-			System.out.println("Error initializing container: " + e.getMessage());
-			e.printStackTrace();
-		}
+		setup();
+	}
+	
+	private void setup() {
+	    try {
+            initNeighborhoods();
+            initBoundary();
+            assignSchoolsToNeighborhoods();
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Error initializing container: " + e.getMessage());
+            StringWriter sw = new StringWriter();
+            e.printStackTrace(new PrintWriter(sw));
+            logger.log(Level.SEVERE, sw.toString());
+        }
 	}
 	
 	private void initNeighborhoods() throws IOException, JsonParseException, JsonMappingException {
+	    logger.info("Initializing neighborhoods..");
+	    long time = System.currentTimeMillis();
 	    ObjectMapper mapper = new ObjectMapper();
         ArrayList<Region> regions = mapper.readValue(
                 new File(REGION_FILE),
@@ -80,10 +90,14 @@ public class NeighborhoodContainer {
             longMap.put(r.getLongitude(), n);
             latMap.put(r.getLatitude(), n);
         }
+        time = System.currentTimeMillis() - time;
+        logger.info("Successfully initalized neighborhoods in " + time + " ms");
 	}
 	
 	// pre: initNeighborhoods()
 	private void initBoundary() throws JAXBException {
+	    logger.info("Initializing boundaries..");
+        long time = System.currentTimeMillis();
 	    JAXBContext jaxbContext = JAXBContext.newInstance(GoogleKmlRoot.class);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         GoogleKmlRoot kml = (GoogleKmlRoot) jaxbUnmarshaller.unmarshal(new File(KML_FILE));
@@ -108,8 +122,8 @@ public class NeighborhoodContainer {
                         n.addCoordinate(new Coordinate(Double.parseDouble(longLat[0]),Double.parseDouble(longLat[1])));
                     }
                     catch (NumberFormatException nfe) {
-                        System.out.println("error parsing coordinate for neighborhood " + n.getName());
-                        System.out.println("error: " + nfe.getMessage());
+                        logger.log(Level.WARNING, "error parsing coordinate for neighborhood " + n.getName());
+                        logger.log(Level.WARNING, nfe.getMessage());
                     }
                 }
             }
@@ -117,45 +131,112 @@ public class NeighborhoodContainer {
         // make sure every neighborhood has a boundary
         for (Neighborhood n : neighborhoods.values()) {
             if (n.getBoundary().size() < 3) {
-                System.out.println("boundary error for " + n.getName());
+                logger.warning("boundary error for " + n.getName());
             }
         }
+        time = System.currentTimeMillis() - time;
+        logger.info("Successfully initalized boundaries in " + time + " ms");
 	}
 	
 	// pre: initBoundary()
-	private void assignSchoolsToNeighborhoods() throws IOException, JsonParseException, JsonMappingException {
-	    ObjectMapper mapper = new ObjectMapper();
-	    Schools schools = mapper.readValue(new File(SCHOOL_FILE),
-                Schools.class);
-        System.out.println("Parsing " + schools.getSchools().size()
-                + " schools");
-        for (School s : schools.getSchools()) {
-            if (s.getGsRating() != 0) {
+	// Assigns schools to the neighborhoods they belong to, and finally has all the schools compute their average score
+	// Schools are added to a neighborhood if the neighborhood has a boundary point within SCHOOL_MARGIN distance
+	// Also, every neighborhood needs at least 1 middle school, high school and elementary school,
+	// so after the boundary assignments, neighborhoods missing a school or two are given their closest of each type
+	private void assignSchoolsToNeighborhoods() {
+	    try {
+    	    long time = System.currentTimeMillis();
+    	    ObjectMapper mapper = new ObjectMapper();
+    	    Schools schools = mapper.readValue(new File(SCHOOL_FILE), Schools.class);
+            logger.info("Parsing " + schools.getSchools().size() + " schools");
+            Set<School> highSchools = new HashSet<School>();
+            Set<School> middleSchools = new HashSet<School>();
+            Set<School> elementarySchools = new HashSet<School>();
+            for (School s : schools.getSchools()) {
+                if (s.getGsRating() == 0 || s.getDistrictId() == null || !s.getDistrictId().equals(SEATTLE_DISTRICT_ID))
+                    continue;
+                if (s.getGradeRange().contains("K"))
+                    highSchools.add(s);
+                else if (s.getGradeRange().contains("8"))
+                    middleSchools.add(s);
+                else if (s.getGradeRange().contains("12"))
+                    elementarySchools.add(s);
+                else
+                    logger.log(Level.WARNING, "Failed to classify school " + s.getName());
+                boolean foundNeighborhood = false;
+                Coordinate sCoord = new Coordinate(s.getLon(), s.getLat());
                 for (Neighborhood n : neighborhoods.values()) {
-                    // does this school belong to this neighborhood?
-                    // case 1: school long lat is close to center
-                    Coordinate sCoord = new Coordinate(s.getLat(), s.getLon());
-                    // TODO: finish. lunch time now
-                    
+                    // case 1: assign school to all neighborhoods that have a boundary coord within SCHOOL_MARGIN distance of school
+                    for (Coordinate c : n.getBoundary()) {
+                        if (sCoord.distance(c) < SCHOOL_MARGIN) {
+                            n.addSchool(s);
+                            foundNeighborhood = true;
+                            break;
+                        }
+                    }
                 }
-                
-                
-                /* Old routine
-                Set<Neighborhood> hoods = new HashSet<Neighborhood>();
-                double r = SCHOOL_RADIUS;
-                while (hoods.isEmpty()) {
-                    hoods.addAll(latMap.headMap(s.getLat() + r)
-                            .tailMap(s.getLat() - r).values());
-                    hoods.retainAll(longMap.headMap(s.getLon() + r)
-                            .tailMap(s.getLon() - r).values());
-                    r += SCHOOL_RADIUS / 4;
+                if (!foundNeighborhood) {
+                    logger.log(Level.WARNING, "Didn't find a boundary for " + s.getName());
+                    // we didn't find a neighborhood for this school with our boundary search, find the closest center
+                    // NOTE: this doesn't happen with a SCHOOL_MARGIN = 0.015, but may happen if we reduce it so I'm leaving it here
+                    double minDist = Double.MAX_VALUE;
+                    Neighborhood closest = null;
+                    for (Neighborhood n : neighborhoods.values()) {
+                        double distance = sCoord.distance(n.getCenter());
+                        if (distance < minDist) {
+                            minDist = distance;
+                            closest = n;
+                        }
+                    }
+                    logger.info("Adding to " + closest.getName() + " distance = " + minDist);
+                    closest.addSchool(s);
                 }
-                for (Neighborhood n : hoods) {
-                    n.addSchool(s);
-                }
-                */
             }
-        }
+            // make sure every neighborhood has at least one of each school
+            for (Neighborhood n : neighborhoods.values()) {
+                boolean hasHS = false;
+                boolean hasMS = false;
+                boolean hasEM = false;
+                for (School s : n.getSchools()) {
+                    if (highSchools.contains(s))
+                        hasHS = true;
+                    else if (middleSchools.contains(s))
+                        hasMS = true;
+                    else if(elementarySchools.contains(s))
+                        hasEM = true;
+                    else
+                        logger.log(Level.WARNING, "Failed to classify school " + s.getName());
+                }
+                if (!hasHS)
+                    addClosestSchool(highSchools, n);
+                if (!hasMS)
+                    addClosestSchool(middleSchools, n);
+                if (!hasEM)
+                    addClosestSchool(elementarySchools, n);
+            }
+            for (Neighborhood n : neighborhoods.values()) {
+                n.computeAverageSchoolRating();
+            }
+            time = System.currentTimeMillis() - time;
+            logger.info("Successfully initialized schools in " + time + " ms");
+	    }
+	    catch (Exception e) {
+	        logger.log(Level.SEVERE, "Error initializing schools", e);
+	    }
+	}
+	
+	private void addClosestSchool(Set<School> schools, Neighborhood n) {
+	    double minDist = Double.MAX_VALUE;
+	    School closest = null;
+	    for (School s : schools) {
+            Coordinate sCoord = new Coordinate(s.getLon(), s.getLat());
+	        double dist = n.getCenter().distance(sCoord);
+	        if (dist < minDist) {
+	            minDist = dist;
+	            closest = s;
+	        }
+	    }
+	    n.addSchool(closest);
 	}
 
 	public static void init() {/*
@@ -231,11 +312,5 @@ public class NeighborhoodContainer {
 
 	public List<Neighborhood> getNeighborhoods() {
 		return new ArrayList<Neighborhood>(neighborhoods.values());
-	}
-	
-	private double distance(Coordinate c1, Coordinate c2) {
-	    double d1 = c1.getLatitude() - c2.getLatitude();
-	    double d2 = c1.getLongitude() - c2.getLongitude();
-	    return Math.sqrt((d1 * d1) + (d2 * d2));
 	}
 }

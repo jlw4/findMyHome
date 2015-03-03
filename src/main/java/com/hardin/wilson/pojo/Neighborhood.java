@@ -11,7 +11,7 @@ public class Neighborhood {
     private double longitude;
     private double latitude;
     private Coordinate center;
-    private Map<Rating, List<Object>> ratingList;
+    private List<School> schools;
     private Map<Rating, Integer> ratings;
     private List<Coordinate> boundary;
 
@@ -26,20 +26,16 @@ public class Neighborhood {
         this.latitude = latitude;
         center = new Coordinate(longitude, latitude);
         boundary = new ArrayList<Coordinate>();
-        ratingList = new HashMap<Rating, List<Object>>();
+        schools = new ArrayList<School>();
         ratings = new HashMap<Rating, Integer>();
-        for (Rating r : Rating.values()) {
-            ratingList.put(r, new ArrayList<Object>());
-        }
     }
     
     public void computeAverageSchoolRating() {
         int sum = 0;
-        for (Object o : ratingList.get(Rating.SCHOOL)) {
-            School s = (School) o;
+        for (School s : schools) {
             sum += s.getGsRating() * 10;
         }
-        ratings.put(Rating.SCHOOL, sum / ratingList.get(Rating.SCHOOL).size());
+        ratings.put(Rating.SCHOOL, sum / schools.size());
     }
     
     public void addCoordinate(Coordinate c) {
@@ -47,7 +43,7 @@ public class Neighborhood {
     }
     
     public void addSchool(School school) {
-        ratingList.get(Rating.SCHOOL).add(school);
+        schools.add(school);
     }
 
     public String getName() {
@@ -74,14 +70,6 @@ public class Neighborhood {
         this.latitude = latitude;
     }
 
-    public Map<Rating, List<Object>> getRatingList() {
-        return ratingList;
-    }
-
-    public void setRatingList(Map<Rating, List<Object>> ratingList) {
-        this.ratingList = ratingList;
-    }
-
     public Map<Rating, Integer> getRatings() {
         return ratings;
     }
@@ -104,5 +92,13 @@ public class Neighborhood {
 
     public void setCenter(Coordinate center) {
         this.center = center;
+    }
+
+    public List<School> getSchools() {
+        return schools;
+    }
+
+    public void setSchools(List<School> schools) {
+        this.schools = schools;
     }
 }
