@@ -21,12 +21,14 @@ public class CoordToNeighborhoodResource {
     
     @GET
     @Timed
-    public String getNeighborhood(@QueryParam("lat") double lat, @QueryParam("long") double longitude) {
+    public Neighborhood getNeighborhood(@QueryParam("lat") double lat, @QueryParam("long") double longitude) {
         Coordinate coord = new Coordinate(longitude, lat);
         for (Neighborhood n : NeighborhoodContainer.getContainer().getNeighborhoods()) {
             if (n.isInsideBounds(coord))
-                return n.getName();
+                return n;
         }
-        return "Unknown Neighborhood";
+        Neighborhood n = new Neighborhood();
+        n.setName("none");
+        return n;
     }
 }

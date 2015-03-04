@@ -69,6 +69,14 @@ h2 {
 
 #browseBox {
 	text-decoration: bold;
+}
+
+.labels {
+	color: white;
+	text-decoration: bold;
+	font-size: 16pt;
+	border: white solid 1px;
+	background: black;
 }​
 
 /*

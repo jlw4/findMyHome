@@ -21,6 +21,12 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     $(".progress-bar").css("-webkit-transition", "width " + durationInS + " ease-in-out");
     $(".progress-bar").css("transition", "width " + durationInS + " ease-in-out");
     
+    var kmlOptions = {
+        preserveViewport: true,
+        map: homeMap,
+        clickable: false
+    };
+    
     function load() {
     	console.log("fetching neighborhood names");
         var req = {
@@ -64,32 +70,42 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
         };
 
         homeMap = new google.maps.Map(document.getElementById("homeMap"),mapProp);
-        var kmlUrl = serverUrl + "/kml?neighborhood=none";
+        homeMap.marker = new MarkerWithLabel({
+            position: null,
+            draggable: false,
+            raiseOnDrag: false,
+            map: null,
+            labelContent: "",
+            labelAnchor: new google.maps.Point(25, 10),
+            labelClass: "labels",
+            icon: "img/empty.png"
+        });
         
-		var kmlOptions = {
-  			preserveViewport: true,
-  			map: homeMap
-		};
-		var kmlLayer = new google.maps.KmlLayer(kmlUrl, kmlOptions);
-		kmlLayer.setMap(homeMap);
-		google.maps.event.addListener(kmlLayer, 'click', function(kmlEvent) {
-			$scope.goNeighborhood(kmlEvent.featureData.name);
+        var kmlUrl = serverUrl + "/kml?neighborhood=none";
+		homeMap.kmlLayer = new google.maps.KmlLayer(kmlUrl, kmlOptions);
+		homeMap.kmlLayer.setMap(homeMap);
+		
+		homeMap.smallLayer = new google.maps.KmlLayer(kmlUrl, kmlOptions);
+		
+		google.maps.event.addListener(homeMap, 'click', function(event) {
+		    // console.log(event);
+            var lat = event.latLng.k;
+            var long = event.latLng.D;
+            var req = {
+                    method: 'GET',
+                    url: hostUrl + "/coordToHood",
+                    params: {long: long, lat: lat}
+                }
+            $http(req).success(function(res){
+                $scope.goNeighborhood(res.name);
+            }).error(function(res){
+                console.log("err");
+                console.log(res);
+            });
 		});
+		
 		google.maps.event.addListener(homeMap, 'mousemove', function(event) {
-			console.log(event);
-			var lat = event.latLng.k;
-			var long = event.latLng.D;
-			var req = {
-		            method: 'GET',
-		            url: hostUrl + "/coordToHood",
-		            params: {long: long, lat: lat}
-		        }
-		        $http(req).success(function(res){
-		            console.log(res);
-		        }).error(function(res){
-		        	console.log("err");
-		        	console.log(res);
-		        });
+		    homeMap.mouseOverEvent = event;
 		});
     }
     
@@ -105,9 +121,9 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
         map = new google.maps.Map(document.getElementById("neighborhoodMap"),mapProp);
         
         
-        var kmlUrl = serverUrl + "/kml";
+        var kmlUrl = "";
         if ($scope.neighborhood != null) {
-        	 kmlUrl += "?neighborhood=" + encodeURIComponent($scope.neighborhood.name);
+        	 kmlUrl = getKmlUrl($scope.neighborhood.name);
         }
         
 		var kmlOptions = {
@@ -123,10 +139,10 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     }
     
     $scope.goHome = function() {
-    	loadHomeMap();
     	navigate("home");
     	$("#homeBox").show();
     	$("#homeNav").addClass("active");
+        loadHomeMap();
     };
     
     $scope.goSearch = function() {
@@ -194,6 +210,46 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
 			break;
     	}
     }
+    
+    function getKmlUrl(name) {
+        return serverUrl + "/kml?neighborhood=" + encodeURIComponent(name);
+    }
+    
+    function getSmallUrl(name) {
+        return serverUrl + "/smallKml?neighborhood=" + encodeURIComponent(name);
+    }
+    
+    $interval(function() {
+        if (homeMap.mouseOverEvent != null) {
+            var event = homeMap.mouseOverEvent;
+            var lat = event.latLng.k;
+            var long = event.latLng.D;
+            var req = {
+                    method: 'GET',
+                    url: hostUrl + "/coordToHood",
+                    params: {long: long, lat: lat}
+                }
+            $http(req).success(function(res) {
+                if (res.name == "none") {
+                    // remove layer and marker
+                    homeMap.marker.setMap(null);
+                    homeMap.smallLayer.setMap(null);
+                }
+                else if (homeMap.marker.labelContent != res.name) {
+                    // update layer and marker
+                    homeMap.marker.labelContent = res.name;
+                    homeMap.marker.position = new google.maps.LatLng(res.longitude,res.latitude);
+                    homeMap.marker.setMap(homeMap);
+                    homeMap.smallLayer.setUrl(getSmallUrl(res.name));
+                    homeMap.smallLayer.setMap(homeMap);
+                }
+            }).error(function(res) {
+                homeMap.marker.setMap(null);
+                homeMap.smallLayer.setMap(null);
+            });
+            homeMap.mouseOverEvent = null;
+        }
+    }, 20);
 
     load();
 	
