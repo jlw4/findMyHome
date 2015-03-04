@@ -33,6 +33,8 @@ public class KmlResource {
 	private static final File BASE_KML_FILE = new File("data/neighborhoods.kml");
 	private Map<String, String> kmlMap;
 	private static final Logger logger = Logger.getLogger(KmlResource.class);
+	
+	public static final String NONE = "none";
     
 	public KmlResource() {
 	    logger.info("Loading Kml Map");
@@ -43,9 +45,12 @@ public class KmlResource {
 	        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 	        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 	        GoogleKmlRoot kml = (GoogleKmlRoot) jaxbUnmarshaller.unmarshal(BASE_KML_FILE);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            jaxbMarshaller.marshal(kml, baos);
+            kmlMap.put(NONE, baos.toString());
 	        for (Placemark placemark : kml.document.folder.placemarks) {
                 placemark.styleUrl = "#selected";
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                baos = new ByteArrayOutputStream();
                 jaxbMarshaller.marshal(kml, baos);
                 kmlMap.put(placemark.name, baos.toString());
                 placemark.styleUrl = "#poly-95CAFF-1-127";

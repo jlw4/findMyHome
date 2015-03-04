@@ -50,7 +50,11 @@
       <br />
       
       <div class="displayBox" id="homeBox">
-        <h2>Home</h2>
+        <h2>Welcome</h2>
+        <div class="panel panel-default"><div class="panel-body" >
+            Search or browse to see how Seattle's neighborhoods stack up!
+        </div></div>
+        <div id="homeMap" class="map"></div>
       </div>
       
       <div class="displayBox" id="browseBox">
@@ -90,7 +94,7 @@
 			  <div class="col-md-2">{{ rating }}</div>
 			</div>
 		</div>
-        <div id="neighborhoodMap" class="hidden-xs"></div>
+        <div id="neighborhoodMap" class="map"></div>
 		<div id="citationBox">
 		  <a ng-href="{{ neighborhood.descriptionCitation }}">[1] {{ neighborhood.descriptionCitation }}</a>
 		</div>

@@ -6,10 +6,11 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     
 	$("#loadingThingy").fadeIn(2500);
 	
-	var defaultLat = 47.606168;
-	var defaultLong = -122.329383;
+	var defaultLat = 47.62;
+	var defaultLong = -122.325;
 	
     var map;
+    var homeMap;
     var serverUrl = "http://54.149.5.12:8080";
     var hostUrl = serverUrl;
     if ($location.$$protocol == "file" || $location.host() == "localhost") {
@@ -21,11 +22,6 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     $(".progress-bar").css("transition", "width " + durationInS + " ease-in-out");
     
     function load() {
-        loadNeighborhoodMap();
-        loadNames();
-    }
-    
-    function loadNames() {
     	console.log("fetching neighborhood names");
         var req = {
             method: 'GET',
@@ -53,26 +49,6 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
         });
     }
     
-    function determineNavigation() {
-    	switch ($location.path()) {
-		case ("/search"):
-			$scope.goSearch();
-			break;
-		case ("/browse"):
-			$scope.goBrowse();
-			break;
-		default:
-			if ($location.path().length > 1) {
-				var path = $location.path().substring(1);
-				if ($scope.neighborhoodNames.indexOf(path) > -1) {
-					$scope.goNeighborhood(path);
-				}
-			} else
-				$scope.goHome();
-			break;
-    	}
-    }
-    
     function navigate(path) {
     	$("#neighborhoodNav").hide();
     	$(".displayBox").hide();
@@ -80,8 +56,44 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     	$location.path(path);
     }
     
+    function loadHomeMap() {
+    	var mapProp = {
+            center: new google.maps.LatLng(defaultLat, defaultLong),
+            zoom: 11,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+
+        homeMap = new google.maps.Map(document.getElementById("homeMap"),mapProp);
+        var kmlUrl = serverUrl + "/kml?neighborhood=none";
+        
+		var kmlOptions = {
+  			preserveViewport: true,
+  			map: homeMap
+		};
+		var kmlLayer = new google.maps.KmlLayer(kmlUrl, kmlOptions);
+		kmlLayer.setMap(homeMap);
+		google.maps.event.addListener(kmlLayer, 'click', function(kmlEvent) {
+			$scope.goNeighborhood(kmlEvent.featureData.name);
+		});
+		google.maps.event.addListener(homeMap, 'mousemove', function(event) {
+			console.log(event);
+			var lat = event.latLng.k;
+			var long = event.latLng.D;
+			var req = {
+		            method: 'GET',
+		            url: hostUrl + "/coordToHood",
+		            params: {long: long, lat: lat}
+		        }
+		        $http(req).success(function(res){
+		            console.log(res);
+		        }).error(function(res){
+		        	console.log("err");
+		        	console.log(res);
+		        });
+		});
+    }
+    
     function loadNeighborhoodMap() {
-    	console.log("loading google map");
     	var mapProp = {
             center: new google.maps.LatLng(defaultLong, defaultLat),
             zoom: 14,
@@ -108,11 +120,10 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
 		google.maps.event.addListener(kmlLayer, 'click', function(kmlEvent) {
 			$scope.goNeighborhood(kmlEvent.featureData.name);
 		});
-        
-        console.log("successfully loaded map");
     }
     
     $scope.goHome = function() {
+    	loadHomeMap();
     	navigate("home");
     	$("#homeBox").show();
     	$("#homeNav").addClass("active");
@@ -161,6 +172,27 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
         	$scope.goHome();
         });
     	$("#neighborhoodBox").fadeIn();
+    }
+    
+    function determineNavigation() {
+    	switch ($location.path()) {
+		case ("/search"):
+			$scope.goSearch();
+			break;
+		case ("/browse"):
+			$scope.goBrowse();
+			break;
+		default:
+			if ($location.path().length > 1) {
+				var path = $location.path().substring(1);
+				if ($scope.neighborhoodNames.indexOf(path) > -1) {
+					$scope.goNeighborhood(path);
+					break;
+				}
+			}
+			$scope.goHome();
+			break;
+    	}
     }
 
     load();
