@@ -31,11 +31,13 @@ public class CrimeReportsJob extends ProcessingJob {
 	private static final String BASE_CRIME_URL = "https://data.seattle.gov/resource/3k2p-39jp.json?";
 	private static final String OUTPUT = "data/crimes.json";
 	
-	private static final double ASSAULTS_WEIGHT = 1.0;
-	private static final double HOMICIDE_WEIGHT = 1.0;
-	private static final double AUTO_THEFTS_WEIGHT = 1.0;
-	private static final double ROBBERY_WEIGHT = 1.0;
-	private static final double THEFT_WEIGHT = 1.0;
+	private static final double LOG_SCALE_MAX = 1000.0;
+	
+	private static final double ASSAULTS_WEIGHT = 5.0;
+	private static final double HOMICIDE_WEIGHT = 50.0;
+	private static final double AUTO_THEFTS_WEIGHT = 3.0;
+	private static final double ROBBERY_WEIGHT = 2.0;
+	private static final double THEFT_WEIGHT = 1.5;
 
 	public void run() {
 		// We only want events in the last year.
@@ -97,10 +99,17 @@ public class CrimeReportsJob extends ProcessingJob {
 				crimeCount.put(neighborhood, count);
 			}
 
-			
+			// Standardize all values onto a logarithmic scale.
 			for (Neighborhood n : neighborhoods) {
-				crimeCount.put(n, Math.floor(((crimeCount.get(n) / maxCount) * 100)) );
-				System.out.println(n.getName() + ": " + crimeCount.get(n));
+				crimeCount.put(n, (((crimeCount.get(n)) / maxCount) * LOG_SCALE_MAX) );
+			}
+			
+			// Set the max to be 50% higher than log max so that no neighborhood has a 100 crime
+			// rating.
+			double maxCountLog = Math.log10(LOG_SCALE_MAX * 1.5);
+			for (Neighborhood n : neighborhoods) {
+				crimeCount.put(n, ((Math.log10(crimeCount.get(n)) * 100) / maxCountLog ));
+				System.out.println(n.getName() + ": " + (int) Math.rint(crimeCount.get(n)));
 			}
 			
 			/*

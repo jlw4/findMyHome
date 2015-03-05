@@ -25,9 +25,9 @@ public class FetchCommand extends Command {
 		NeighborhoodContainer.init();
 		switch (name) {
     		case ("fetch"):
-    	        jobs.add(new GreatSchoolsJob());
+    	        //jobs.add(new GreatSchoolsJob());
     	        jobs.add(new CrimeReportsJob());
-    	        jobs.add(new NeighborhoodDescriptionJob());
+    	        //jobs.add(new NeighborhoodDescriptionJob());
     	        break;
     		case ("desc"):
     		    jobs.add(new NeighborhoodDescriptionJob());
