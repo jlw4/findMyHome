@@ -1,5 +1,7 @@
 package com.hardin.wilson.jobs;
 
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +17,8 @@ import com.hardin.wilson.app.NeighborhoodContainer;
 import com.hardin.wilson.pojo.Coordinate;
 import com.hardin.wilson.pojo.CrimeReport;
 import com.hardin.wilson.pojo.Neighborhood;
+import com.hardin.wilson.pojo.NeighborhoodRatings;
+import com.hardin.wilson.pojo.Rating;
 
 /**
  * Class that contains the logic for a job that grabs crime data from Opendata
@@ -26,8 +30,7 @@ import com.hardin.wilson.pojo.Neighborhood;
  * @author Cameron
  */
 public class CrimeReportsJob extends ProcessingJob {
-	private static final Logger log = LogManager
-			.getLogger(CrimeReportsJob.class);
+	private static final Logger logger = LogManager.getLogger(CrimeReportsJob.class);
 	private static final String BASE_CRIME_URL = "https://data.seattle.gov/resource/3k2p-39jp.json?";
 	private static final String OUTPUT = "data/crimes.json";
 	
@@ -104,22 +107,40 @@ public class CrimeReportsJob extends ProcessingJob {
 				crimeCount.put(n, (((crimeCount.get(n)) / maxCount) * LOG_SCALE_MAX) );
 			}
 			
+			
+			ObjectMapper jsonMapper = new ObjectMapper();
+			List<NeighborhoodRatings> nrs;
+			try {
+				nrs = jsonMapper.readValue(NeighborhoodRatings.ratingsFile, 
+						new TypeReference<List<NeighborhoodRatings>>(){});
+			} catch (Exception e) {
+				logger.error("Error reading ratings from file: " + e.getMessage());
+				System.err.println(e.getStackTrace());
+				return;
+			}
+			
+			
 			// Set the max to be 50% higher than log max so that no neighborhood has a 100 crime
 			// rating.
 			double maxCountLog = Math.log10(LOG_SCALE_MAX * 1.5);
 			for (Neighborhood n : neighborhoods) {
-				crimeCount.put(n, ((Math.log10(crimeCount.get(n)) * 100) / maxCountLog ));
-				System.out.println(n.getName() + ": " + (int) Math.rint(crimeCount.get(n)));
+				for (NeighborhoodRatings nr : nrs) {
+					if (n.getName().equals(nr.getName())) {
+						crimeCount.put(n, ((Math.log10(crimeCount.get(n)) * 100) / maxCountLog ));
+						nr.getRatings().put(Rating.CRIME.getName(), (int) Math.rint(crimeCount.get(n)));
+						System.out.println(n.getName() + ": " + (int) Math.rint(crimeCount.get(n)));
+					}
+				}
 			}
 			
-			/*
-			// Write this massive JSON string to file
-			PrintWriter out = new PrintWriter(OUTPUT);
-			out.write(mapper.writerWithDefaultPrettyPrinter()
-					.writeValueAsString(crimes));
-			out.close();*/
+			String jsonString = new ObjectMapper()
+					.writerWithDefaultPrettyPrinter().writeValueAsString(
+							nrs);
+			PrintWriter out = new PrintWriter(NeighborhoodRatings.ratingsFile);
+			out.write(jsonString);
+			out.close();
 		} catch (Exception e) {
-			log.error("Unable to write to file " + OUTPUT + ": "
+			logger.error("Unable to write to file " + OUTPUT + ": "
 					+ e.getMessage());
 			e.printStackTrace(System.err);
 		}

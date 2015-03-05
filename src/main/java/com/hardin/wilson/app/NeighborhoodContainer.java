@@ -88,7 +88,7 @@ public class NeighborhoodContainer {
 	    Random randy = new Random();
 	    for (Rating r : Rating.values()) {
 	        for (Neighborhood n : neighborhoods.values()) {
-	            n.addRating(r, randy.nextInt(100));
+	            n.addRating(r.getName(), randy.nextInt(100));
 	        }
 	    }
 	}

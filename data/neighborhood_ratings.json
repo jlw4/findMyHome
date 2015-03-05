@@ -1,0 +1,469 @@
+[ {
+  "name" : "Admiral",
+  "ratings" : {
+    "Crime" : 52,
+    "School" : 78
+  }
+}, {
+  "name" : "Alki",
+  "ratings" : {
+    "Crime" : 42,
+    "School" : 78
+  }
+}, {
+  "name" : "Arbor Heights",
+  "ratings" : {
+    "Crime" : 32,
+    "School" : 47
+  }
+}, {
+  "name" : "Atlantic",
+  "ratings" : {
+    "Crime" : 59,
+    "School" : 50
+  }
+}, {
+  "name" : "Ballard",
+  "ratings" : {
+    "Crime" : 70,
+    "School" : 84
+  }
+}, {
+  "name" : "Beacon Hill",
+  "ratings" : {
+    "Crime" : 76,
+    "School" : 49
+  }
+}, {
+  "name" : "Belltown",
+  "ratings" : {
+    "Crime" : 74,
+    "School" : 70
+  }
+}, {
+  "name" : "Bitter Lake",
+  "ratings" : {
+    "Crime" : 53,
+    "School" : 40
+  }
+}, {
+  "name" : "Blue Ridge",
+  "ratings" : {
+    "Crime" : 13,
+    "School" : 60
+  }
+}, {
+  "name" : "Brighton",
+  "ratings" : {
+    "Crime" : 60,
+    "School" : 38
+  }
+}, {
+  "name" : "Broadmoor",
+  "ratings" : {
+    "Crime" : 21,
+    "School" : 51
+  }
+}, {
+  "name" : "Broadview",
+  "ratings" : {
+    "Crime" : 47,
+    "School" : 50
+  }
+}, {
+  "name" : "Bryant",
+  "ratings" : {
+    "Crime" : 36,
+    "School" : 90
+  }
+}, {
+  "name" : "Capitol Hill",
+  "ratings" : {
+    "Crime" : 84,
+    "School" : 50
+  }
+}, {
+  "name" : "Cedar Park",
+  "ratings" : {
+    "Crime" : 51,
+    "School" : 72
+  }
+}, {
+  "name" : "Central District",
+  "ratings" : {
+    "Crime" : 69,
+    "School" : 45
+  }
+}, {
+  "name" : "Columbia City",
+  "ratings" : {
+    "Crime" : 60,
+    "School" : 44
+  }
+}, {
+  "name" : "Crown Hill",
+  "ratings" : {
+    "Crime" : 42,
+    "School" : 82
+  }
+}, {
+  "name" : "Denny-Blaine",
+  "ratings" : {
+    "Crime" : 11,
+    "School" : 40
+  }
+}, {
+  "name" : "Downtown",
+  "ratings" : {
+    "Crime" : 94,
+    "School" : 35
+  }
+}, {
+  "name" : "Eastlake",
+  "ratings" : {
+    "Crime" : 51,
+    "School" : 76
+  }
+}, {
+  "name" : "Fauntleroy",
+  "ratings" : {
+    "Crime" : 41,
+    "School" : 50
+  }
+}, {
+  "name" : "First Hill",
+  "ratings" : {
+    "Crime" : 79,
+    "School" : 37
+  }
+}, {
+  "name" : "Fremont",
+  "ratings" : {
+    "Crime" : 63,
+    "School" : 82
+  }
+}, {
+  "name" : "Georgetown",
+  "ratings" : {
+    "Crime" : 52,
+    "School" : 65
+  }
+}, {
+  "name" : "Green Lake",
+  "ratings" : {
+    "Crime" : 56,
+    "School" : 72
+  }
+}, {
+  "name" : "Greenwood",
+  "ratings" : {
+    "Crime" : 69,
+    "School" : 67
+  }
+}, {
+  "name" : "Haller Lake",
+  "ratings" : {
+    "Crime" : 66,
+    "School" : 43
+  }
+}, {
+  "name" : "Hawthorne Hills",
+  "ratings" : {
+    "Crime" : 6,
+    "School" : 77
+  }
+}, {
+  "name" : "High Point",
+  "ratings" : {
+    "Crime" : 59,
+    "School" : 46
+  }
+}, {
+  "name" : "Highland Park",
+  "ratings" : {
+    "Crime" : 49,
+    "School" : 40
+  }
+}, {
+  "name" : "Industrial District",
+  "ratings" : {
+    "Crime" : 67,
+    "School" : 58
+  }
+}, {
+  "name" : "Interbay",
+  "ratings" : {
+    "Crime" : 39,
+    "School" : 87
+  }
+}, {
+  "name" : "International District",
+  "ratings" : {
+    "Crime" : 72,
+    "School" : 50
+  }
+}, {
+  "name" : "Laurelhurst",
+  "ratings" : {
+    "Crime" : 29,
+    "School" : 73
+  }
+}, {
+  "name" : "Leschi",
+  "ratings" : {
+    "Crime" : 43,
+    "School" : 54
+  }
+}, {
+  "name" : "Lower Queen Anne",
+  "ratings" : {
+    "Crime" : 66,
+    "School" : 88
+  }
+}, {
+  "name" : "Loyal Heights",
+  "ratings" : {
+    "Crime" : 47,
+    "School" : 88
+  }
+}, {
+  "name" : "Madison Park",
+  "ratings" : {
+    "Crime" : 29,
+    "School" : 40
+  }
+}, {
+  "name" : "Madison Valley",
+  "ratings" : {
+    "Crime" : 20,
+    "School" : 42
+  }
+}, {
+  "name" : "Madrona",
+  "ratings" : {
+    "Crime" : 41,
+    "School" : 38
+  }
+}, {
+  "name" : "Magnolia",
+  "ratings" : {
+    "Crime" : 48,
+    "School" : 68
+  }
+}, {
+  "name" : "Maple Leaf",
+  "ratings" : {
+    "Crime" : 57,
+    "School" : 68
+  }
+}, {
+  "name" : "Matthews Beach",
+  "ratings" : {
+    "Crime" : 29,
+    "School" : 90
+  }
+}, {
+  "name" : "Meadowbrook",
+  "ratings" : {
+    "Crime" : 44,
+    "School" : 77
+  }
+}, {
+  "name" : "Montlake",
+  "ratings" : {
+    "Crime" : 29,
+    "School" : 60
+  }
+}, {
+  "name" : "Mount Baker",
+  "ratings" : {
+    "Crime" : 58,
+    "School" : 57
+  }
+}, {
+  "name" : "North Beach",
+  "ratings" : {
+    "Crime" : 17,
+    "School" : 77
+  }
+}, {
+  "name" : "North College Park",
+  "ratings" : {
+    "Crime" : 55,
+    "School" : 52
+  }
+}, {
+  "name" : "North Delridge",
+  "ratings" : {
+    "Crime" : 44,
+    "School" : 47
+  }
+}, {
+  "name" : "Northgate",
+  "ratings" : {
+    "Crime" : 63,
+    "School" : 46
+  }
+}, {
+  "name" : "Olympic Hills",
+  "ratings" : {
+    "Crime" : 56,
+    "School" : 65
+  }
+}, {
+  "name" : "Olympic Manor",
+  "ratings" : {
+    "Crime" : 29,
+    "School" : 91
+  }
+}, {
+  "name" : "Phinney Ridge",
+  "ratings" : {
+    "Crime" : 52,
+    "School" : 78
+  }
+}, {
+  "name" : "Pinehurst",
+  "ratings" : {
+    "Crime" : 52,
+    "School" : 51
+  }
+}, {
+  "name" : "Pioneer Square",
+  "ratings" : {
+    "Crime" : 69,
+    "School" : 25
+  }
+}, {
+  "name" : "Portage Bay",
+  "ratings" : {
+    "Crime" : 29,
+    "School" : 66
+  }
+}, {
+  "name" : "Queen Anne",
+  "ratings" : {
+    "Crime" : 62,
+    "School" : 88
+  }
+}, {
+  "name" : "Rainier Beach",
+  "ratings" : {
+    "Crime" : 71,
+    "School" : 40
+  }
+}, {
+  "name" : "Ravenna",
+  "ratings" : {
+    "Crime" : 50,
+    "School" : 97
+  }
+}, {
+  "name" : "Riverview",
+  "ratings" : {
+    "Crime" : 39,
+    "School" : 44
+  }
+}, {
+  "name" : "Roosevelt",
+  "ratings" : {
+    "Crime" : 50,
+    "School" : 73
+  }
+}, {
+  "name" : "Roxhill",
+  "ratings" : {
+    "Crime" : 52,
+    "School" : 47
+  }
+}, {
+  "name" : "Sand Point",
+  "ratings" : {
+    "Crime" : 15,
+    "School" : 60
+  }
+}, {
+  "name" : "Seward Park",
+  "ratings" : {
+    "Crime" : 41,
+    "School" : 31
+  }
+}, {
+  "name" : "South Delridge",
+  "ratings" : {
+    "Crime" : 57,
+    "School" : 42
+  }
+}, {
+  "name" : "South Lake Union",
+  "ratings" : {
+    "Crime" : 60,
+    "School" : 68
+  }
+}, {
+  "name" : "South Park",
+  "ratings" : {
+    "Crime" : 55,
+    "School" : 40
+  }
+}, {
+  "name" : "Sunset Hill",
+  "ratings" : {
+    "Crime" : 42,
+    "School" : 77
+  }
+}, {
+  "name" : "University District",
+  "ratings" : {
+    "Crime" : 78,
+    "School" : 92
+  }
+}, {
+  "name" : "Victory Heights",
+  "ratings" : {
+    "Crime" : 43,
+    "School" : 74
+  }
+}, {
+  "name" : "View Ridge",
+  "ratings" : {
+    "Crime" : 25,
+    "School" : 84
+  }
+}, {
+  "name" : "Wallingford",
+  "ratings" : {
+    "Crime" : 62,
+    "School" : 86
+  }
+}, {
+  "name" : "Wedgwood",
+  "ratings" : {
+    "Crime" : 49,
+    "School" : 89
+  }
+}, {
+  "name" : "West Seattle",
+  "ratings" : {
+    "Crime" : 65,
+    "School" : 64
+  }
+}, {
+  "name" : "Westlake",
+  "ratings" : {
+    "Crime" : 44,
+    "School" : 83
+  }
+}, {
+  "name" : "Whittier Heights",
+  "ratings" : {
+    "Crime" : 35,
+    "School" : 91
+  }
+}, {
+  "name" : "Windermere",
+  "ratings" : {
+    "Crime" : 13,
+    "School" : 68
+  }
+} ]

@@ -12,7 +12,7 @@ public class Neighborhood {
     private double latitude;
     private Coordinate center;
     private List<School> schools;
-    private Map<Rating, Integer> ratings;
+    private Map<String, Integer> ratings;
     private List<Coordinate> boundary;
     private String description;
     private String descriptionCitation;
@@ -29,7 +29,7 @@ public class Neighborhood {
         center = new Coordinate(longitude, latitude);
         boundary = new ArrayList<Coordinate>();
         schools = new ArrayList<School>();
-        ratings = new HashMap<Rating, Integer>();
+        ratings = new HashMap<String, Integer>();
     }
     
     public void addDescription(String description, String citation) {
@@ -37,7 +37,7 @@ public class Neighborhood {
         this.descriptionCitation = citation;
     }
     
-    public void addRating(Rating r, int score) {
+    public void addRating(String r, int score) {
         ratings.put(r, score);
     }
     
@@ -46,7 +46,7 @@ public class Neighborhood {
         for (School s : schools) {
             sum += s.getGsRating() * 10;
         }
-        ratings.put(Rating.SCHOOL, sum / schools.size());
+        ratings.put("School", sum / schools.size());
     }
     
     public void addCoordinate(Coordinate c) {
@@ -128,11 +128,11 @@ public class Neighborhood {
         this.latitude = latitude;
     }
 
-    public Map<Rating, Integer> getRatings() {
+    public Map<String, Integer> getRatings() {
         return ratings;
     }
 
-    public void setRatings(Map<Rating, Integer> ratings) {
+    public void setRatings(Map<String, Integer> ratings) {
         this.ratings = ratings;
     }
 
