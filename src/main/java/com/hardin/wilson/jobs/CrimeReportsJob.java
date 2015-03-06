@@ -60,89 +60,85 @@ public class CrimeReportsJob extends ProcessingJob {
 
 				+ "&$limit=50000";
 
+		List<CrimeReport> crimes = new ArrayList<CrimeReport>();
+		ObjectMapper mapper = new ObjectMapper();
+		int offset = 0;
+		int records = 0;
+
 		try {
-			List<CrimeReport> crimes = new ArrayList<CrimeReport>();
-			ObjectMapper mapper = new ObjectMapper();
-			int offset = 0;
-			int records = 0;
-			
 			// The maximum number of records we can grab from openData is 50000
-			// at a time so we need to page through the data set to get everything.
+			// at a time so we need to page through the data set to get
+			// everything.
 			do {
-				String encodedUri = UriEncoder.encode(uri + "&$offset=" + offset);
+				String encodedUri = UriEncoder.encode(uri + "&$offset="
+						+ offset);
 				String response = fetchResource(BASE_CRIME_URL + encodedUri);
 
-				List<CrimeReport> newCrimes = mapper
-						.readValue(response, new TypeReference<ArrayList<CrimeReport>>() {});
+				List<CrimeReport> newCrimes = mapper.readValue(response,
+						new TypeReference<ArrayList<CrimeReport>>() {
+						});
 				crimes.addAll(newCrimes);
 				records = newCrimes.size();
 				offset += 50000;
 			} while (records == offset);
-			
-			// Get all the neighborhood objects.
-			List<Neighborhood> neighborhoods = NeighborhoodContainer.getContainer().getNeighborhoods();
-			
-			Map<Neighborhood, Double> crimeCount = new HashMap<Neighborhood, Double>();
-			
-			double maxCount = 0.0;
-			for (Neighborhood neighborhood : neighborhoods) {
-				double count = 0.0;
-				for (CrimeReport crime : crimes) {
-					if (neighborhood.isInsideBounds(new Coordinate(crime.getLongitude(), crime.getLatitude()))) {
-						switch(crime.getEvent_clearance_subgroup()) {
-							case "ASSAULTS" 	:	count += ASSAULTS_WEIGHT;
-							case "HOMICIDE" 	: 	count += HOMICIDE_WEIGHT;
-							case "AUTO THEFTS" 	:	count += AUTO_THEFTS_WEIGHT;
-							case "ROBBERY"		:	count += ROBBERY_WEIGHT;
-							case "THEFT"		: 	count += THEFT_WEIGHT;
-						}
-					}
-				}
-				maxCount = Math.max(maxCount, count);
-				crimeCount.put(neighborhood, count);
-			}
-
-			// Standardize all values onto a logarithmic scale.
-			for (Neighborhood n : neighborhoods) {
-				crimeCount.put(n, (((crimeCount.get(n)) / maxCount) * LOG_SCALE_MAX) );
-			}
-			
-			
-			ObjectMapper jsonMapper = new ObjectMapper();
-			List<NeighborhoodRatings> nrs;
-			try {
-				nrs = jsonMapper.readValue(NeighborhoodRatings.ratingsFile, 
-						new TypeReference<List<NeighborhoodRatings>>(){});
-			} catch (Exception e) {
-				logger.error("Error reading ratings from file: " + e.getMessage());
-				System.err.println(e.getStackTrace());
-				return;
-			}
-			
-			
-			// Set the max to be 50% higher than log max so that no neighborhood has a 100 crime
-			// rating.
-			double maxCountLog = Math.log10(LOG_SCALE_MAX * 1.5);
-			for (Neighborhood n : neighborhoods) {
-				for (NeighborhoodRatings nr : nrs) {
-					if (n.getName().equals(nr.getName())) {
-						crimeCount.put(n, ((Math.log10(crimeCount.get(n)) * 100) / maxCountLog ));
-						nr.getRatings().put(Rating.CRIME.getName(), (int) Math.rint(crimeCount.get(n)));
-						System.out.println(n.getName() + ": " + (int) Math.rint(crimeCount.get(n)));
-					}
-				}
-			}
-			
-			String jsonString = new ObjectMapper()
-					.writerWithDefaultPrettyPrinter().writeValueAsString(
-							nrs);
-			PrintWriter out = new PrintWriter(NeighborhoodRatings.ratingsFile);
-			out.write(jsonString);
-			out.close();
 		} catch (Exception e) {
-			logger.error("Unable to write to file " + OUTPUT + ": "
+			logger.error("Unable to read crime data from OpenData Seattle: "
 					+ e.getMessage());
-			e.printStackTrace(System.err);
 		}
+
+		// Get all the neighborhood objects.
+		List<Neighborhood> neighborhoods = NeighborhoodContainer.getContainer()
+				.getNeighborhoods();
+
+		Map<Neighborhood, Double> crimeCount = new HashMap<Neighborhood, Double>();
+
+		double maxCount = 0.0;
+		for (Neighborhood neighborhood : neighborhoods) {
+			double count = 0.0;
+			for (CrimeReport crime : crimes) {
+				if (neighborhood.isInsideBounds(new Coordinate(crime
+						.getLongitude(), crime.getLatitude()))) {
+					switch (crime.getEvent_clearance_subgroup()) {
+					case "ASSAULTS":
+						count += ASSAULTS_WEIGHT;
+					case "HOMICIDE":
+						count += HOMICIDE_WEIGHT;
+					case "AUTO THEFTS":
+						count += AUTO_THEFTS_WEIGHT;
+					case "ROBBERY":
+						count += ROBBERY_WEIGHT;
+					case "THEFT":
+						count += THEFT_WEIGHT;
+					}
+				}
+			}
+			maxCount = Math.max(maxCount, count);
+			crimeCount.put(neighborhood, count);
+		}
+
+		// Standardize all values onto a logarithmic scale.
+		for (Neighborhood n : neighborhoods) {
+			crimeCount.put(n,
+					(((crimeCount.get(n)) / maxCount) * LOG_SCALE_MAX));
+		}
+		
+		// Get current ratings data.
+		List<NeighborhoodRatings> nrs = readRatingsFile();
+
+		// Set the max to be 50% higher than log max so that no neighborhood has
+		// a 100 crime rating.
+		double maxCountLog = Math.log10(LOG_SCALE_MAX * 1.5);
+		for (Neighborhood n : neighborhoods) {
+			for (NeighborhoodRatings nr : nrs) {
+				if (n.getName().equals(nr.getName())) {
+					crimeCount.put(n, ((Math.log10(crimeCount.get(n)) * 100) / maxCountLog));
+					nr.getRatings().put(Rating.CRIME.getName(), (int) Math.rint(crimeCount.get(n)));
+					System.out.println(n.getName() + ": " + (int) Math.rint(crimeCount.get(n)));
+				}
+			}
+		}
+		
+		// Update ratings.
+		writeRatingsFile(nrs);
 	}
 }

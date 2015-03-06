@@ -20,11 +20,13 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hardin.wilson.pojo.Coordinate;
 import com.hardin.wilson.pojo.Descriptions;
 import com.hardin.wilson.pojo.Neighborhood;
+import com.hardin.wilson.pojo.NeighborhoodRatings;
 import com.hardin.wilson.pojo.Rating;
 import com.hardin.wilson.pojo.Region;
 import com.hardin.wilson.pojo.School;
@@ -44,12 +46,8 @@ public class NeighborhoodContainer {
 
 	// files
 	public static final String REGION_FILE = "data/zillow_regions.json";
-	public static final String SCHOOL_FILE = "data/school.json";
 	public static final String KML_FILE = "data/neighborhoods.kml";
 	public static final String DESCRIPTIONS_FILE = "data/neighborhood_descriptions.json";
-
-	public static final double SCHOOL_MARGIN = 0.015;
-	public static final String SEATTLE_DISTRICT_ID = "229";
 
 	private SortedMap<String, Neighborhood> neighborhoods;
 	private SortedMap<Double, Neighborhood> longMap;
@@ -73,8 +71,7 @@ public class NeighborhoodContainer {
             initNeighborhoods();
             initBoundary();
             initDescriptions();
-            initRandomRatings();
-            assignSchoolsToNeighborhoods();
+            initRatings();
         } catch (Exception e) {
             logger.log(Level.ERROR, "Error initializing container: " + e.getMessage());
             StringWriter sw = new StringWriter();
@@ -84,12 +81,19 @@ public class NeighborhoodContainer {
 	}
 	
 	// temporary, just adds some random ratings so I have something to show in the ui
-	private void initRandomRatings() {
-	    Random randy = new Random();
-	    for (Rating r : Rating.values()) {
-	        for (Neighborhood n : neighborhoods.values()) {
-	            n.addRating(r.getName(), randy.nextInt(100));
-	        }
+	private void initRatings() {
+	    try {
+	    	List<NeighborhoodRatings> nrs = new ObjectMapper().readValue(NeighborhoodRatings.ratingsFile, 
+	    			new TypeReference<List<NeighborhoodRatings>>(){});
+	    	for (Neighborhood n : neighborhoods.values()) {
+	    		for (NeighborhoodRatings nr : nrs) {
+	    			if (n.getName().equals(nr.getName())) {
+	    				n.setRatings(nr.getRatings());
+	    			}
+	    		}
+	    	}
+	    } catch (Exception e) {
+	        logger.log(Level.ERROR, "Error initializing ratings from file", e);
 	    }
 	}
 	
@@ -167,107 +171,6 @@ public class NeighborhoodContainer {
 	    catch (Exception e) {
 	        logger.log(Level.ERROR, "Error initializing descriptions", e);
 	    }
-	}
-	
-	// pre: initBoundary()
-	// Assigns schools to the neighborhoods they belong to, and finally has all the schools compute their average score
-	// Schools are added to a neighborhood if the neighborhood has a boundary point within SCHOOL_MARGIN distance
-	// Also, every neighborhood needs at least 1 middle school, high school and elementary school,
-	// so after the boundary assignments, neighborhoods missing a school or two are given their closest of each type
-	private void assignSchoolsToNeighborhoods() {
-	    try {
-    	    long time = System.currentTimeMillis();
-    	    ObjectMapper mapper = new ObjectMapper();
-    	    Schools schools = mapper.readValue(new File(SCHOOL_FILE), Schools.class);
-            logger.info("Parsing " + schools.getSchools().size() + " schools");
-            Set<School> highSchools = new HashSet<School>();
-            Set<School> middleSchools = new HashSet<School>();
-            Set<School> elementarySchools = new HashSet<School>();
-            for (School s : schools.getSchools()) {
-                if (s.getGsRating() == 0 || s.getDistrictId() == null || !s.getDistrictId().equals(SEATTLE_DISTRICT_ID))
-                    continue;
-                if (s.getGradeRange().contains("K"))
-                    highSchools.add(s);
-                else if (s.getGradeRange().contains("8"))
-                    middleSchools.add(s);
-                else if (s.getGradeRange().contains("12"))
-                    elementarySchools.add(s);
-                else
-                    logger.log(Level.WARN, "Failed to classify school " + s.getName());
-                boolean foundNeighborhood = false;
-                Coordinate sCoord = new Coordinate(s.getLon(), s.getLat());
-                for (Neighborhood n : neighborhoods.values()) {
-                    // case 1: assign school to all neighborhoods that have a boundary coord within SCHOOL_MARGIN distance of school
-                    for (Coordinate c : n.getBoundary()) {
-                        if (sCoord.distance(c) < SCHOOL_MARGIN) {
-                            n.addSchool(s);
-                            foundNeighborhood = true;
-                            break;
-                        }
-                    }
-                }
-                if (!foundNeighborhood) {
-                    logger.log(Level.WARN, "Didn't find a boundary for " + s.getName());
-                    // we didn't find a neighborhood for this school with our boundary search, find the closest center
-                    // NOTE: this doesn't happen with a SCHOOL_MARGIN = 0.015, but may happen if we reduce it so I'm leaving it here
-                    double minDist = Double.MAX_VALUE;
-                    Neighborhood closest = null;
-                    for (Neighborhood n : neighborhoods.values()) {
-                        double distance = sCoord.distance(n.getCenter());
-                        if (distance < minDist) {
-                            minDist = distance;
-                            closest = n;
-                        }
-                    }
-                    logger.info("Adding to " + closest.getName() + " distance = " + minDist);
-                    closest.addSchool(s);
-                }
-            }
-            // make sure every neighborhood has at least one of each school
-            for (Neighborhood n : neighborhoods.values()) {
-                boolean hasHS = false;
-                boolean hasMS = false;
-                boolean hasEM = false;
-                for (School s : n.getSchools()) {
-                    if (highSchools.contains(s))
-                        hasHS = true;
-                    else if (middleSchools.contains(s))
-                        hasMS = true;
-                    else if(elementarySchools.contains(s))
-                        hasEM = true;
-                    else
-                        logger.log(Level.WARN, "Failed to classify school " + s.getName());
-                }
-                if (!hasHS)
-                    addClosestSchool(highSchools, n);
-                if (!hasMS)
-                    addClosestSchool(middleSchools, n);
-                if (!hasEM)
-                    addClosestSchool(elementarySchools, n);
-            }
-            for (Neighborhood n : neighborhoods.values()) {
-                n.computeAverageSchoolRating();
-            }
-            time = System.currentTimeMillis() - time;
-            logger.info("Successfully initialized schools in " + time + " ms");
-	    }
-	    catch (Exception e) {
-	        logger.log(Level.ERROR, "Error initializing schools", e);
-	    }
-	}
-	
-	private void addClosestSchool(Set<School> schools, Neighborhood n) {
-	    double minDist = Double.MAX_VALUE;
-	    School closest = null;
-	    for (School s : schools) {
-            Coordinate sCoord = new Coordinate(s.getLon(), s.getLat());
-	        double dist = n.getCenter().distance(sCoord);
-	        if (dist < minDist) {
-	            minDist = dist;
-	            closest = s;
-	        }
-	    }
-	    n.addSchool(closest);
 	}
 
 	public static void init() {

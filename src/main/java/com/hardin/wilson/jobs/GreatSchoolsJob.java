@@ -1,8 +1,5 @@
 package com.hardin.wilson.jobs;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -14,7 +11,6 @@ import java.util.Set;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.hardin.wilson.app.NeighborhoodContainer;
@@ -25,22 +21,20 @@ import com.hardin.wilson.pojo.Rating;
 import com.hardin.wilson.pojo.School;
 import com.hardin.wilson.pojo.Schools;
 
+/**
+ *	A Job that will grab current school rating information for Seattle and update a local
+ *	ratings file with the new rating information.
+ */
 public class GreatSchoolsJob extends ProcessingJob {
 	private static Logger logger = Logger.getLogger(GreatSchoolsJob.class);
 
 	private static final String GS_URL = 
 			"http://api.greatschools.org/schools/WA/Seattle?key=e8w1s8bocy0yanumjauksaxx&limit=10000";
-
-	//private static final File OUTPUT = new File("data/school.json");
 	
 	public static final double SCHOOL_MARGIN = 0.015;
 	public static final String SEATTLE_DISTRICT_ID = "229";
 
-	/**
-	 * 
-	 * Gets school information and outputs it to a file.
-	 * 
-	 */
+	
 	@Override
 	public void run() {
 		String response = fetchResource(GS_URL);
@@ -67,32 +61,16 @@ public class GreatSchoolsJob extends ProcessingJob {
 			}
 		}
 		
-		ObjectMapper jsonMapper = new ObjectMapper();
-		List<NeighborhoodRatings> nrs;
-		try {
-			nrs = jsonMapper.readValue(NeighborhoodRatings.ratingsFile, 
-					new TypeReference<List<NeighborhoodRatings>>(){});
-		} catch (Exception e) {
-			logger.error("Error reading ratings from file: " + e.getMessage());
-			System.err.println(e.getStackTrace());
-			return;
-		}
-		
+		// Read ratings in, update with school ratings, write back to disk.
+		List<NeighborhoodRatings> nrs = readRatingsFile();
 		updateSchoolRatings(schools, nrs);
-		
-		// Write to the JSON data file.
-		try {
-			String jsonString = jsonMapper.writerWithDefaultPrettyPrinter().writeValueAsString(nrs);
-			PrintWriter out = new PrintWriter(NeighborhoodRatings.ratingsFile);
-			out.write(jsonString);
-			out.close();
-		} catch (Exception e) {
-			logger.error("Error writing JSON to file: " + e.getMessage());
-			System.err.println(e.getStackTrace());
-			return;
-		}
+		writeRatingsFile(nrs);
 	}
 	
+	/**
+	 * Takes schools and updates the neighborhood ratings with new school rating information
+	 * based on Great Schools data.
+	 */
 	private void updateSchoolRatings(Schools schools, List<NeighborhoodRatings> neighborhoodRatings) {
 
 		long time = System.currentTimeMillis();
@@ -197,7 +175,10 @@ public class GreatSchoolsJob extends ProcessingJob {
 		logger.info("Successfully initialized schools in " + time + " ms");
 	}
 	
-	
+	/**
+	 * Gets the closest school in proximity to a neighborhood n from a given set of
+	 * schools.
+	 */
 	private School getClosestSchool(Set<School> schools, Neighborhood n) {
 	    double minDist = Double.MAX_VALUE;
 	    School closest = null;

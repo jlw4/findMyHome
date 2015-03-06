@@ -8,10 +8,9 @@ import java.util.Map;
 public class Neighborhood {
     
     private String name;
-    private double longitude;
-    private double latitude;
+    private double longitude; // center long
+    private double latitude;  // center lat
     private Coordinate center;
-    private List<School> schools;
     private Map<String, Integer> ratings;
     private List<Coordinate> boundary;
     private String description;
@@ -28,7 +27,6 @@ public class Neighborhood {
         this.latitude = latitude;
         center = new Coordinate(longitude, latitude);
         boundary = new ArrayList<Coordinate>();
-        schools = new ArrayList<School>();
         ratings = new HashMap<String, Integer>();
     }
     
@@ -41,20 +39,8 @@ public class Neighborhood {
         ratings.put(r, score);
     }
     
-    public void computeAverageSchoolRating() {
-        int sum = 0;
-        for (School s : schools) {
-            sum += s.getGsRating() * 10;
-        }
-        ratings.put("School", sum / schools.size());
-    }
-    
     public void addCoordinate(Coordinate c) {
         boundary.add(c);
-    }
-    
-    public void addSchool(School school) {
-        schools.add(school);
     }
     
     /**
@@ -150,14 +136,6 @@ public class Neighborhood {
 
     public void setCenter(Coordinate center) {
         this.center = center;
-    }
-
-    public List<School> getSchools() {
-        return schools;
-    }
-
-    public void setSchools(List<School> schools) {
-        this.schools = schools;
     }
 
     public String getDescription() {
