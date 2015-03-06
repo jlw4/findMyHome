@@ -13,6 +13,7 @@ import com.hardin.wilson.jobs.CrimeReportsJob;
 import com.hardin.wilson.jobs.GreatSchoolsJob;
 import com.hardin.wilson.jobs.NeighborhoodDescriptionJob;
 import com.hardin.wilson.jobs.ProcessingJob;
+import com.hardin.wilson.jobs.WalkscoreJob;
 
 public class FetchCommand extends Command {
 	List<ProcessingJob> jobs;
@@ -27,6 +28,7 @@ public class FetchCommand extends Command {
     		case ("fetch"):
     	        jobs.add(new GreatSchoolsJob());
     	        jobs.add(new CrimeReportsJob());
+    	        jobs.add(new WalkscoreJob());
     	        jobs.add(new NeighborhoodDescriptionJob());
     	        break;
     		case ("desc"):

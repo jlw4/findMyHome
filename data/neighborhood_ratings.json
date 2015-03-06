@@ -2,468 +2,624 @@
   "name" : "Admiral",
   "ratings" : {
     "Crime" : 52,
-    "School" : 78
+    "School" : 78,
+    "WalkScore" : 86,
+    "TransitScore" : 40
   }
 }, {
   "name" : "Alki",
   "ratings" : {
     "Crime" : 42,
-    "School" : 78
+    "School" : 78,
+    "WalkScore" : 37,
+    "TransitScore" : 37
   }
 }, {
   "name" : "Arbor Heights",
   "ratings" : {
     "Crime" : 32,
-    "School" : 47
+    "School" : 47,
+    "WalkScore" : 21,
+    "TransitScore" : 36
   }
 }, {
   "name" : "Atlantic",
   "ratings" : {
     "Crime" : 59,
-    "School" : 50
+    "School" : 50,
+    "WalkScore" : 78,
+    "TransitScore" : 68
   }
 }, {
   "name" : "Ballard",
   "ratings" : {
     "Crime" : 70,
-    "School" : 84
+    "School" : 84,
+    "WalkScore" : 97,
+    "TransitScore" : 52
   }
 }, {
   "name" : "Beacon Hill",
   "ratings" : {
     "Crime" : 76,
-    "School" : 49
+    "School" : 49,
+    "WalkScore" : 63,
+    "TransitScore" : 57
   }
 }, {
   "name" : "Belltown",
   "ratings" : {
     "Crime" : 74,
-    "School" : 70
+    "School" : 70,
+    "WalkScore" : 98,
+    "TransitScore" : 100
   }
 }, {
   "name" : "Bitter Lake",
   "ratings" : {
     "Crime" : 53,
-    "School" : 40
+    "School" : 40,
+    "WalkScore" : 68,
+    "TransitScore" : 48
   }
 }, {
   "name" : "Blue Ridge",
   "ratings" : {
     "Crime" : 13,
-    "School" : 60
+    "School" : 60,
+    "WalkScore" : 40,
+    "TransitScore" : 43
   }
 }, {
   "name" : "Brighton",
   "ratings" : {
     "Crime" : 60,
-    "School" : 38
+    "School" : 38,
+    "WalkScore" : 67,
+    "TransitScore" : 63
   }
 }, {
   "name" : "Broadmoor",
   "ratings" : {
     "Crime" : 21,
-    "School" : 51
+    "School" : 51,
+    "WalkScore" : 12,
+    "TransitScore" : 51
   }
 }, {
   "name" : "Broadview",
   "ratings" : {
     "Crime" : 47,
-    "School" : 50
+    "School" : 50,
+    "WalkScore" : 28,
+    "TransitScore" : 39
   }
 }, {
   "name" : "Bryant",
   "ratings" : {
     "Crime" : 36,
-    "School" : 90
+    "School" : 90,
+    "WalkScore" : 70,
+    "TransitScore" : 47
   }
 }, {
   "name" : "Capitol Hill",
   "ratings" : {
     "Crime" : 84,
-    "School" : 50
+    "School" : 50,
+    "WalkScore" : 71,
+    "TransitScore" : 58
   }
 }, {
   "name" : "Cedar Park",
   "ratings" : {
     "Crime" : 51,
-    "School" : 72
+    "School" : 72,
+    "WalkScore" : 51,
+    "TransitScore" : 51
   }
 }, {
   "name" : "Central District",
   "ratings" : {
     "Crime" : 69,
-    "School" : 45
+    "School" : 45,
+    "WalkScore" : 85,
+    "TransitScore" : 65
   }
 }, {
   "name" : "Columbia City",
   "ratings" : {
-    "Crime" : 60,
-    "School" : 44
+    "Crime" : 59,
+    "School" : 44,
+    "WalkScore" : 91,
+    "TransitScore" : 57
   }
 }, {
   "name" : "Crown Hill",
   "ratings" : {
     "Crime" : 42,
-    "School" : 82
+    "School" : 82,
+    "WalkScore" : 78,
+    "TransitScore" : 53
   }
 }, {
   "name" : "Denny-Blaine",
   "ratings" : {
     "Crime" : 11,
-    "School" : 40
+    "School" : 40,
+    "WalkScore" : 70,
+    "TransitScore" : 43
   }
 }, {
   "name" : "Downtown",
   "ratings" : {
     "Crime" : 94,
-    "School" : 35
+    "School" : 35,
+    "WalkScore" : 99,
+    "TransitScore" : 100
   }
 }, {
   "name" : "Eastlake",
   "ratings" : {
     "Crime" : 51,
-    "School" : 76
+    "School" : 76,
+    "WalkScore" : 71,
+    "TransitScore" : 62
   }
 }, {
   "name" : "Fauntleroy",
   "ratings" : {
     "Crime" : 41,
-    "School" : 50
+    "School" : 50,
+    "WalkScore" : 50,
+    "TransitScore" : 44
   }
 }, {
   "name" : "First Hill",
   "ratings" : {
     "Crime" : 79,
-    "School" : 37
+    "School" : 37,
+    "WalkScore" : 97,
+    "TransitScore" : 99
   }
 }, {
   "name" : "Fremont",
   "ratings" : {
     "Crime" : 63,
-    "School" : 82
+    "School" : 82,
+    "WalkScore" : 80,
+    "TransitScore" : 59
   }
 }, {
   "name" : "Georgetown",
   "ratings" : {
     "Crime" : 52,
-    "School" : 65
+    "School" : 65,
+    "WalkScore" : 34,
+    "TransitScore" : 44
   }
 }, {
   "name" : "Green Lake",
   "ratings" : {
     "Crime" : 56,
-    "School" : 72
+    "School" : 72,
+    "WalkScore" : 56,
+    "TransitScore" : 49
   }
 }, {
   "name" : "Greenwood",
   "ratings" : {
     "Crime" : 69,
-    "School" : 67
+    "School" : 67,
+    "WalkScore" : 90,
+    "TransitScore" : 54
   }
 }, {
   "name" : "Haller Lake",
   "ratings" : {
     "Crime" : 66,
-    "School" : 43
+    "School" : 43,
+    "WalkScore" : 41,
+    "TransitScore" : 45
   }
 }, {
   "name" : "Hawthorne Hills",
   "ratings" : {
     "Crime" : 6,
-    "School" : 77
+    "School" : 77,
+    "WalkScore" : 50,
+    "TransitScore" : 44
   }
 }, {
   "name" : "High Point",
   "ratings" : {
     "Crime" : 59,
-    "School" : 46
+    "School" : 46,
+    "WalkScore" : 48,
+    "TransitScore" : 47
   }
 }, {
   "name" : "Highland Park",
   "ratings" : {
     "Crime" : 49,
-    "School" : 40
+    "School" : 40,
+    "WalkScore" : 28,
+    "TransitScore" : 41
   }
 }, {
   "name" : "Industrial District",
   "ratings" : {
     "Crime" : 67,
-    "School" : 58
+    "School" : 58,
+    "WalkScore" : 23,
+    "TransitScore" : 48
   }
 }, {
   "name" : "Interbay",
   "ratings" : {
     "Crime" : 39,
-    "School" : 87
+    "School" : 87,
+    "WalkScore" : 42,
+    "TransitScore" : 50
   }
 }, {
   "name" : "International District",
   "ratings" : {
     "Crime" : 72,
-    "School" : 50
+    "School" : 50,
+    "WalkScore" : 96,
+    "TransitScore" : 100
   }
 }, {
   "name" : "Laurelhurst",
   "ratings" : {
     "Crime" : 29,
-    "School" : 73
+    "School" : 73,
+    "WalkScore" : 55,
+    "TransitScore" : 43
   }
 }, {
   "name" : "Leschi",
   "ratings" : {
     "Crime" : 43,
-    "School" : 54
+    "School" : 54,
+    "WalkScore" : 76,
+    "TransitScore" : 51
   }
 }, {
   "name" : "Lower Queen Anne",
   "ratings" : {
     "Crime" : 66,
-    "School" : 88
+    "School" : 88,
+    "WalkScore" : 93,
+    "TransitScore" : 66
   }
 }, {
   "name" : "Loyal Heights",
   "ratings" : {
     "Crime" : 47,
-    "School" : 88
+    "School" : 88,
+    "WalkScore" : 75,
+    "TransitScore" : 48
   }
 }, {
   "name" : "Madison Park",
   "ratings" : {
     "Crime" : 29,
-    "School" : 40
+    "School" : 40,
+    "WalkScore" : 77,
+    "TransitScore" : 30
   }
 }, {
   "name" : "Madison Valley",
   "ratings" : {
     "Crime" : 20,
-    "School" : 42
+    "School" : 42,
+    "WalkScore" : 77,
+    "TransitScore" : 55
   }
 }, {
   "name" : "Madrona",
   "ratings" : {
     "Crime" : 41,
-    "School" : 38
+    "School" : 38,
+    "WalkScore" : 84,
+    "TransitScore" : 53
   }
 }, {
   "name" : "Magnolia",
   "ratings" : {
     "Crime" : 48,
-    "School" : 68
+    "School" : 68,
+    "WalkScore" : 35,
+    "TransitScore" : 33
   }
 }, {
   "name" : "Maple Leaf",
   "ratings" : {
     "Crime" : 57,
-    "School" : 68
+    "School" : 68,
+    "WalkScore" : 65,
+    "TransitScore" : 58
   }
 }, {
   "name" : "Matthews Beach",
   "ratings" : {
     "Crime" : 29,
-    "School" : 90
+    "School" : 90,
+    "WalkScore" : 31,
+    "TransitScore" : 36
   }
 }, {
   "name" : "Meadowbrook",
   "ratings" : {
     "Crime" : 44,
-    "School" : 77
+    "School" : 77,
+    "WalkScore" : 44,
+    "TransitScore" : 45
   }
 }, {
   "name" : "Montlake",
   "ratings" : {
     "Crime" : 29,
-    "School" : 60
+    "School" : 60,
+    "WalkScore" : 65,
+    "TransitScore" : 63
   }
 }, {
   "name" : "Mount Baker",
   "ratings" : {
     "Crime" : 58,
-    "School" : 57
+    "School" : 57,
+    "WalkScore" : 69,
+    "TransitScore" : 61
   }
 }, {
   "name" : "North Beach",
   "ratings" : {
     "Crime" : 17,
-    "School" : 77
+    "School" : 77,
+    "WalkScore" : 29,
+    "TransitScore" : 43
   }
 }, {
   "name" : "North College Park",
   "ratings" : {
     "Crime" : 55,
-    "School" : 52
+    "School" : 52,
+    "WalkScore" : 66,
+    "TransitScore" : 59
   }
 }, {
   "name" : "North Delridge",
   "ratings" : {
     "Crime" : 44,
-    "School" : 47
+    "School" : 47,
+    "WalkScore" : 38,
+    "TransitScore" : 51
   }
 }, {
   "name" : "Northgate",
   "ratings" : {
     "Crime" : 63,
-    "School" : 46
+    "School" : 46,
+    "WalkScore" : 92,
+    "TransitScore" : 56
   }
 }, {
   "name" : "Olympic Hills",
   "ratings" : {
     "Crime" : 56,
-    "School" : 65
+    "School" : 65,
+    "WalkScore" : 48,
+    "TransitScore" : 53
   }
 }, {
   "name" : "Olympic Manor",
   "ratings" : {
     "Crime" : 29,
-    "School" : 91
+    "School" : 91,
+    "WalkScore" : 56,
+    "TransitScore" : 50
   }
 }, {
   "name" : "Phinney Ridge",
   "ratings" : {
     "Crime" : 52,
-    "School" : 78
+    "School" : 78,
+    "WalkScore" : 84,
+    "TransitScore" : 48
   }
 }, {
   "name" : "Pinehurst",
   "ratings" : {
     "Crime" : 52,
-    "School" : 51
+    "School" : 51,
+    "WalkScore" : 56,
+    "TransitScore" : 48
   }
 }, {
   "name" : "Pioneer Square",
   "ratings" : {
     "Crime" : 69,
-    "School" : 25
+    "School" : 25,
+    "WalkScore" : 95,
+    "TransitScore" : 100
   }
 }, {
   "name" : "Portage Bay",
   "ratings" : {
     "Crime" : 29,
-    "School" : 66
+    "School" : 66,
+    "WalkScore" : 52,
+    "TransitScore" : 68
   }
 }, {
   "name" : "Queen Anne",
   "ratings" : {
     "Crime" : 62,
-    "School" : 88
+    "School" : 88,
+    "WalkScore" : 92,
+    "TransitScore" : 60
   }
 }, {
   "name" : "Rainier Beach",
   "ratings" : {
     "Crime" : 71,
-    "School" : 40
+    "School" : 40,
+    "WalkScore" : 42,
+    "TransitScore" : 48
   }
 }, {
   "name" : "Ravenna",
   "ratings" : {
     "Crime" : 50,
-    "School" : 97
+    "School" : 97,
+    "WalkScore" : 70,
+    "TransitScore" : 52
   }
 }, {
   "name" : "Riverview",
   "ratings" : {
     "Crime" : 39,
-    "School" : 44
+    "School" : 44,
+    "WalkScore" : 19,
+    "TransitScore" : 42
   }
 }, {
   "name" : "Roosevelt",
   "ratings" : {
     "Crime" : 50,
-    "School" : 73
+    "School" : 73,
+    "WalkScore" : 90,
+    "TransitScore" : 57
   }
 }, {
   "name" : "Roxhill",
   "ratings" : {
     "Crime" : 52,
-    "School" : 47
+    "School" : 47,
+    "WalkScore" : 56,
+    "TransitScore" : 47
   }
 }, {
   "name" : "Sand Point",
   "ratings" : {
     "Crime" : 15,
-    "School" : 60
+    "School" : 60,
+    "WalkScore" : 22,
+    "TransitScore" : 38
   }
 }, {
   "name" : "Seward Park",
   "ratings" : {
     "Crime" : 41,
-    "School" : 31
+    "School" : 31,
+    "WalkScore" : 29,
+    "TransitScore" : 36
   }
 }, {
   "name" : "South Delridge",
   "ratings" : {
     "Crime" : 57,
-    "School" : 42
+    "School" : 42,
+    "WalkScore" : 68,
+    "TransitScore" : 55
   }
 }, {
   "name" : "South Lake Union",
   "ratings" : {
     "Crime" : 60,
-    "School" : 68
+    "School" : 68,
+    "WalkScore" : 94,
+    "TransitScore" : 90
   }
 }, {
   "name" : "South Park",
   "ratings" : {
     "Crime" : 55,
-    "School" : 40
+    "School" : 40,
+    "WalkScore" : 64,
+    "TransitScore" : 38
   }
 }, {
   "name" : "Sunset Hill",
   "ratings" : {
     "Crime" : 42,
-    "School" : 77
+    "School" : 77,
+    "WalkScore" : 56,
+    "TransitScore" : 34
   }
 }, {
   "name" : "University District",
   "ratings" : {
     "Crime" : 78,
-    "School" : 92
+    "School" : 92,
+    "WalkScore" : 89,
+    "TransitScore" : 73
   }
 }, {
   "name" : "Victory Heights",
   "ratings" : {
     "Crime" : 43,
-    "School" : 74
+    "School" : 74,
+    "WalkScore" : 57,
+    "TransitScore" : 53
   }
 }, {
   "name" : "View Ridge",
   "ratings" : {
     "Crime" : 25,
-    "School" : 84
+    "School" : 84,
+    "WalkScore" : 37,
+    "TransitScore" : 41
   }
 }, {
   "name" : "Wallingford",
   "ratings" : {
     "Crime" : 62,
-    "School" : 86
+    "School" : 86,
+    "WalkScore" : 94,
+    "TransitScore" : 56
   }
 }, {
   "name" : "Wedgwood",
   "ratings" : {
     "Crime" : 49,
-    "School" : 89
+    "School" : 89,
+    "WalkScore" : 63,
+    "TransitScore" : 38
   }
 }, {
   "name" : "West Seattle",
   "ratings" : {
     "Crime" : 65,
-    "School" : 64
+    "School" : 64,
+    "WalkScore" : 62,
+    "TransitScore" : 48
   }
 }, {
   "name" : "Westlake",
   "ratings" : {
     "Crime" : 44,
-    "School" : 83
+    "School" : 83,
+    "WalkScore" : 76,
+    "TransitScore" : 68
   }
 }, {
   "name" : "Whittier Heights",
   "ratings" : {
     "Crime" : 35,
-    "School" : 91
+    "School" : 91,
+    "WalkScore" : 79,
+    "TransitScore" : 50
   }
 }, {
   "name" : "Windermere",
   "ratings" : {
     "Crime" : 13,
-    "School" : 68
+    "School" : 68,
+    "WalkScore" : 30,
+    "TransitScore" : 40
   }
 } ]
