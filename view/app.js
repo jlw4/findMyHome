@@ -112,7 +112,7 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     function loadNeighborhoodMap() {
     	var mapProp = {
             center: new google.maps.LatLng(defaultLong, defaultLat),
-            zoom: 14,
+            zoom: 13,
             mapTypeId:google.maps.MapTypeId.ROADMAP
         };
     	if ($scope.neighborhood != null)
