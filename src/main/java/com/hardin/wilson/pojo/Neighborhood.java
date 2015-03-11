@@ -35,6 +35,10 @@ public class Neighborhood {
         this.descriptionCitation = citation;
     }
     
+    public int getRating(String rating) {
+        return ratings.get(rating);
+    }
+    
     public void addRating(String r, int score) {
         ratings.put(r, score);
     }

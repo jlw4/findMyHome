@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -27,10 +25,7 @@ import com.hardin.wilson.pojo.Coordinate;
 import com.hardin.wilson.pojo.Descriptions;
 import com.hardin.wilson.pojo.Neighborhood;
 import com.hardin.wilson.pojo.NeighborhoodRatings;
-import com.hardin.wilson.pojo.Rating;
 import com.hardin.wilson.pojo.Region;
-import com.hardin.wilson.pojo.School;
-import com.hardin.wilson.pojo.Schools;
 import com.hardin.wilson.pojo.kml.GoogleKmlRoot;
 import com.hardin.wilson.pojo.kml.Placemark;
 import com.hardin.wilson.pojo.kml.Polygon;
@@ -64,6 +59,15 @@ public class NeighborhoodContainer {
 		longMap = new TreeMap<Double, Neighborhood>();
 		latMap = new TreeMap<Double, Neighborhood>();
 		setup();
+	}
+	
+	/**
+	 * Generates a sorted map of neighborhoods in descending order based on the given ratings
+	 * @param ratings must be non empty, 
+	 * @return
+	 */
+	public List<Neighborhood> getSortedList(List<String> ratings) {
+	    List<Neighborhood> list = new ArrayList<Neighborhood>(neighborhoods.values());
 	}
 	
 	private void setup() {

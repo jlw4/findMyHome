@@ -8,13 +8,7 @@ import java.util.EnumSet;
 
 import javax.servlet.DispatcherType;
 
-import com.hardin.wilson.resource.CoordToNeighborhoodResource;
-import com.hardin.wilson.resource.CoordinateResource;
-import com.hardin.wilson.resource.KmlResource;
-import com.hardin.wilson.resource.NeighborhoodNamesResource;
-import com.hardin.wilson.resource.NeighborhoodResource;
-import com.hardin.wilson.resource.RatingResource;
-import com.hardin.wilson.resource.SmallKmlResource;
+import com.hardin.wilson.resource.*;
 
 /**
  * Main class, runs server
@@ -51,6 +45,7 @@ public class Main extends Application<HomeConfiguration> {
         environment.jersey().register(new SmallKmlResource());
         environment.jersey().register(new CoordToNeighborhoodResource());
         environment.jersey().register(new RatingResource());
+        environment.jersey().register(new QueryResource());
         environment.servlets().addFilter("CorsFilter", new CorsFilter())
         		.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
     }
