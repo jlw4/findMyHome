@@ -132,7 +132,7 @@ public class CrimeReportsJob extends ProcessingJob {
 			for (NeighborhoodRatings nr : nrs) {
 				if (n.getName().equals(nr.getName())) {
 					crimeCount.put(n, ((Math.log10(crimeCount.get(n)) * 100) / maxCountLog));
-					nr.getRatings().put(Rating.CRIME.getName(), (int) Math.rint(crimeCount.get(n)));
+					nr.getRatings().put(Rating.CRIME, (int) Math.rint(crimeCount.get(n)));
 					System.out.println(n.getName() + ": " + (int) Math.rint(crimeCount.get(n)));
 				}
 			}

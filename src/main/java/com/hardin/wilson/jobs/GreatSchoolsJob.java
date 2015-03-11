@@ -165,7 +165,7 @@ public class GreatSchoolsJob extends ProcessingJob {
 			
 			for (NeighborhoodRatings nr : neighborhoodRatings) {
 				if (nr.getName().equals(n.getName())) {
-					nr.getRatings().put(Rating.SCHOOL.getName(), 
+					nr.getRatings().put(Rating.SCHOOL, 
 							(int) (sum / (assignedSchools.get(n).size() * 1.0)));
 				}
 			}

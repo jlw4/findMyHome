@@ -45,8 +45,8 @@ public class WalkscoreJob extends ProcessingJob {
 			// Update rating info to store walkscore and transit score ratings.
 			for (NeighborhoodRatings nr : nrs) {
 				if (nr.getName().equals(hood.getName())) {
-					nr.getRatings().put(Rating.WALK_SCORE.getName(), walkScore.getWalkscore());
-					nr.getRatings().put(Rating.TRANSIT_SCORE.getName(), transitScore.getTransit_score());
+					nr.getRatings().put(Rating.WALK_SCORE, walkScore.getWalkscore());
+					nr.getRatings().put(Rating.TRANSIT_SCORE, transitScore.getTransit_score());
 				}
 			}
 		}

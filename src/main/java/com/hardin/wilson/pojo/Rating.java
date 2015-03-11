@@ -1,25 +1,10 @@
 package com.hardin.wilson.pojo;
 
-public enum Rating {
-    
-    SCHOOL ("School"),
-    CRIME ("Crime"),
-    WALK_SCORE ("WalkScore"),
-    TRANSIT_SCORE ("TransitScore"),
-    HOME_PRICES ("Home Prices"),
-    RENT_PRICES ("Rent Prices");
-    
-    private String name;
-    
-    Rating(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public String toString() {
-        return name;
-    }
+public class Rating {
+    public static final String SCHOOL = "School";
+    public static final String CRIME = "Crime";
+    public static final String WALK_SCORE = "WalkScore";
+    public static final String TRANSIT_SCORE = "TransitScore";
+    public static final String HOME_PRICES = "Home Prices";
+    public static final String RENT_PRICES = "Rent Prices";
 }
