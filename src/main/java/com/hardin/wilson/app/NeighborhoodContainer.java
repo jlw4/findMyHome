@@ -80,7 +80,6 @@ public class NeighborhoodContainer {
         }
 	}
 	
-	// temporary, just adds some random ratings so I have something to show in the ui
 	private void initRatings() {
 	    try {
 	    	List<NeighborhoodRatings> nrs = new ObjectMapper().readValue(NeighborhoodRatings.ratingsFile, 

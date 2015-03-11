@@ -1,25 +1,7 @@
-#map {
+.map {
 	width: 100%;
 	height: 500px;
 	margin-bottom: 20px;
-}
-
-#searchBox {
-	margin-bottom: 20px;
-}
-
-#searchBox span {
-	margin-right: 4px;
-	cursor: pointer;
-	font-size: 12pt;
-}
-
-.buttonBox {
-	display: inline;
-}
-
-.focus {
-	background-color: red;
 }
 
 #menu li {

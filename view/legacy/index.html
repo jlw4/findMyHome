@@ -11,7 +11,7 @@
     <title>FindMyHome</title>
     
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="app.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -38,12 +38,45 @@
         <p class="lead">Seattle's authoritative neighborhood index</p>
       </div>
       
-      <div id="searchBox">
-		  <span ng-repeat="rating in ratings" ng-click="goSearch(rating)" class="label label-default noselect" ng-class="{'label-primary' : isSelected(rating)}">{{ rating }}</span>
+      <nav id="menu" class="noselect">
+		<ul class="nav nav-tabs">
+		  <li role="presentation" id="homeNav" class="active navTab"><a ng-click="goHome()">Home</a></li>
+		  <li role="presentation" id="searchNav" class="navTab"><a ng-click="goSearch()">Search</a></li>
+		  <li role="presentation" id="browseNav" class="navTab"><a ng-click="goBrowse()">Browse</a></li>
+          <li role="presentation" id="neighborhoodNav" class="navTab"><a></a></li>
+		</ul>
+	  </nav>
+      
+      <br />
+      
+      <div class="displayBox" id="homeBox">
+        <h2>Welcome</h2>
+        <div class="panel panel-default"><div class="panel-body" >
+            Search or browse to see how Seattle's neighborhoods stack up!
+        </div></div>
+        <div id="homeMap" class="map"></div>
       </div>
       
-      <div id="mapBox">
-        <div id="map"></div>
+      <div class="displayBox" id="browseBox">
+        <h2>Browse Neighborhoods</h2>
+        <div class="noselect">
+          <div class="list-group col-md-3">
+			<a class="list-group-item" ng-repeat="name in names[0]" ng-click="goNeighborhood(name)">{{ name }}</a>
+	      </div>
+	      <div class="list-group col-md-3">
+	        <a class="list-group-item" ng-repeat="name in names[1]" ng-click="goNeighborhood(name)">{{ name }}</a>
+	      </div>
+	      <div class="list-group col-md-3">
+	        <a class="list-group-item" ng-repeat="name in names[2]" ng-click="goNeighborhood(name)">{{ name }}</a>
+	      </div>
+	      <div class="list-group col-md-3">
+	        <a class="list-group-item" ng-repeat="name in names[3]" ng-click="goNeighborhood(name)">{{ name }}</a>
+	      </div>
+        </div>
+      </div>
+      
+      <div class="displayBox" id="searchBox">
+        <h2>Search</h2>
       </div>
       
       <div class="displayBox" id="neighborhoodBox">
@@ -61,26 +94,10 @@
 			  <div class="col-md-2">{{ rating }}</div>
 			</div>
 		</div>
+        <div id="neighborhoodMap" class="map"></div>
 		<div id="citationBox">
 		  <a ng-href="{{ neighborhood.descriptionCitation }}">[1] {{ neighborhood.descriptionCitation }}</a>
 		</div>
-      </div>
-      
-      <div id="browseBox">
-        <div class="noselect">
-          <div class="list-group col-md-3">
-            <a class="list-group-item" ng-repeat="name in names[0]" ng-click="goNeighborhood(name)">{{ name }}</a>
-          </div>
-          <div class="list-group col-md-3">
-            <a class="list-group-item" ng-repeat="name in names[1]" ng-click="goNeighborhood(name)">{{ name }}</a>
-          </div>
-          <div class="list-group col-md-3">
-            <a class="list-group-item" ng-repeat="name in names[2]" ng-click="goNeighborhood(name)">{{ name }}</a>
-          </div>
-          <div class="list-group col-md-3">
-            <a class="list-group-item" ng-repeat="name in names[3]" ng-click="goNeighborhood(name)">{{ name }}</a>
-          </div>
-        </div>
       </div>
 
     </div><!-- container -->

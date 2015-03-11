@@ -13,6 +13,7 @@ import com.hardin.wilson.resource.CoordinateResource;
 import com.hardin.wilson.resource.KmlResource;
 import com.hardin.wilson.resource.NeighborhoodNamesResource;
 import com.hardin.wilson.resource.NeighborhoodResource;
+import com.hardin.wilson.resource.RatingResource;
 import com.hardin.wilson.resource.SmallKmlResource;
 
 /**
@@ -49,6 +50,7 @@ public class Main extends Application<HomeConfiguration> {
         environment.jersey().register(new KmlResource());
         environment.jersey().register(new SmallKmlResource());
         environment.jersey().register(new CoordToNeighborhoodResource());
+        environment.jersey().register(new RatingResource());
         environment.servlets().addFilter("CorsFilter", new CorsFilter())
         		.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
     }
