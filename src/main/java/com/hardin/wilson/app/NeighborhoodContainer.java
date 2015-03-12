@@ -7,6 +7,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -46,8 +47,6 @@ public class NeighborhoodContainer {
 	public static final String DESCRIPTIONS_FILE = "data/neighborhood_descriptions.json";
 
 	private SortedMap<String, Neighborhood> neighborhoods;
-	private SortedMap<Double, Neighborhood> longMap;
-	private SortedMap<Double, Neighborhood> latMap;
 
 	private static NeighborhoodContainer instance;
 	private static Logger logger = Logger.getLogger(NeighborhoodContainer.class);
@@ -57,8 +56,6 @@ public class NeighborhoodContainer {
 	 */
 	private NeighborhoodContainer() {
 		neighborhoods = new TreeMap<String, Neighborhood>();
-		longMap = new TreeMap<Double, Neighborhood>();
-		latMap = new TreeMap<Double, Neighborhood>();
 		setup();
 	}
 	
@@ -70,6 +67,10 @@ public class NeighborhoodContainer {
 	    List<Neighborhood> list = new ArrayList<Neighborhood>(neighborhoods.values());
 	    Collections.sort(list, new NeighborhoodComparator(ratings));
 	    return list;
+	}
+	
+	public Map<String, Neighborhood> getMap() {
+	    return new TreeMap<String, Neighborhood>(neighborhoods);
 	}
 	
 	private void setup() {
@@ -113,8 +114,6 @@ public class NeighborhoodContainer {
         for (Region r : regions) {
             Neighborhood n = new Neighborhood(r.getName(), r.getLatitude(), r.getLongitude());
             neighborhoods.put(n.getName(), n);
-            longMap.put(r.getLongitude(), n);
-            latMap.put(r.getLatitude(), n);
         }
         time = System.currentTimeMillis() - time;
         logger.info("Successfully initalized neighborhoods in " + time + " ms");

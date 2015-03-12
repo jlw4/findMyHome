@@ -43,6 +43,7 @@
 .displayBox {
 	padding: 0;
 	margin-bottom: 8px;
+	margin-top: 0;
 }
 
 .noselect {
@@ -73,6 +74,16 @@
 	background-color: #000082;
     text-align: center;
     padding: 50px;
+}
+
+#logo {
+	float: left;
+	width: 120px;
+	margin-right: 8px;
+}
+
+h1 {
+	font-size: 32pt;
 }
 
 h2 {

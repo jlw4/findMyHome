@@ -70,11 +70,26 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
         $http(req).success(function(res){
             console.log("successfully fetched colors");
             $scope.colors = res;
-            console.log(res);
         }).error(function(res){
             $("#loadingThingy").hide();
             $(".container-fluid").hide();
             console.log("error loading colors");
+            console.log(res);
+            $("#errorThingy").show();
+        });
+
+        var req = {
+            method: 'GET',
+            url: hostUrl + "/container"
+        }
+        $http(req).success(function(res){
+            console.log("successfully fetched container");
+            $scope.neighborhoods = res;
+            console.log(res);
+        }).error(function(res){
+            $("#loadingThingy").hide();
+            $(".container-fluid").hide();
+            console.log("error loading container");
             console.log(res);
             $("#errorThingy").show();
         });
