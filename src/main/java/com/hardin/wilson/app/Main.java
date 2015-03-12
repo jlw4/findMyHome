@@ -46,6 +46,8 @@ public class Main extends Application<HomeConfiguration> {
         environment.jersey().register(new CoordToNeighborhoodResource());
         environment.jersey().register(new RatingResource());
         environment.jersey().register(new QueryResource());
+        environment.jersey().register(new SortedKmlResource());
+        environment.jersey().register(new ColorResource());
         environment.servlets().addFilter("CorsFilter", new CorsFilter())
         		.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
     }

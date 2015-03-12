@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
@@ -62,12 +63,13 @@ public class NeighborhoodContainer {
 	}
 	
 	/**
-	 * Generates a sorted map of neighborhoods in descending order based on the given ratings
-	 * @param ratings must be non empty, 
-	 * @return
+	 * Generates a sorted list of neighborhoods in descending order based on the given ratings
+	 * @param ratings must be non empty and contain valid ratings
 	 */
 	public List<Neighborhood> getSortedList(List<String> ratings) {
 	    List<Neighborhood> list = new ArrayList<Neighborhood>(neighborhoods.values());
+	    Collections.sort(list, new NeighborhoodComparator(ratings));
+	    return list;
 	}
 	
 	private void setup() {

@@ -38,49 +38,63 @@
         <p class="lead">Seattle's authoritative neighborhood index</p>
       </div>
       
-      <div id="searchBox">
+      <div id="searchBox" class="col-xs-12 displayBox">
 		  <span ng-repeat="rating in ratings" ng-click="goSearch(rating)" class="label label-default noselect" ng-class="{'label-primary' : isSelected(rating)}">{{ rating }}</span>
+          <span ng-click="reset()" id="resetButton" class="label label-danger noselect">Reset</span>
       </div>
       
-      <div id="mapBox">
+      <div id="infoBox" class="col-xs-12 displayBox">
+        <div id="colorBox" class="col-xs-9 displayBox">
+          <span class="label label-warning col-xs-1">:(</span>
+          <span ng-repeat="color in colors" ng-style="{ 'background-color' : color, 'color' : color }" class="label label-default color col-xs-1">mmmm</span>
+          <span class="label label-warning col-xs-1">:)</span>
+        </div>
+        
+        <div id="mouseOverBox" class="col-xs-3 displayBox">
+          <span class="label label-warning">{{ mouseOverName }}</span>
+        </div>
+      </div>
+
+      <div id="mapBox" class="col-xs-12 displayBox">
         <div id="map"></div>
       </div>
       
-      <div class="displayBox" id="neighborhoodBox">
+      <div class="displayBox col-xs-12" id="neighborhoodBox">
         <h2>{{ neighborhood.name }}</h2>
         <div class="panel panel-default"><div class="panel-body" id="description">{{ neighborhood.description }}<a class="citation" ng-click="scrollToBottom()">[1]</a></div></div>
         <div id="ratingBox">
             <h3>Ratings</h3>
-            <div class="col-md-12" ng-repeat="(name, rating) in neighborhood.ratings">
-	          <div class="col-md-2">{{ name }}</div>
-	          <div class="col-md-6">
+            <div class="col-xs-12" ng-repeat="(name, rating) in neighborhood.ratings">
+	          <div class="col-xs-2">{{ name }}</div>
+	          <div class="col-xs-6">
 	            <div class="progress">
 				  <div class="progress-bar progress-bar-success active" role="progressbar" style="width: {{ rating }}%"></div>
 				</div>
 			  </div>
-			  <div class="col-md-2">{{ rating }}</div>
+			  <div class="col-xs-2">{{ rating }}</div>
 			</div>
-		</div>
-		<div id="citationBox">
-		  <a ng-href="{{ neighborhood.descriptionCitation }}">[1] {{ neighborhood.descriptionCitation }}</a>
 		</div>
       </div>
       
-      <div id="browseBox">
+      <div id="browseBox" class="col-xs-12 noselect displayBox">
         <div class="noselect">
-          <div class="list-group col-md-3">
+          <div class="list-group col-md-3 col-xs-6">
             <a class="list-group-item" ng-repeat="name in names[0]" ng-click="goNeighborhood(name)">{{ name }}</a>
           </div>
-          <div class="list-group col-md-3">
+          <div class="list-group col-md-3 col-xs-6">
             <a class="list-group-item" ng-repeat="name in names[1]" ng-click="goNeighborhood(name)">{{ name }}</a>
           </div>
-          <div class="list-group col-md-3">
+          <div class="list-group col-md-3 col-xs-6">
             <a class="list-group-item" ng-repeat="name in names[2]" ng-click="goNeighborhood(name)">{{ name }}</a>
           </div>
-          <div class="list-group col-md-3">
+          <div class="list-group col-md-3 col-xs-6">
             <a class="list-group-item" ng-repeat="name in names[3]" ng-click="goNeighborhood(name)">{{ name }}</a>
           </div>
         </div>
+      </div>
+      
+      <div id="citationBox" class="col-xs-12">
+        <a ng-href="{{ neighborhood.descriptionCitation }}">[1] {{ neighborhood.descriptionCitation }}</a>
       </div>
 
     </div><!-- container -->

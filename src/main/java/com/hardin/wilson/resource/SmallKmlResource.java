@@ -47,11 +47,11 @@ public class SmallKmlResource {
             GoogleKmlRoot kml = (GoogleKmlRoot) jaxbUnmarshaller.unmarshal(BASE_KML_FILE);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             jaxbMarshaller.marshal(kml, baos);
-            kmlMap.put(NONE, baos.toString());
             Placemark[] allMarks = kml.document.folder.placemarks;
             kml.document.folder.placemarks = new Placemark[1];
+            kmlMap.put(NONE, baos.toString());
             for (Placemark placemark : allMarks) {
-                placemark.styleUrl = "#selected";
+                placemark.styleUrl = "#mouseover";
                 kml.document.folder.placemarks[0] = placemark;
                 baos = new ByteArrayOutputStream();
                 jaxbMarshaller.marshal(kml, baos);

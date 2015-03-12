@@ -15,8 +15,13 @@ public class NeighborhoodComparator implements Comparator<Neighborhood> {
 
     @Override
     public int compare(Neighborhood o1, Neighborhood o2) {
-        // TODO Auto-generated method stub
-        return 0;
+        int score1 = 0;
+        int score2 = 0;
+        for (String rating : ratings) {
+            score1 += o1.getRating(rating);
+            score2 += o2.getRating(rating);
+        }
+        return score1 - score2;
     }
 
 }

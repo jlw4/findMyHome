@@ -18,6 +18,86 @@
 			<color>80990000</color>
 		</PolyStyle>
 	</Style>
+    <Style id="mouseover">
+        <LineStyle>
+            <color>7f0000aa</color>
+        </LineStyle>
+        <PolyStyle>
+            <color>00000000</color>
+        </PolyStyle>
+    </Style>
+    <Style id="0">
+        <LineStyle>
+            <color>ff990000</color>
+        </LineStyle>
+        <PolyStyle>
+            <color>9ffffbf7</color>
+        </PolyStyle>
+    </Style>
+    <Style id="1">
+        <LineStyle>
+            <color>ff990000</color>
+        </LineStyle>
+        <PolyStyle>
+            <color>9ff7ebde</color>
+        </PolyStyle>
+    </Style>
+    <Style id="2">
+        <LineStyle>
+            <color>ff990000</color>
+        </LineStyle>
+        <PolyStyle>
+            <color>9fefdbc6</color>
+        </PolyStyle>
+    </Style>
+    <Style id="3">
+        <LineStyle>
+            <color>ff990000</color>
+        </LineStyle>
+        <PolyStyle>
+            <color>9fe1ca9e</color>
+        </PolyStyle>
+    </Style>
+    <Style id="4">
+        <LineStyle>
+            <color>ff990000</color>
+        </LineStyle>
+        <PolyStyle>
+            <color>9fd6ae6b</color>
+        </PolyStyle>
+    </Style>
+    <Style id="5">
+        <LineStyle>
+            <color>ff990000</color>
+        </LineStyle>
+        <PolyStyle>
+            <color>9fc69242</color>
+        </PolyStyle>
+    </Style>
+    <Style id="6">
+        <LineStyle>
+            <color>ff990000</color>
+        </LineStyle>
+        <PolyStyle>
+            <color>9fb57121</color>
+        </PolyStyle>
+    </Style>
+    <Style id="7">
+        <LineStyle>
+            <color>ff990000</color>
+        </LineStyle>
+        <PolyStyle>
+            <color>9f9c5108</color>
+        </PolyStyle>
+    </Style>
+    <Style id="8">
+        <LineStyle>
+            <color>ff990000</color>
+        </LineStyle>
+        <PolyStyle>
+            <color>9f6b3008</color>
+        </PolyStyle>
+    </Style>
 	<Folder>
 		<name>Features</name>
 		<open>1</open>

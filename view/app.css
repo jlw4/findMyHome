@@ -1,17 +1,25 @@
 #map {
 	width: 100%;
 	height: 500px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
-#searchBox {
-	margin-bottom: 20px;
+#mouseOverBox {
+	text-align: right;
+}
+
+#resetButton {
+	float: right;
+	margin-right: 0;
 }
 
 #searchBox span {
 	margin-right: 4px;
 	cursor: pointer;
-	font-size: 12pt;
+}
+
+#neighborhoodBox {
+	display: none;
 }
 
 .buttonBox {
@@ -28,11 +36,13 @@
 
 .container-fluid {
 	display: none;
-	margin-top: 15px;
+	margin-top: 8px;
+	margin-bottom: 32px;
 }
 
 .displayBox {
-	display: none;
+	padding: 0;
+	margin-bottom: 8px;
 }
 
 .noselect {
@@ -42,14 +52,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-#neighborhoodNav {
-	display: none;
-}
-
-.list-group-item {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 #loadingThingy {
@@ -76,11 +79,6 @@ h2 {
 	margin-top: 0;
 }
 
-#citationBox {
-	margin-top: 10px;
-	margin-bottom: 20px;
-}
-
 .citation {
     cursor: pointer;
 }
@@ -89,26 +87,7 @@ h2 {
 	text-decoration: bold;
 }
 
-.labels {
-	color: white;
-	text-decoration: bold;
-	font-size: 16pt;
-	border: white solid 1px;
-	background: black;
-}​
-
-/*
-
-    display: inline;
-    padding: 20px;
-    padding-left: 20px;
-
-#menu li:hover {
-    background-color: #EFEFEF;
+.label {
+	display: inline-block;
+    font-size: 12pt;
 }
-
-#menu ul {
-    list-style-type: none;
-}
-
-*/

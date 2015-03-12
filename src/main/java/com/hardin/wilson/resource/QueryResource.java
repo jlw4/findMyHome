@@ -2,7 +2,6 @@ package com.hardin.wilson.resource;
 
 import java.net.HttpURLConnection;
 import java.util.List;
-import java.util.Map;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -24,6 +23,11 @@ public class QueryResource {
     @GET
     @Timed
     public List<Neighborhood> getNeighborhood(@QueryParam("ratings") List<String> ratings) {
+        if (ratings.isEmpty()) {
+            throw new WebApplicationException(Response
+                    .status(HttpURLConnection.HTTP_BAD_REQUEST)
+                    .entity("Must supply at least one rating").build());
+        }
         for (String rating : ratings) {
             if (!Rating.getValues().contains(rating)) {
                 throw new WebApplicationException(Response
