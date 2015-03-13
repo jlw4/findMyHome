@@ -12,18 +12,18 @@
 	</Style>
 	<Style id="selected">
 		<LineStyle>
-			<color>7f990000</color>
+			<color>ff990000</color>
 		</LineStyle>
 		<PolyStyle>
-			<color>80990000</color>
+			<color>8037de5c</color>
 		</PolyStyle>
 	</Style>
     <Style id="mouseover">
         <LineStyle>
-            <color>7f0000aa</color>
+            <color>ff19a3ff</color>
         </LineStyle>
         <PolyStyle>
-            <color>00000000</color>
+            <color>4419a3ff</color>
         </PolyStyle>
     </Style>
     <Style id="0">

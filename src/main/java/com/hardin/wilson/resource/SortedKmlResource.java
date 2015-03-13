@@ -51,38 +51,44 @@ public class SortedKmlResource {
      */
     @GET
     @Timed
-    public GoogleKmlRoot getKml(@QueryParam("ratings") List<String> ratings) {
-        if (ratings.isEmpty()) {
-            logger.info("rejecting empty rating list");
-            throw new WebApplicationException(Response
-                    .status(HttpURLConnection.HTTP_BAD_REQUEST)
-                    .entity("Must supply at least one rating").build());
-        }
-        for (String rating : ratings) {
-            if (!Rating.getValues().contains(rating)) {
-                logger.info("rejecting invalid rating");
-                throw new WebApplicationException(Response
-                        .status(HttpURLConnection.HTTP_BAD_REQUEST)
-                        .entity("invalid rating: " + rating).build());
-            }
-        }
+    public GoogleKmlRoot getKml(@QueryParam("ratings") List<String> ratings,
+                                @QueryParam("neighborhood") String neighborhood) {
         try {
-            List<Neighborhood> neighborhoods = NeighborhoodContainer.getContainer().getNeighborhoods();
-            // compute a score from 0-8 for each neighborhood based on given ratings
-            int chunkSize = ( 100 * ratings.size() ) / 9;
-            Map<String, Integer> map = new HashMap<>();
-            for (Neighborhood n : neighborhoods) {
-                int score = 0;
+            Map<String, String> styles = new HashMap<>();
+            if (ratings != null && !ratings.isEmpty()) {
                 for (String rating : ratings) {
-                    score += n.getRating(rating);
+                    if (!Rating.getValues().contains(rating)) {
+                        logger.info("rejecting invalid rating");
+                        throw new WebApplicationException(Response
+                                .status(HttpURLConnection.HTTP_BAD_REQUEST)
+                                .entity("invalid rating: " + rating).build());
+                    }
                 }
-                score /= chunkSize;
-                score = Math.min(8, score); // fix for edge case..
-                map.put(n.getName(), score);
+                List<Neighborhood> neighborhoods = NeighborhoodContainer.getContainer().getNeighborhoods();
+                // compute a score from 0-8 for each neighborhood based on given ratings
+                int chunkSize = ( 100 * ratings.size() ) / 9;
+                for (Neighborhood n : neighborhoods) {
+                    int score = 0;
+                    for (String rating : ratings) {
+                        score += n.getRating(rating);
+                    }
+                    score /= chunkSize;
+                    score = Math.min(8, score); // fix for edge case..
+                    styles.put(n.getName(), "#" + score);
+                }
             }
+            if (neighborhood != null) {
+                styles.put(neighborhood, "#selected");
+            }
+            // so it sucks to synchronize the kml here, but fortunately Google caches kml,
+            // so this resource shouldn't get hit too hard. We could change this to perform a deep clone of kml
+            // at the beginning of each call, but I'm not sure that would perform any better.
             synchronized (kml) {
                 for (Placemark placemark : kml.document.folder.placemarks) {
-                    placemark.styleUrl = "#" + map.get(placemark.name);
+                    if (styles.containsKey(placemark.name))
+                        placemark.styleUrl = styles.get(placemark.name);
+                    else
+                        placemark.styleUrl = "#poly-95CAFF-1-127";
                 }
                 return kml;
             }

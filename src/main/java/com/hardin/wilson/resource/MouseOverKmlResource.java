@@ -28,15 +28,15 @@ import com.hardin.wilson.pojo.kml.Placemark;
  */
 @Path("smallKml")
 @Produces(MediaType.APPLICATION_XML)
-public class SmallKmlResource {
+public class MouseOverKmlResource {
     
     private static final File BASE_KML_FILE = new File("data/neighborhoods.kml");
     private Map<String, String> kmlMap;
-    private static final Logger logger = Logger.getLogger(SmallKmlResource.class);
+    private static final Logger logger = Logger.getLogger(MouseOverKmlResource.class);
     
     public static final String NONE = "none";
     
-    public SmallKmlResource() {
+    public MouseOverKmlResource() {
         logger.info("Loading SmallKmlResource");
         long time = System.currentTimeMillis();
         kmlMap = new HashMap<String, String>();

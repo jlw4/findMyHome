@@ -42,7 +42,7 @@ public class Main extends Application<HomeConfiguration> {
         environment.jersey().register(new NeighborhoodNamesResource());
         environment.jersey().register(new NeighborhoodResource());
         environment.jersey().register(new KmlResource());
-        environment.jersey().register(new SmallKmlResource());
+        environment.jersey().register(new MouseOverKmlResource());
         environment.jersey().register(new CoordToNeighborhoodResource());
         environment.jersey().register(new RatingResource());
         environment.jersey().register(new QueryResource());

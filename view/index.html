@@ -47,12 +47,12 @@
       <div id="infoBox" class="col-xs-12 displayBox">
         <div id="colorBox" class="col-xs-9 displayBox">
           <span class="label label-warning col-xs-1">:(</span>
-          <span ng-repeat="color in colors" ng-style="{ 'background-color' : color, 'color' : color }" class="label label-default color col-xs-1">mmmm</span>
+          <span ng-repeat="color in colors" ng-style="{ 'background-color' : color, 'color' : color }" class="label label-default color col-xs-1">m</span>
           <span class="label label-warning col-xs-1">:)</span>
         </div>
         
         <div id="mouseOverBox" class="col-xs-3 displayBox">
-          <span class="label label-warning">{{ mouseOverName }}</span>
+          <span ng-hide="mouseOverName == 'none'" class="label label-warning">{{ mouseOverName }}</span>
         </div>
       </div>
 

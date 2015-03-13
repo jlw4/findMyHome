@@ -11,8 +11,10 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
 	
     var map;
     var serverUrl = "http://54.149.5.12:8080";
-    var defaultKmlUrl = serverUrl + "/kml?neighborhood=none";
+    var defaultKmlUrl = serverUrl + "/sortedKml";
     var defaultSmallUrl = serverUrl + "/smallKml?neighborhood=none";
+    var defaultCenter = new google.maps.LatLng(defaultLat, defaultLong);
+    var defaultZoom = 11;
     var hostUrl = serverUrl;
     if ($location.$$protocol == "file" || $location.host() == "localhost") {
         hostUrl = "http://localhost:8080";
@@ -23,13 +25,22 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     $(".progress-bar").css("transition", "width " + durationInS + " ease-in-out");
     
     var selectedRatings = [];
-	
+	$scope.mouseOverName = "none";
+    
     function load() {
+        if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            console.log("on mobile");
+            $scope.mobile = true;
+            $("#mouseOverBox").hide();
+        } else {
+            console.log("not mobile");
+            $scope.mobile = false;
+        }
         var req = {
             method: 'GET',
             url: hostUrl + "/names"
         }
-        $http(req).success(function(res){
+        $http(req).success(function(res) {
             console.log("loaded neighborhoods");
             // put names in 4 lists for columns on browse page
             $scope.neighborhoodNames = res.slice();
@@ -43,55 +54,46 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
             }
             loadMap();
             $scope.loaded = true; // this hides spinner and displays body
-        }).error(function(res){
-        	$("#loadingThingy").hide();
-            console.log("error loading names");
+        }).error(function(res) {
             console.log(res);
-            $("#errorThingy").show();
+            loadingFailed();
         });
         var req = {
             method: 'GET',
             url: hostUrl + "/ratings"
         }
-        $http(req).success(function(res){
+        $http(req).success(function(res) {
             console.log("successfully fetched ratings");
             $scope.ratings = res;
         }).error(function(res){
-            $("#loadingThingy").hide();
-            console.log("error loading ratings");
             console.log(res);
-            $("#errorThingy").show();
+            loadingFailed();
         });
 
         var req = {
             method: 'GET',
             url: hostUrl + "/colors"
         }
-        $http(req).success(function(res){
+        $http(req).success(function(res) {
             console.log("successfully fetched colors");
             $scope.colors = res;
         }).error(function(res){
-            $("#loadingThingy").hide();
-            $(".container-fluid").hide();
             console.log("error loading colors");
             console.log(res);
-            $("#errorThingy").show();
+            loadingFailed();
         });
 
         var req = {
             method: 'GET',
             url: hostUrl + "/container"
         }
-        $http(req).success(function(res){
+        $http(req).success(function(res) {
             console.log("successfully fetched container");
             $scope.neighborhoods = res;
-            console.log(res);
         }).error(function(res){
-            $("#loadingThingy").hide();
-            $(".container-fluid").hide();
             console.log("error loading container");
             console.log(res);
-            $("#errorThingy").show();
+            loadingFailed();
         });
     }
     
@@ -101,23 +103,29 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     	return { 'background-color':color,'color':color};
     }
     
+    function loadingFailed() {
+        $("#loadingThingy").hide();
+        $(".container-fluid").hide();
+        $("#errorThingy").show();
+    }
+    
     function loadMap() {
     	var mapProp = {
-            center: new google.maps.LatLng(defaultLat, defaultLong),
-            zoom: 11,
+            center: defaultCenter,
+            zoom: defaultZoom,
             mapTypeId:google.maps.MapTypeId.ROADMAP
         };
-
+    	if ($scope.mobile) {
+    	    mapProp.draggable = false;
+    	}
         map = new google.maps.Map(document.getElementById("map"),mapProp);
-        
-		var kmlOptions = {
+		var KmlOptions = {
   			preserveViewport: true,
   			map: map,
   			clickable: false
 		};
-		
-		map.kmlLayer = new google.maps.KmlLayer(defaultKmlUrl, kmlOptions);
-		
+		map.KmlLayer = new google.maps.KmlLayer(defaultKmlUrl, KmlOptions);
+		console.log(map);
 		google.maps.event.addListener(map, 'click', function(event) {
             // console.log(event);
             var lat = event.latLng.k;
@@ -136,7 +144,7 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
         });
 		
 		google.maps.event.addListener(map, 'mouseout', function(event) {
-			$scope.mouseOverName = "";
+			$scope.mouseOverName = "none";
 			hideSmallLayer();
 		});
         
@@ -153,21 +161,7 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
         else {
             selectedRatings.splice(i,1);
         }
-    	map.kmlLayer.setUrl(getSortedUrl());
-        if (false && selectedRatings.length > 0) {
-	        var req = {
-	            method: 'GET',
-	            url: hostUrl + "/query",
-	            params: {"ratings" : selectedRatings}
-	        }
-	        $http(req).success(function(res){
-	            console.log("successful query");
-	            console.log(res);
-	        }).error(function(res){
-	            console.log("error query");
-	            console.log(res);
-	        });
-        }
+        updateKml();
     }
     
     $scope.isSelected = function(rating) {
@@ -190,6 +184,7 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
             $scope.neighborhood = res;
             map.panTo(new google.maps.LatLng(res.longitude, res.latitude));
             map.setZoom(13);
+            updateKml();
         	$(".progress-bar").addClass("progress-bar-striped");
     		$timeout(function(){
         		$(".progress-bar").removeClass("progress-bar-striped");
@@ -205,19 +200,13 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     $scope.reset = function() {
     	$("#neighborhoodBox").hide();
     	selectedRatings = [];
-    	loadMap();
+    	$scope.neighborhood = null;
+    	map.panTo(defaultCenter);
+    	map.setZoom(defaultZoom);
+    	updateKml();
     }
     
-    function hideSmallLayer() {
-    	if (map.smallLayer != null) {
-			map.smallLayer.setMap(null);
-			map.smallLayer = null;
-		}
-    }
-    
-    function getSortedUrl() {
-    	if (selectedRatings.length == 0)
-    		return defaultKmlUrl;
+    function getKmlUrl() {
     	var url = serverUrl + "/sortedKml";
     	for (var i = 0; i < selectedRatings.length; i++) {
     		if (i == 0)
@@ -226,52 +215,91 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     			url += "&";
     		url += "ratings=" + selectedRatings[i];
     	}
-    	console.log(url);
+    	if ($scope.neighborhood != null) {
+    	    if (selectedRatings.length == 0)
+    	        url += "?";
+    	    else
+    	        url += "&";
+    	    url += "neighborhood=" + encodeURIComponent($scope.neighborhood.name);
+    	}
     	return url;
     }
     
-    function getKmlUrl(name) {
-        return serverUrl + "/kml?neighborhood=" + encodeURIComponent(name);
+    function getSmallUrl() {
+        return serverUrl + "/smallKml?neighborhood=" + encodeURIComponent($scope.mouseOverName);
     }
     
-    function getSmallUrl(name) {
-        return serverUrl + "/smallKml?neighborhood=" + encodeURIComponent(name);
+    function updateKml() {
+        map.KmlLayer.setUrl(getKmlUrl());
     }
     
-    $interval(function() {
-        if ($scope.loaded && map.mouseOverEvent != null) {
-            var event = map.mouseOverEvent;
-            var lat = event.latLng.k;
-            var long = event.latLng.D;
-            var req = {
-                method: 'GET',
-                url: hostUrl + "/coordToHood",
-                params: {long: long, lat: lat}
-            }
-            $http(req).success(function(res) {
-            	if (res.name == "none") {
-            		hideSmallLayer();
-            	}
-            	else if ($scope.mouseOverName != res.name) {
-                    $scope.mouseOverName = res.name;
-                    if (map.smallLayer == null) {
-                    	var kmlOptions = {
-                  			preserveViewport: true,
-                  			map: map,
-                  			clickable: false
-                		};
-                		map.smallLayer = new google.maps.KmlLayer(getSmallUrl(res.name), kmlOptions);
-                    }
-                    else
-                    	map.smallLayer.setUrl(getSmallUrl(res.name));
-                }
-            }).error(function(res) {
-                console.log("error in mouseoverevent");
-                console.log(res);
-            });
-            map.mouseOverEvent = null;
+    function getNeighborhood(lat, long) {
+        for (var name in $scope.neighborhoods) {
+            if (isInsideBoundary(lat,long,$scope.neighborhoods[name].boundary))
+                return name;
         }
-    }, 30);
+        return "none";
+    }
+    
+    function isInsideBoundary(lat,long,boundary) {
+        if (boundary.length < 3) {
+            return false;
+        }
+        
+        var i, j, nvert = boundary.length;
+        var px = long;
+        var py = lat;
+        var c = false;
+
+        for (i = 0, j = nvert - 1; i < nvert; j = i++) {
+            var iy, ix, jy, jx;
+            iy = boundary[i].latitude;
+            ix = boundary[i].longitude;
+            jy = boundary[j].latitude;
+            jx = boundary[j].longitude;
+
+            if (((iy >= py) != (jy >= py)) && (px <= (jx - ix) * (py - iy) / (jy - iy) + ix)) {
+                c = !c;
+            }
+        }
+        return c;
+    }
+    
+    function hideSmallLayer() {
+        if (map.smallLayer != null) {
+            map.smallLayer.setMap(null);
+            map.smallLayer = null;
+        }
+    }
+    
+    // handling mousemove events in an interval
+    $interval(function() {
+        if ($scope.loaded) {
+            if (map.mouseOverEvent != null) {
+                var event = map.mouseOverEvent;
+                var lat = event.latLng.k;
+                var long = event.latLng.D;
+                var name = getNeighborhood(lat,long);
+                if (name != $scope.mouseOverName) {
+                    $scope.mouseOverName = name;
+                    if (name == "none") {
+                        hideSmallLayer();
+                    } else {
+                        var KmlOptions = {
+                            preserveViewport: true,
+                            map: map,
+                            clickable: false
+                        };
+                        if (map.smallLayer == null)
+                            map.smallLayer = new google.maps.KmlLayer(getSmallUrl(), KmlOptions);
+                        else
+                            map.smallLayer.setUrl(getSmallUrl());
+                    }
+                }
+                map.mouseOverEvent = null;
+            }
+        }
+    }, 20);
 
     load();
 	
