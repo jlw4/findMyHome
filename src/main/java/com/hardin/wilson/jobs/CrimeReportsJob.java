@@ -32,7 +32,6 @@ import com.hardin.wilson.pojo.Rating;
 public class CrimeReportsJob extends ProcessingJob {
 	private static final Logger logger = LogManager.getLogger(CrimeReportsJob.class);
 	private static final String BASE_CRIME_URL = "https://data.seattle.gov/resource/3k2p-39jp.json?";
-	private static final String OUTPUT = "data/crimes.json";
 	
 	private static final double LOG_SCALE_MAX = 1000.0;
 	
@@ -132,7 +131,7 @@ public class CrimeReportsJob extends ProcessingJob {
 			for (NeighborhoodRatings nr : nrs) {
 				if (n.getName().equals(nr.getName())) {
 					crimeCount.put(n, ((Math.log10(crimeCount.get(n)) * 100) / maxCountLog));
-					nr.getRatings().put(Rating.CRIME, (int) Math.rint(crimeCount.get(n)));
+					nr.getRatings().put(Rating.SAFETY, 100 - (int) Math.rint(crimeCount.get(n)));
 					System.out.println(n.getName() + ": " + (int) Math.rint(crimeCount.get(n)));
 				}
 			}
