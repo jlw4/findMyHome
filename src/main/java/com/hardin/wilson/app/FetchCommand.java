@@ -11,6 +11,7 @@ import net.sourceforge.argparse4j.inf.Subparser;
 
 import com.hardin.wilson.jobs.CrimeReportsJob;
 import com.hardin.wilson.jobs.GreatSchoolsJob;
+import com.hardin.wilson.jobs.HomeChartsJob;
 import com.hardin.wilson.jobs.NeighborhoodDescriptionJob;
 import com.hardin.wilson.jobs.ProcessingJob;
 import com.hardin.wilson.jobs.WalkscoreJob;
@@ -24,17 +25,11 @@ public class FetchCommand extends Command {
 		
         jobs = new ArrayList<ProcessingJob>();
 		NeighborhoodContainer.init();
-		switch (name) {
-    		case ("fetch"):
-    	        jobs.add(new GreatSchoolsJob());
-    	        jobs.add(new CrimeReportsJob());
-    	        jobs.add(new WalkscoreJob());
-    	        jobs.add(new NeighborhoodDescriptionJob());
-    	        break;
-    		case ("desc"):
-    		    jobs.add(new NeighborhoodDescriptionJob());
-    		    break;
-		}
+       /* jobs.add(new GreatSchoolsJob());
+        jobs.add(new CrimeReportsJob());
+        jobs.add(new WalkscoreJob());
+        jobs.add(new NeighborhoodDescriptionJob());*/
+		jobs.add(new HomeChartsJob());
 	}
 
 	@Override
