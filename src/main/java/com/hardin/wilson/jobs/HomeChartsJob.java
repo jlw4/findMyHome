@@ -24,7 +24,7 @@ public class HomeChartsJob extends ProcessingJob {
 	
 	private static final String Z_CHARTS_API = "http://www.zillow.com/webservice/GetRegionChart.htm?"
 			+ "zws-id=X1-ZWz1e2jeba9wy3_52lx1&unit-type=dollar&city=Seattle&state=WA&"
-			+ "neighborhood=%s&chartDuration=5years&width=600&height=300";
+			+ "neighborhood=%s&chartDuration=5years&width=400&height=200";
 	
 	private static final String CHARTS_FILE = "view/img/charts/";
 	
@@ -83,4 +83,16 @@ public class HomeChartsJob extends ProcessingJob {
 					+ " locally: " + e.getMessage());
 		}
 	}
+	
+	/*
+	 * Atlantic
+	 * Broadmoor
+	 * Central District
+	 * Denny-Blaine
+	 * Georgetown
+	 * Industrial District
+	 * Interbay
+	 * International District
+	 * Pioneer Square
+	 */
 }
