@@ -27,16 +27,18 @@ public class ColorResource {
     private static final Logger logger = Logger.getLogger(ColorResource.class);
     private static String[] colors;
     
+    public static final int NUM_COLORS = 5;
+    
     public ColorResource() {
         try {
-            colors = new String[9];
+            colors = new String[NUM_COLORS];
             JAXBContext jaxbContext = JAXBContext.newInstance(GoogleKmlRoot.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             GoogleKmlRoot kml = (GoogleKmlRoot) jaxbUnmarshaller.unmarshal(BASE_KML_FILE);
             for (Style style : kml.document.styles) {
                 try {
                     int i = Integer.parseInt(style.id);
-                    if (i >= 0 && i < 9) {
+                    if (i >= 0 && i < NUM_COLORS) {
                         String color = "#" + style.polyStyle.color.substring(6);
                         color += style.polyStyle.color.substring(4, 6);
                         color += style.polyStyle.color.substring(2, 4);

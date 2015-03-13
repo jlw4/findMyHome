@@ -31,7 +31,7 @@
             <color>ff990000</color>
         </LineStyle>
         <PolyStyle>
-            <color>9ffffbf7</color>
+            <color>bffff3ef</color>
         </PolyStyle>
     </Style>
     <Style id="1">
@@ -39,7 +39,7 @@
             <color>ff990000</color>
         </LineStyle>
         <PolyStyle>
-            <color>9ff7ebde</color>
+            <color>bfe7d7bd</color>
         </PolyStyle>
     </Style>
     <Style id="2">
@@ -47,7 +47,7 @@
             <color>ff990000</color>
         </LineStyle>
         <PolyStyle>
-            <color>9fefdbc6</color>
+            <color>bfd6ae6b</color>
         </PolyStyle>
     </Style>
     <Style id="3">
@@ -55,7 +55,7 @@
             <color>ff990000</color>
         </LineStyle>
         <PolyStyle>
-            <color>9fe1ca9e</color>
+            <color>bfbd8231</color>
         </PolyStyle>
     </Style>
     <Style id="4">
@@ -63,39 +63,7 @@
             <color>ff990000</color>
         </LineStyle>
         <PolyStyle>
-            <color>9fd6ae6b</color>
-        </PolyStyle>
-    </Style>
-    <Style id="5">
-        <LineStyle>
-            <color>ff990000</color>
-        </LineStyle>
-        <PolyStyle>
-            <color>9fc69242</color>
-        </PolyStyle>
-    </Style>
-    <Style id="6">
-        <LineStyle>
-            <color>ff990000</color>
-        </LineStyle>
-        <PolyStyle>
-            <color>9fb57121</color>
-        </PolyStyle>
-    </Style>
-    <Style id="7">
-        <LineStyle>
-            <color>ff990000</color>
-        </LineStyle>
-        <PolyStyle>
-            <color>9f9c5108</color>
-        </PolyStyle>
-    </Style>
-    <Style id="8">
-        <LineStyle>
-            <color>ff990000</color>
-        </LineStyle>
-        <PolyStyle>
-            <color>9f6b3008</color>
+            <color>bf9c5108</color>
         </PolyStyle>
     </Style>
 	<Folder>

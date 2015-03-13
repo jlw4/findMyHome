@@ -34,6 +34,8 @@ public class SortedKmlResource {
     private static final Logger logger = Logger.getLogger(SortedKmlResource.class);
     private GoogleKmlRoot kml;
     
+    public static final int NUM_COLORS = 5;
+    
     public SortedKmlResource() {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(GoogleKmlRoot.class);
@@ -66,14 +68,14 @@ public class SortedKmlResource {
                 }
                 List<Neighborhood> neighborhoods = NeighborhoodContainer.getContainer().getNeighborhoods();
                 // compute a score from 0-8 for each neighborhood based on given ratings
-                int chunkSize = ( 100 * ratings.size() ) / 9;
+                int chunkSize = ( 100 * ratings.size() ) / NUM_COLORS;
                 for (Neighborhood n : neighborhoods) {
                     int score = 0;
                     for (String rating : ratings) {
                         score += n.getRating(rating);
                     }
                     score /= chunkSize;
-                    score = Math.min(8, score); // fix for edge case..
+                    score = Math.min(NUM_COLORS - 1, score); // fix for edge case..
                     styles.put(n.getName(), "#" + score);
                 }
             }

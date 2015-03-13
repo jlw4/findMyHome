@@ -4,6 +4,11 @@
 	margin-bottom: 10px;
 }
 
+#scrollyBox {
+	height: 500px;
+	overflow-y: scroll;
+}
+
 #mouseOverBox {
 	text-align: right;
 }
@@ -13,12 +18,16 @@
 	margin-right: 0;
 }
 
+#helpButton {
+	float: right;
+}
+
 #searchBox span {
 	margin-right: 4px;
 	cursor: pointer;
 }
 
-#neighborhoodBox {
+#neighborhoodBox, #citationBox {
 	display: none;
 }
 
@@ -42,7 +51,7 @@
 
 .displayBox {
 	padding: 0;
-	margin-bottom: 8px;
+	margin-bottom: 6px;
 	margin-top: 0;
 }
 
@@ -78,11 +87,17 @@
 
 #logo {
 	float: left;
-	width: 120px;
+	width: 90px;
 	margin-right: 8px;
 }
 
+.lead {
+	margin-bottom: 0;
+}
+
 h1 {
+	margin-top: 6px;
+	margin-bottom: 4px;
 	font-size: 32pt;
 }
 
@@ -101,4 +116,19 @@ h2 {
 .label {
 	display: inline-block;
     font-size: 12pt;
+}
+
+#redArrow {
+	height: 16px;
+}
+
+#helper {
+	position: absolute;
+	top: 460px;
+	left: 20px;
+	z-index: 99;
+}
+
+#priceImg {
+	width: 100%;
 }
