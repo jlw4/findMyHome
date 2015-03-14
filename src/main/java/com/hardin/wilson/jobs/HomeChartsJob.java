@@ -6,7 +6,9 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -24,9 +26,40 @@ public class HomeChartsJob extends ProcessingJob {
 	
 	private static final String Z_CHARTS_API = "http://www.zillow.com/webservice/GetRegionChart.htm?"
 			+ "zws-id=X1-ZWz1e2jeba9wy3_52lx1&unit-type=dollar&city=Seattle&state=WA&"
-			+ "neighborhood=%s&chartDuration=5years&width=400&height=200";
+			+ "neighborhood=%s&chartDuration=5years&width=600&height=200";
 	
 	private static final String CHARTS_FILE = "view/img/charts/";
+	
+	private static Map<String, String> neighborhoodRemap;
+	
+	/*
+	 * Atlantic
+	 * Broadmoor
+	 * Central District
+	 * Denny-Blaine
+	 * Georgetown
+	 * Industrial District
+	 * Interbay
+	 * International District
+	 * Pioneer Square
+	 * Queen Anne
+	 */
+	
+	public HomeChartsJob() {
+		neighborhoodRemap = new HashMap<>();
+		neighborhoodRemap.put("Atlantic", "Leschi");
+		neighborhoodRemap.put("Broadmoor", "Montlake");
+		neighborhoodRemap.put("Central District", "Capitol Hill");
+		neighborhoodRemap.put("Denny-Blaine", "Madison Park");
+		neighborhoodRemap.put("Georgetown", "South Park");
+		neighborhoodRemap.put("Industrial District", "North Delridge");
+		neighborhoodRemap.put("Interbay", "Magnolia");
+		neighborhoodRemap.put("International District", "Downtown");
+		neighborhoodRemap.put("Pioneer Square", "Downtown");
+		neighborhoodRemap.put("Queen Anne", "North Queen Anne");
+		neighborhoodRemap.put("West Seattle", "Fairmount Park");
+		neighborhoodRemap.put("South Lake Union", "Eastlake");
+	}
 	
 	@Override
 	public void run() {
@@ -42,7 +75,14 @@ public class HomeChartsJob extends ProcessingJob {
 		
 		List<Neighborhood> neighborhoods = NeighborhoodContainer.getContainer().getNeighborhoods();
 		for (Neighborhood n : neighborhoods) {
-			String url = String.format(Z_CHARTS_API, UriEncoder.encode("\"" + n.getName() + "\""));
+			
+			// Fix name discrepencies between our neighborhood names and zillow charts.
+			String fetchName = neighborhoodRemap.get(n.getName());
+			if (fetchName == null) {
+				fetchName = n.getName();
+			} 
+			
+			String url = String.format(Z_CHARTS_API, UriEncoder.encode("\"" + fetchName + "\""));
 			String xml = fetchResource(url);
 			
 			try {
@@ -83,16 +123,4 @@ public class HomeChartsJob extends ProcessingJob {
 					+ " locally: " + e.getMessage());
 		}
 	}
-	
-	/*
-	 * Atlantic
-	 * Broadmoor
-	 * Central District
-	 * Denny-Blaine
-	 * Georgetown
-	 * Industrial District
-	 * Interbay
-	 * International District
-	 * Pioneer Square
-	 */
 }
