@@ -4,7 +4,8 @@
     "School" : 78,
     "WalkScore" : 86,
     "TransitScore" : 40,
-    "Safety" : 48
+    "Safety" : 48,
+    "Affordability" : 58
   }
 }, {
   "name" : "Alki",
@@ -12,7 +13,8 @@
     "School" : 78,
     "WalkScore" : 37,
     "TransitScore" : 37,
-    "Safety" : 58
+    "Safety" : 58,
+    "Affordability" : 55
   }
 }, {
   "name" : "Arbor Heights",
@@ -20,7 +22,8 @@
     "School" : 47,
     "WalkScore" : 21,
     "TransitScore" : 36,
-    "Safety" : 68
+    "Safety" : 68,
+    "Affordability" : 70
   }
 }, {
   "name" : "Atlantic",
@@ -28,7 +31,8 @@
     "School" : 50,
     "WalkScore" : 78,
     "TransitScore" : 68,
-    "Safety" : 41
+    "Safety" : 41,
+    "Affordability" : 64
   }
 }, {
   "name" : "Ballard",
@@ -36,7 +40,8 @@
     "School" : 84,
     "WalkScore" : 97,
     "TransitScore" : 52,
-    "Safety" : 30
+    "Safety" : 30,
+    "Affordability" : 69
   }
 }, {
   "name" : "Beacon Hill",
@@ -44,7 +49,8 @@
     "School" : 49,
     "WalkScore" : 63,
     "TransitScore" : 57,
-    "Safety" : 24
+    "Safety" : 24,
+    "Affordability" : 72
   }
 }, {
   "name" : "Belltown",
@@ -52,7 +58,8 @@
     "School" : 70,
     "WalkScore" : 98,
     "TransitScore" : 100,
-    "Safety" : 26
+    "Safety" : 26,
+    "Affordability" : 71
   }
 }, {
   "name" : "Bitter Lake",
@@ -60,7 +67,8 @@
     "School" : 40,
     "WalkScore" : 68,
     "TransitScore" : 48,
-    "Safety" : 47
+    "Safety" : 47,
+    "Affordability" : 72
   }
 }, {
   "name" : "Blue Ridge",
@@ -68,7 +76,8 @@
     "School" : 60,
     "WalkScore" : 40,
     "TransitScore" : 43,
-    "Safety" : 87
+    "Safety" : 87,
+    "Affordability" : 50
   }
 }, {
   "name" : "Brighton",
@@ -76,7 +85,8 @@
     "School" : 38,
     "WalkScore" : 67,
     "TransitScore" : 63,
-    "Safety" : 40
+    "Safety" : 40,
+    "Affordability" : 75
   }
 }, {
   "name" : "Broadmoor",
@@ -84,7 +94,8 @@
     "School" : 51,
     "WalkScore" : 12,
     "TransitScore" : 51,
-    "Safety" : 79
+    "Safety" : 79,
+    "Affordability" : 64
   }
 }, {
   "name" : "Broadview",
@@ -92,7 +103,8 @@
     "School" : 50,
     "WalkScore" : 28,
     "TransitScore" : 39,
-    "Safety" : 53
+    "Safety" : 53,
+    "Affordability" : 60
   }
 }, {
   "name" : "Bryant",
@@ -100,7 +112,8 @@
     "School" : 90,
     "WalkScore" : 70,
     "TransitScore" : 47,
-    "Safety" : 64
+    "Safety" : 64,
+    "Affordability" : 55
   }
 }, {
   "name" : "Capitol Hill",
@@ -108,7 +121,8 @@
     "School" : 50,
     "WalkScore" : 71,
     "TransitScore" : 58,
-    "Safety" : 16
+    "Safety" : 16,
+    "Affordability" : 68
   }
 }, {
   "name" : "Cedar Park",
@@ -116,7 +130,8 @@
     "School" : 72,
     "WalkScore" : 51,
     "TransitScore" : 51,
-    "Safety" : 49
+    "Safety" : 49,
+    "Affordability" : 67
   }
 }, {
   "name" : "Central District",
@@ -124,7 +139,8 @@
     "School" : 45,
     "WalkScore" : 85,
     "TransitScore" : 65,
-    "Safety" : 31
+    "Safety" : 31,
+    "Affordability" : 64
   }
 }, {
   "name" : "Columbia City",
@@ -132,7 +148,8 @@
     "School" : 44,
     "WalkScore" : 91,
     "TransitScore" : 57,
-    "Safety" : 41
+    "Safety" : 41,
+    "Affordability" : 71
   }
 }, {
   "name" : "Crown Hill",
@@ -140,7 +157,8 @@
     "School" : 82,
     "WalkScore" : 78,
     "TransitScore" : 53,
-    "Safety" : 58
+    "Safety" : 58,
+    "Affordability" : 67
   }
 }, {
   "name" : "Denny-Blaine",
@@ -148,7 +166,8 @@
     "School" : 40,
     "WalkScore" : 70,
     "TransitScore" : 43,
-    "Safety" : 89
+    "Safety" : 89,
+    "Affordability" : 64
   }
 }, {
   "name" : "Downtown",
@@ -156,7 +175,8 @@
     "School" : 35,
     "WalkScore" : 99,
     "TransitScore" : 100,
-    "Safety" : 6
+    "Safety" : 6,
+    "Affordability" : 56
   }
 }, {
   "name" : "Eastlake",
@@ -164,7 +184,8 @@
     "School" : 76,
     "WalkScore" : 71,
     "TransitScore" : 62,
-    "Safety" : 49
+    "Safety" : 49,
+    "Affordability" : 67
   }
 }, {
   "name" : "Fauntleroy",
@@ -172,7 +193,8 @@
     "School" : 50,
     "WalkScore" : 50,
     "TransitScore" : 44,
-    "Safety" : 60
+    "Safety" : 60,
+    "Affordability" : 58
   }
 }, {
   "name" : "First Hill",
@@ -180,7 +202,8 @@
     "School" : 37,
     "WalkScore" : 97,
     "TransitScore" : 99,
-    "Safety" : 21
+    "Safety" : 21,
+    "Affordability" : 77
   }
 }, {
   "name" : "Fremont",
@@ -188,7 +211,8 @@
     "School" : 82,
     "WalkScore" : 80,
     "TransitScore" : 59,
-    "Safety" : 37
+    "Safety" : 37,
+    "Affordability" : 61
   }
 }, {
   "name" : "Georgetown",
@@ -196,7 +220,8 @@
     "School" : 65,
     "WalkScore" : 34,
     "TransitScore" : 44,
-    "Safety" : 48
+    "Safety" : 48,
+    "Affordability" : 64
   }
 }, {
   "name" : "Green Lake",
@@ -204,7 +229,8 @@
     "School" : 72,
     "WalkScore" : 56,
     "TransitScore" : 49,
-    "Safety" : 44
+    "Safety" : 44,
+    "Affordability" : 55
   }
 }, {
   "name" : "Greenwood",
@@ -212,7 +238,8 @@
     "School" : 67,
     "WalkScore" : 90,
     "TransitScore" : 54,
-    "Safety" : 31
+    "Safety" : 31,
+    "Affordability" : 67
   }
 }, {
   "name" : "Haller Lake",
@@ -220,7 +247,8 @@
     "School" : 43,
     "WalkScore" : 41,
     "TransitScore" : 45,
-    "Safety" : 34
+    "Safety" : 34,
+    "Affordability" : 71
   }
 }, {
   "name" : "Hawthorne Hills",
@@ -228,7 +256,8 @@
     "School" : 77,
     "WalkScore" : 50,
     "TransitScore" : 44,
-    "Safety" : 94
+    "Safety" : 94,
+    "Affordability" : 45
   }
 }, {
   "name" : "High Point",
@@ -236,7 +265,8 @@
     "School" : 46,
     "WalkScore" : 48,
     "TransitScore" : 47,
-    "Safety" : 42
+    "Safety" : 42,
+    "Affordability" : 75
   }
 }, {
   "name" : "Highland Park",
@@ -244,7 +274,8 @@
     "School" : 40,
     "WalkScore" : 28,
     "TransitScore" : 41,
-    "Safety" : 51
+    "Safety" : 51,
+    "Affordability" : 78
   }
 }, {
   "name" : "Industrial District",
@@ -252,7 +283,8 @@
     "School" : 58,
     "WalkScore" : 23,
     "TransitScore" : 48,
-    "Safety" : 33
+    "Safety" : 33,
+    "Affordability" : 64
   }
 }, {
   "name" : "Interbay",
@@ -260,7 +292,8 @@
     "School" : 87,
     "WalkScore" : 42,
     "TransitScore" : 50,
-    "Safety" : 61
+    "Safety" : 61,
+    "Affordability" : 64
   }
 }, {
   "name" : "International District",
@@ -268,7 +301,8 @@
     "School" : 50,
     "WalkScore" : 96,
     "TransitScore" : 100,
-    "Safety" : 28
+    "Safety" : 28,
+    "Affordability" : 64
   }
 }, {
   "name" : "Laurelhurst",
@@ -276,7 +310,8 @@
     "School" : 73,
     "WalkScore" : 55,
     "TransitScore" : 43,
-    "Safety" : 71
+    "Safety" : 71,
+    "Affordability" : 17
   }
 }, {
   "name" : "Leschi",
@@ -284,7 +319,8 @@
     "School" : 54,
     "WalkScore" : 76,
     "TransitScore" : 51,
-    "Safety" : 57
+    "Safety" : 57,
+    "Affordability" : 51
   }
 }, {
   "name" : "Lower Queen Anne",
@@ -292,7 +328,8 @@
     "School" : 88,
     "WalkScore" : 93,
     "TransitScore" : 66,
-    "Safety" : 34
+    "Safety" : 34,
+    "Affordability" : 65
   }
 }, {
   "name" : "Loyal Heights",
@@ -300,7 +337,8 @@
     "School" : 88,
     "WalkScore" : 75,
     "TransitScore" : 48,
-    "Safety" : 53
+    "Safety" : 53,
+    "Affordability" : 59
   }
 }, {
   "name" : "Madison Park",
@@ -308,7 +346,8 @@
     "School" : 40,
     "WalkScore" : 77,
     "TransitScore" : 30,
-    "Safety" : 71
+    "Safety" : 71,
+    "Affordability" : 24
   }
 }, {
   "name" : "Madison Valley",
@@ -316,7 +355,8 @@
     "School" : 42,
     "WalkScore" : 77,
     "TransitScore" : 55,
-    "Safety" : 80
+    "Safety" : 80,
+    "Affordability" : 56
   }
 }, {
   "name" : "Madrona",
@@ -324,7 +364,8 @@
     "School" : 38,
     "WalkScore" : 84,
     "TransitScore" : 53,
-    "Safety" : 58
+    "Safety" : 58,
+    "Affordability" : 46
   }
 }, {
   "name" : "Magnolia",
@@ -332,7 +373,8 @@
     "School" : 68,
     "WalkScore" : 35,
     "TransitScore" : 33,
-    "Safety" : 52
+    "Safety" : 52,
+    "Affordability" : 48
   }
 }, {
   "name" : "Maple Leaf",
@@ -340,7 +382,8 @@
     "School" : 68,
     "WalkScore" : 65,
     "TransitScore" : 58,
-    "Safety" : 43
+    "Safety" : 43,
+    "Affordability" : 64
   }
 }, {
   "name" : "Matthews Beach",
@@ -348,7 +391,8 @@
     "School" : 90,
     "WalkScore" : 31,
     "TransitScore" : 36,
-    "Safety" : 71
+    "Safety" : 71,
+    "Affordability" : 57
   }
 }, {
   "name" : "Meadowbrook",
@@ -356,7 +400,8 @@
     "School" : 77,
     "WalkScore" : 44,
     "TransitScore" : 45,
-    "Safety" : 56
+    "Safety" : 56,
+    "Affordability" : 66
   }
 }, {
   "name" : "Montlake",
@@ -364,7 +409,8 @@
     "School" : 60,
     "WalkScore" : 65,
     "TransitScore" : 63,
-    "Safety" : 72
+    "Safety" : 72,
+    "Affordability" : 35
   }
 }, {
   "name" : "Mount Baker",
@@ -372,7 +418,8 @@
     "School" : 57,
     "WalkScore" : 69,
     "TransitScore" : 61,
-    "Safety" : 42
+    "Safety" : 42,
+    "Affordability" : 49
   }
 }, {
   "name" : "North Beach",
@@ -380,7 +427,8 @@
     "School" : 77,
     "WalkScore" : 29,
     "TransitScore" : 43,
-    "Safety" : 83
+    "Safety" : 83,
+    "Affordability" : 51
   }
 }, {
   "name" : "North College Park",
@@ -388,7 +436,8 @@
     "School" : 52,
     "WalkScore" : 66,
     "TransitScore" : 59,
-    "Safety" : 45
+    "Safety" : 45,
+    "Affordability" : 70
   }
 }, {
   "name" : "North Delridge",
@@ -396,7 +445,8 @@
     "School" : 47,
     "WalkScore" : 38,
     "TransitScore" : 51,
-    "Safety" : 56
+    "Safety" : 56,
+    "Affordability" : 74
   }
 }, {
   "name" : "Northgate",
@@ -404,7 +454,8 @@
     "School" : 46,
     "WalkScore" : 92,
     "TransitScore" : 56,
-    "Safety" : 37
+    "Safety" : 37,
+    "Affordability" : 82
   }
 }, {
   "name" : "Olympic Hills",
@@ -412,7 +463,8 @@
     "School" : 65,
     "WalkScore" : 48,
     "TransitScore" : 53,
-    "Safety" : 45
+    "Safety" : 45,
+    "Affordability" : 72
   }
 }, {
   "name" : "Olympic Manor",
@@ -420,7 +472,8 @@
     "School" : 91,
     "WalkScore" : 56,
     "TransitScore" : 50,
-    "Safety" : 71
+    "Safety" : 71,
+    "Affordability" : 48
   }
 }, {
   "name" : "Phinney Ridge",
@@ -428,7 +481,8 @@
     "School" : 78,
     "WalkScore" : 84,
     "TransitScore" : 48,
-    "Safety" : 48
+    "Safety" : 48,
+    "Affordability" : 54
   }
 }, {
   "name" : "Pinehurst",
@@ -436,7 +490,8 @@
     "School" : 51,
     "WalkScore" : 56,
     "TransitScore" : 48,
-    "Safety" : 48
+    "Safety" : 48,
+    "Affordability" : 71
   }
 }, {
   "name" : "Pioneer Square",
@@ -444,7 +499,8 @@
     "School" : 25,
     "WalkScore" : 95,
     "TransitScore" : 100,
-    "Safety" : 31
+    "Safety" : 31,
+    "Affordability" : 64
   }
 }, {
   "name" : "Portage Bay",
@@ -452,7 +508,8 @@
     "School" : 66,
     "WalkScore" : 52,
     "TransitScore" : 68,
-    "Safety" : 71
+    "Safety" : 71,
+    "Affordability" : 38
   }
 }, {
   "name" : "Queen Anne",
@@ -460,7 +517,8 @@
     "School" : 88,
     "WalkScore" : 92,
     "TransitScore" : 60,
-    "Safety" : 38
+    "Safety" : 38,
+    "Affordability" : 49
   }
 }, {
   "name" : "Rainier Beach",
@@ -468,7 +526,8 @@
     "School" : 40,
     "WalkScore" : 42,
     "TransitScore" : 48,
-    "Safety" : 30
+    "Safety" : 30,
+    "Affordability" : 77
   }
 }, {
   "name" : "Ravenna",
@@ -476,7 +535,8 @@
     "School" : 97,
     "WalkScore" : 70,
     "TransitScore" : 52,
-    "Safety" : 50
+    "Safety" : 50,
+    "Affordability" : 55
   }
 }, {
   "name" : "Riverview",
@@ -484,7 +544,8 @@
     "School" : 44,
     "WalkScore" : 19,
     "TransitScore" : 42,
-    "Safety" : 60
+    "Safety" : 60,
+    "Affordability" : 75
   }
 }, {
   "name" : "Roosevelt",
@@ -492,7 +553,8 @@
     "School" : 73,
     "WalkScore" : 90,
     "TransitScore" : 57,
-    "Safety" : 51
+    "Safety" : 51,
+    "Affordability" : 58
   }
 }, {
   "name" : "Roxhill",
@@ -500,7 +562,8 @@
     "School" : 47,
     "WalkScore" : 56,
     "TransitScore" : 47,
-    "Safety" : 48
+    "Safety" : 48,
+    "Affordability" : 75
   }
 }, {
   "name" : "Sand Point",
@@ -508,7 +571,8 @@
     "School" : 60,
     "WalkScore" : 22,
     "TransitScore" : 38,
-    "Safety" : 85
+    "Safety" : 85,
+    "Affordability" : 64
   }
 }, {
   "name" : "Seward Park",
@@ -516,7 +580,8 @@
     "School" : 31,
     "WalkScore" : 29,
     "TransitScore" : 36,
-    "Safety" : 59
+    "Safety" : 59,
+    "Affordability" : 54
   }
 }, {
   "name" : "South Delridge",
@@ -524,7 +589,8 @@
     "School" : 42,
     "WalkScore" : 68,
     "TransitScore" : 55,
-    "Safety" : 43
+    "Safety" : 43,
+    "Affordability" : 79
   }
 }, {
   "name" : "South Lake Union",
@@ -532,7 +598,8 @@
     "School" : 68,
     "WalkScore" : 94,
     "TransitScore" : 90,
-    "Safety" : 40
+    "Safety" : 40,
+    "Affordability" : 64
   }
 }, {
   "name" : "South Park",
@@ -540,7 +607,8 @@
     "School" : 40,
     "WalkScore" : 64,
     "TransitScore" : 38,
-    "Safety" : 45
+    "Safety" : 45,
+    "Affordability" : 80
   }
 }, {
   "name" : "Sunset Hill",
@@ -548,7 +616,8 @@
     "School" : 77,
     "WalkScore" : 56,
     "TransitScore" : 34,
-    "Safety" : 58
+    "Safety" : 58,
+    "Affordability" : 53
   }
 }, {
   "name" : "University District",
@@ -556,7 +625,8 @@
     "School" : 92,
     "WalkScore" : 89,
     "TransitScore" : 73,
-    "Safety" : 22
+    "Safety" : 22,
+    "Affordability" : 59
   }
 }, {
   "name" : "Victory Heights",
@@ -564,7 +634,8 @@
     "School" : 74,
     "WalkScore" : 57,
     "TransitScore" : 53,
-    "Safety" : 57
+    "Safety" : 57,
+    "Affordability" : 67
   }
 }, {
   "name" : "View Ridge",
@@ -572,7 +643,8 @@
     "School" : 84,
     "WalkScore" : 37,
     "TransitScore" : 41,
-    "Safety" : 75
+    "Safety" : 75,
+    "Affordability" : 49
   }
 }, {
   "name" : "Wallingford",
@@ -580,7 +652,8 @@
     "School" : 86,
     "WalkScore" : 94,
     "TransitScore" : 56,
-    "Safety" : 38
+    "Safety" : 38,
+    "Affordability" : 53
   }
 }, {
   "name" : "Wedgwood",
@@ -588,7 +661,8 @@
     "School" : 89,
     "WalkScore" : 63,
     "TransitScore" : 38,
-    "Safety" : 52
+    "Safety" : 52,
+    "Affordability" : 59
   }
 }, {
   "name" : "West Seattle",
@@ -596,7 +670,8 @@
     "School" : 64,
     "WalkScore" : 62,
     "TransitScore" : 48,
-    "Safety" : 35
+    "Safety" : 35,
+    "Affordability" : 68
   }
 }, {
   "name" : "Westlake",
@@ -604,7 +679,8 @@
     "School" : 83,
     "WalkScore" : 76,
     "TransitScore" : 68,
-    "Safety" : 56
+    "Safety" : 56,
+    "Affordability" : 69
   }
 }, {
   "name" : "Whittier Heights",
@@ -612,7 +688,8 @@
     "School" : 91,
     "WalkScore" : 79,
     "TransitScore" : 50,
-    "Safety" : 65
+    "Safety" : 65,
+    "Affordability" : 59
   }
 }, {
   "name" : "Windermere",
@@ -620,6 +697,7 @@
     "School" : 68,
     "WalkScore" : 30,
     "TransitScore" : 40,
-    "Safety" : 87
+    "Safety" : 87,
+    "Affordability" : 26
   }
 } ]

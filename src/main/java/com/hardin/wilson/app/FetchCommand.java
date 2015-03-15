@@ -12,6 +12,7 @@ import net.sourceforge.argparse4j.inf.Subparser;
 import com.hardin.wilson.jobs.CrimeReportsJob;
 import com.hardin.wilson.jobs.GreatSchoolsJob;
 import com.hardin.wilson.jobs.HomeChartsJob;
+import com.hardin.wilson.jobs.HomeValuesJob;
 import com.hardin.wilson.jobs.NeighborhoodDescriptionJob;
 import com.hardin.wilson.jobs.ProcessingJob;
 import com.hardin.wilson.jobs.WalkscoreJob;
@@ -28,8 +29,9 @@ public class FetchCommand extends Command {
        /* jobs.add(new GreatSchoolsJob());
         jobs.add(new CrimeReportsJob());
         jobs.add(new WalkscoreJob());
-        jobs.add(new NeighborhoodDescriptionJob());*/
-		jobs.add(new HomeChartsJob());
+        jobs.add(new NeighborhoodDescriptionJob());
+		jobs.add(new HomeChartsJob()); */
+		jobs.add(new HomeValuesJob());
 	}
 
 	@Override

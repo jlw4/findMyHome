@@ -32,19 +32,6 @@ public class HomeChartsJob extends ProcessingJob {
 	
 	private static Map<String, String> neighborhoodRemap;
 	
-	/*
-	 * Atlantic
-	 * Broadmoor
-	 * Central District
-	 * Denny-Blaine
-	 * Georgetown
-	 * Industrial District
-	 * Interbay
-	 * International District
-	 * Pioneer Square
-	 * Queen Anne
-	 */
-	
 	public HomeChartsJob() {
 		neighborhoodRemap = new HashMap<>();
 		neighborhoodRemap.put("Atlantic", "Leschi");

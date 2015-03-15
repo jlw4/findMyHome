@@ -10,9 +10,11 @@ public class Rating {
     public static final String SAFETY = "Safety";
     public static final String WALK_SCORE = "WalkScore";
     public static final String TRANSIT_SCORE = "TransitScore";
+    public static final String AFFORDABILITY = "Affordability";
     
     // adding a constant? Make sure to put it here too!
-    private static List<String> values = Collections.unmodifiableList(Arrays.asList(SCHOOL, SAFETY, WALK_SCORE, TRANSIT_SCORE));
+    private static List<String> values = Collections.unmodifiableList(
+    		Arrays.asList(SCHOOL, SAFETY, WALK_SCORE, TRANSIT_SCORE, AFFORDABILITY));
     
     public static List<String> getValues() {
         return values;
