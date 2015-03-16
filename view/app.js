@@ -54,6 +54,10 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
             	}
             }
             loadMap();
+            if (!$.cookie("initialHelp")) {
+            	$scope.showInitialHelp();
+            	$.cookie("initialHelp", 1, { expires : 365 } );
+            }
             $scope.loaded = true; // this hides spinner and displays body
         }).error(function(res) {
             console.log(res);
@@ -188,6 +192,12 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
             $("#helper").fadeIn();
             destroyHelper(time);
         }
+        if (selectedRatings.length == 2) {
+            if (!$.cookie("comboHelp")) {
+            	showComboHelp();
+            	$.cookie("comboHelp", 1, { expires : 365 } );
+            }
+        }
     }
     
     function destroyHelper(time) {
@@ -244,6 +254,29 @@ app.controller('MainController', ['$scope', '$location', '$timeout', '$http', '$
     	updateKml();
     	moveWindow();
     	$("#helper").fadeOut();
+    }
+    
+    $scope.showInitialHelp = function() {
+    	showHelp();
+    	$("#initialHelp").show();
+    }
+    
+    function showComboHelp() {
+    	showHelp();
+    	$("#comboHelp").show();
+    }
+    
+    $scope.hideHelp = function() {
+		$("#helpBg").hide();
+		$("#helpContent").hide();
+		$("#arrowBox").hide();
+		$(".helpBox").hide();
+    }
+    
+    function showHelp() {
+		$("#helpBg").show();
+		$("#helpContent").show();
+		$("#arrowBox").show();
     }
     
     function moveWindow() {

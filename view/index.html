@@ -40,9 +40,10 @@
       </div>
       
       <div id="searchBox" class="col-xs-12 displayBox">
-		  <span ng-repeat="rating in ratings" ng-click="goSearch(rating)" class="label label-default noselect" ng-class="{'label-primary' : isSelected(rating)}">{{ rating }}</span>
+		  <span ng-repeat="rating in ratings" ng-click="goSearch(rating)" class="label label-default noselect selectButton" ng-class="{'label-primary' : isSelected(rating)}">{{ rating }}</span>
+          <span id="arrowBox"><img src="img/red_arrow2.gif" id="redArrow" /></span>
           <span ng-click="reset()" id="resetButton" class="label label-danger noselect">Reset</span>
-          <!-- <span ng-click="help()" id=helpButton class="label label-warning noselect">?</span> -->
+          <span ng-click="showInitialHelp()" id=helpButton class="label label-warning noselect">?</span>
       </div>
       
       <div id="infoBox" class="col-xs-12 displayBox">
@@ -106,6 +107,25 @@
       <div id="citationBox" class="col-xs-12">
         <a ng-href="{{ neighborhood.descriptionCitation }}">{{ "[1] " + neighborhood.descriptionCitation }}</a>
       </div>
+      
+      <div id="helpBg"></div>
+      
+      <div id="helpContent" class="noselect">
+        <img src="img/red_x.png" ng-click="hideHelp()" id="xButton" class="noselect" />
+        <div id="initialHelp" class="helpBox">
+	      <div class="helpText">
+	        <p>Select one or more of these categories to see how Seattle's neighborhoods stack up!</p>
+	      </div>
+        </div>
+        <div id="comboHelp" class="helpBox">
+          <div class="helpText">
+            <p>When multiple categories are selected, neighborhoods are colored by their combined score in those categories</p>
+          </div>
+        </div>
+        <div id="helpButtonBox">
+          <button class="btn btn-info" ng-click="hideHelp()">Got it</button>
+        </div>
+      </div>
 
     </div><!-- container -->
     
@@ -114,6 +134,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerwithlabel/1.1.9/src/markerwithlabel_packed.js"></script>
+    <script src="jquery.cookies.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
